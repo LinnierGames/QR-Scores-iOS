@@ -26,9 +26,13 @@ class SurveysViewController: UIViewController, Interfacable {
         
         surveyAlert.addTextField { (textField) in
             textField.placeholder = "Title"
+            textField.autocorrectionType = .default
+            textField.autocapitalizationType = .words
         }
         surveyAlert.addTextField { (textField) in
             textField.placeholder = "Subtitle"
+            textField.autocorrectionType = .default
+            textField.autocapitalizationType = .sentences
         }
         
         surveyAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak self] _ in
@@ -44,6 +48,12 @@ class SurveysViewController: UIViewController, Interfacable {
         surveyAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         self.present(surveyAlert, animated: true)
+    }
+    
+    @IBAction func refreshSurveyData(_ sender: Any) {
+        viewModel.fetchSurveys()
+        
+//        self.activityIndicatorView.stopAnimating()
     }
     
     @IBAction func pressLogout(_ sender: Any) {
@@ -73,6 +83,10 @@ class SurveysViewController: UIViewController, Interfacable {
             SurveyTableViewCell.nib,
             forCellReuseIdentifier: SurveyTableViewCell.identifier
         )
+        
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(refreshSurveyData(_:)), for: .valueChanged)
+        tableView.refreshControl = control
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,6 +94,7 @@ class SurveysViewController: UIViewController, Interfacable {
         
         viewModel.surveys.subscribe { [weak self] (newSurveys) in
             self?.tableView.reloadData()
+            self?.tableView.refreshControl?.endRefreshing()
         }
     }
 }

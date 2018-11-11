@@ -8,18 +8,12 @@
 
 import Foundation
 
-struct Survey: Codable {
+struct Survey: Decodable {
     let id: String
     let title: String
     let subtitle: String
     var numberOfParticipants: Int
     let generatedUrl: URL
-    
-//    init(title: String, subtitle: String) {
-//        self.title = title
-//        self.subtitle = subtitle
-//        self.numberOfParticipants = 0
-//    }
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -30,27 +24,17 @@ struct Survey: Codable {
     }
 }
 
-struct SurveyUpload: Codable {
-    let id: String?
+struct SurveyUpload: Encodable {
     let title: String
     let subtitle: String
-    var numberOfParticipants: Int
-    let generatedUrl: URL?
     
     init(title: String, subtitle: String) {
         self.title = title
         self.subtitle = subtitle
-        self.numberOfParticipants = 0
-
-        self.id = nil
-        self.generatedUrl = nil
     }
     
     enum CodingKeys: String, CodingKey {
-        case id = "_id"
         case title
         case subtitle
-        case numberOfParticipants
-        case generatedUrl
     }
 }
