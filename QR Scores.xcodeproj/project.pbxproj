@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		293696F0CB2FC8E1F9F41FF3 /* Pods_QR_Scores.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB359BE6BB2E1F6A7F27E46A /* Pods_QR_Scores.framework */; };
+		C3E5E465E8D794054605D256 /* Pods_QR_ScoresTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E07D2E8A37101D2B5F90ABA /* Pods_QR_ScoresTests.framework */; };
 		E95319C921978EA200980985 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319C821978EA200980985 /* AppDelegate.swift */; };
 		E95319CB21978EA200980985 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319CA21978EA200980985 /* ViewController.swift */; };
 		E95319CE21978EA200980985 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95319CC21978EA200980985 /* Main.storyboard */; };
 		E95319D021978EA500980985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95319CF21978EA500980985 /* Assets.xcassets */; };
 		E95319D321978EA500980985 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95319D121978EA500980985 /* LaunchScreen.storyboard */; };
 		E95319DE21978EA600980985 /* QR_ScoresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319DD21978EA600980985 /* QR_ScoresTests.swift */; };
+		E95319EE219790A500980985 /* InternalAPIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319EB219790A400980985 /* InternalAPIEndpoints.swift */; };
+		E95319EF219790A500980985 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319EC219790A400980985 /* Result.swift */; };
+		E95319F0219790A500980985 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319ED219790A400980985 /* Service.swift */; };
+		E95319F22197A7AE00980985 /* Networking Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319F12197A7AE00980985 /* Networking Layer.swift */; };
+		E95319F42197A84600980985 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319F32197A84600980985 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +33,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F02C00A9428489950812F4F /* Pods-QR Scores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR Scores.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QR Scores/Pods-QR Scores.debug.xcconfig"; sourceTree = "<group>"; };
+		2BD87F8CE47E56A103E5AD26 /* Pods-QR Scores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR Scores.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR Scores/Pods-QR Scores.release.xcconfig"; sourceTree = "<group>"; };
+		5E07D2E8A37101D2B5F90ABA /* Pods_QR_ScoresTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QR_ScoresTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A219052E1D7512672A2E2552 /* Pods-QR ScoresTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB359BE6BB2E1F6A7F27E46A /* Pods_QR_Scores.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QR_Scores.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95319C521978EA200980985 /* QR Scores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Scores.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95319C821978EA200980985 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E95319CA21978EA200980985 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +48,12 @@
 		E95319D921978EA600980985 /* QR ScoresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QR ScoresTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95319DD21978EA600980985 /* QR_ScoresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_ScoresTests.swift; sourceTree = "<group>"; };
 		E95319DF21978EA600980985 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E95319EB219790A400980985 /* InternalAPIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalAPIEndpoints.swift; sourceTree = "<group>"; };
+		E95319EC219790A400980985 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		E95319ED219790A400980985 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		E95319F12197A7AE00980985 /* Networking Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Networking Layer.swift"; sourceTree = "<group>"; };
+		E95319F32197A84600980985 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				293696F0CB2FC8E1F9F41FF3 /* Pods_QR_Scores.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +69,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E5E465E8D794054605D256 /* Pods_QR_ScoresTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		054B087CAD3FD6990F3238FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F02C00A9428489950812F4F /* Pods-QR Scores.debug.xcconfig */,
+				2BD87F8CE47E56A103E5AD26 /* Pods-QR Scores.release.xcconfig */,
+				A219052E1D7512672A2E2552 /* Pods-QR ScoresTests.debug.xcconfig */,
+				F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6EBEE597B845D26E32626BC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB359BE6BB2E1F6A7F27E46A /* Pods_QR_Scores.framework */,
+				5E07D2E8A37101D2B5F90ABA /* Pods_QR_ScoresTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E95319BC21978EA200980985 = {
 			isa = PBXGroup;
 			children = (
 				E95319C721978EA200980985 /* QR Scores */,
 				E95319DC21978EA600980985 /* QR ScoresTests */,
 				E95319C621978EA200980985 /* Products */,
+				054B087CAD3FD6990F3238FE /* Pods */,
+				6EBEE597B845D26E32626BC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,11 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				E95319C821978EA200980985 /* AppDelegate.swift */,
-				E95319CA21978EA200980985 /* ViewController.swift */,
-				E95319CC21978EA200980985 /* Main.storyboard */,
-				E95319CF21978EA500980985 /* Assets.xcassets */,
-				E95319D121978EA500980985 /* LaunchScreen.storyboard */,
-				E95319D421978EA500980985 /* Info.plist */,
+				E95319E92197907400980985 /* View Heirarchy */,
+				E95319E82197906500980985 /* Networking */,
+				E95319EA2197908200980985 /* Supporting Files */,
 			);
 			path = "QR Scores";
 			sourceTree = "<group>";
@@ -96,6 +136,37 @@
 			path = "QR ScoresTests";
 			sourceTree = "<group>";
 		};
+		E95319E82197906500980985 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E95319F32197A84600980985 /* User.swift */,
+				E95319EB219790A400980985 /* InternalAPIEndpoints.swift */,
+				E95319F12197A7AE00980985 /* Networking Layer.swift */,
+				E95319EC219790A400980985 /* Result.swift */,
+				E95319ED219790A400980985 /* Service.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		E95319E92197907400980985 /* View Heirarchy */ = {
+			isa = PBXGroup;
+			children = (
+				E95319CA21978EA200980985 /* ViewController.swift */,
+				E95319CC21978EA200980985 /* Main.storyboard */,
+			);
+			name = "View Heirarchy";
+			sourceTree = "<group>";
+		};
+		E95319EA2197908200980985 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E95319CF21978EA500980985 /* Assets.xcassets */,
+				E95319D121978EA500980985 /* LaunchScreen.storyboard */,
+				E95319D421978EA500980985 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +174,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E95319E221978EA600980985 /* Build configuration list for PBXNativeTarget "QR Scores" */;
 			buildPhases = (
+				CE96F83F9594EBDB3376ED09 /* [CP] Check Pods Manifest.lock */,
 				E95319C121978EA200980985 /* Sources */,
 				E95319C221978EA200980985 /* Frameworks */,
 				E95319C321978EA200980985 /* Resources */,
+				C95909499D8877CACAF0B5D6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,6 +193,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E95319E521978EA600980985 /* Build configuration list for PBXNativeTarget "QR ScoresTests" */;
 			buildPhases = (
+				1E687EDCCF6139DAAB2C65FF /* [CP] Check Pods Manifest.lock */,
 				E95319D521978EA600980985 /* Sources */,
 				E95319D621978EA600980985 /* Frameworks */,
 				E95319D721978EA600980985 /* Resources */,
@@ -192,13 +266,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E687EDCCF6139DAAB2C65FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QR ScoresTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C95909499D8877CACAF0B5D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QR Scores/Pods-QR Scores-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QR Scores/Pods-QR Scores-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE96F83F9594EBDB3376ED09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QR Scores-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E95319C121978EA200980985 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E95319CB21978EA200980985 /* ViewController.swift in Sources */,
+				E95319EE219790A500980985 /* InternalAPIEndpoints.swift in Sources */,
+				E95319F22197A7AE00980985 /* Networking Layer.swift in Sources */,
+				E95319F0219790A500980985 /* Service.swift in Sources */,
+				E95319EF219790A500980985 /* Result.swift in Sources */,
 				E95319C921978EA200980985 /* AppDelegate.swift in Sources */,
+				E95319F42197A84600980985 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +498,7 @@
 		};
 		E95319E321978EA600980985 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F02C00A9428489950812F4F /* Pods-QR Scores.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -376,6 +517,7 @@
 		};
 		E95319E421978EA600980985 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BD87F8CE47E56A103E5AD26 /* Pods-QR Scores.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -394,6 +536,7 @@
 		};
 		E95319E621978EA600980985 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A219052E1D7512672A2E2552 /* Pods-QR ScoresTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -415,6 +558,7 @@
 		};
 		E95319E721978EA600980985 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
