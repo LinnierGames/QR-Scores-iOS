@@ -105,11 +105,18 @@ extension SurveysViewController: UITableViewDataSource, UITableViewDelegate {
             return
         }
         
-        guard let pdfData = PDFGenerator().pdf(from: qrImage) else {
-            return
+        do {
+            var pdf = PDFGenerator()
+            try pdf.addGridPage(with: qrImage, imageSize: CGSize(width: 64, height: 64))
+            
+            guard let pdfData = pdf.pdf() else {
+                throw PDFGenerator.Errors.failedToGeneratePDFData
+            }
+            
+            let shareVc = UIActivityViewController(activityItems: [pdfData], applicationActivities: [])
+            self.present(shareVc, animated: true)
+        } catch {
+            assertionFailure(error.localizedDescription)
         }
-        
-        let shareVc = UIActivityViewController(activityItems: [pdfData], applicationActivities: [])
-        self.present(shareVc, animated: true)
     }
 }
