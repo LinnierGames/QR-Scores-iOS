@@ -27,6 +27,7 @@
 		E9531A002197EBFF00980985 /* SurveysViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E95319FE2197EBFF00980985 /* SurveysViewController.xib */; };
 		E9531A022197EC1B00980985 /* SurveysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A012197EC1B00980985 /* SurveysViewModel.swift */; };
 		E9531A042197FBC500980985 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A032197FBC500980985 /* Survey.swift */; };
+		E9531A062197FF7700980985 /* ReactiveBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A052197FF7700980985 /* ReactiveBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		E95319FE2197EBFF00980985 /* SurveysViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveysViewController.xib; sourceTree = "<group>"; };
 		E9531A012197EC1B00980985 /* SurveysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysViewModel.swift; sourceTree = "<group>"; };
 		E9531A032197FBC500980985 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
+		E9531A052197FF7700980985 /* ReactiveBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveBox.swift; sourceTree = "<group>"; };
 		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				E95319C721978EA200980985 /* QR Scores */,
 				E95319F72197DD1800980985 /* UserPersistence.swift */,
 				E95319F92197E8FE00980985 /* Interfacable.swift */,
+				E9531A052197FF7700980985 /* ReactiveBox.swift */,
 				E95319DC21978EA600980985 /* QR ScoresTests */,
 				E95319C621978EA200980985 /* Products */,
 				054B087CAD3FD6990F3238FE /* Pods */,
@@ -354,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9531A062197FF7700980985 /* ReactiveBox.swift in Sources */,
 				E9531A042197FBC500980985 /* Survey.swift in Sources */,
 				E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */,
 				E95319EE219790A500980985 /* InternalAPIEndpoints.swift in Sources */,

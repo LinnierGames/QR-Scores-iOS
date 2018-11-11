@@ -12,7 +12,7 @@ class SurveysViewModel {
     
     // MARK: - VARS
     
-    private(set) var surveys: [Survey] = []
+    private(set) var surveys = ReactiveBox([Survey]())
     
     private let networkStack = InternalAPI()
     
@@ -24,11 +24,11 @@ class SurveysViewModel {
     
     // MARK: - METHODS
     
-    func fetchSurveys() {
+    func fetchSurveys() {        
         networkStack.fetchUserSurveys { [weak self] (result) in
             switch result {
             case .success(let surveys):
-                self?.surveys = surveys
+                self?.surveys.update(surveys)
             case .failure(let error):
                 debugPrint(error.localizedDescription)
             }

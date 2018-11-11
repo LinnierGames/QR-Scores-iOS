@@ -33,19 +33,21 @@ class SurveysViewController: UIViewController, Interfacable {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        tableView.reloadData()
+        viewModel.surveys.subscribe { [weak self] (newSurveys) in
+            self?.tableView.reloadData()
+        }
     }
 }
 
 extension SurveysViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.surveys.count
+        return viewModel.surveys.data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let survey = viewModel.surveys[indexPath.row]
+        let survey = viewModel.surveys.data[indexPath.row]
         cell.textLabel?.text = survey.title
         cell.detailTextLabel?.text = String(survey.numberOfParticipants)
         
