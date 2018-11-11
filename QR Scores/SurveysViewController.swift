@@ -100,14 +100,16 @@ extension SurveysViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let survey = viewModel.surveys.data[indexPath.row]
-        let shareVc = UIActivityViewController(activityItems: [survey.generatedUrl], applicationActivities: [])
-        self.present(shareVc, animated: true)
-        
         
         guard let qrImage = QRCoeGenerator(url: survey.generatedUrl).generateImage() else {
             return
         }
         
-        self.imageView.image = qrImage
+        guard let pdfData = PDFGenerator().pdf(from: qrImage) else {
+            return
+        }
+        
+        let shareVc = UIActivityViewController(activityItems: [pdfData], applicationActivities: [])
+        self.present(shareVc, animated: true)
     }
 }

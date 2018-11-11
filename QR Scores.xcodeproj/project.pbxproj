@@ -31,6 +31,7 @@
 		E9531A0A21981C2E00980985 /* SurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A0821981C2E00980985 /* SurveyTableViewCell.swift */; };
 		E9531A0B21981C2E00980985 /* SurveyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9531A0921981C2E00980985 /* SurveyTableViewCell.xib */; };
 		E9531A0D2198BB6900980985 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A0C2198BB6900980985 /* QRGenerator.swift */; };
+		E9531A0F2198C73300980985 /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A0E2198C73300980985 /* PDFGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		E9531A0821981C2E00980985 /* SurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTableViewCell.swift; sourceTree = "<group>"; };
 		E9531A0921981C2E00980985 /* SurveyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyTableViewCell.xib; sourceTree = "<group>"; };
 		E9531A0C2198BB6900980985 /* QRGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRGenerator.swift; path = "QR Scores/QRGenerator.swift"; sourceTree = "<group>"; };
+		E9531A0E2198C73300980985 /* PDFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
 		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 				E9531A0721981C1700980985 /* UICustom */,
 				E95319F92197E8FE00980985 /* Interfacable.swift */,
 				E9531A0C2198BB6900980985 /* QRGenerator.swift */,
+				E9531A0E2198C73300980985 /* PDFGenerator.swift */,
 				E9531A052197FF7700980985 /* ReactiveBox.swift */,
 				E95319DC21978EA600980985 /* QR ScoresTests */,
 				E95319C621978EA200980985 /* Products */,
@@ -375,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9531A0F2198C73300980985 /* PDFGenerator.swift in Sources */,
 				E9531A062197FF7700980985 /* ReactiveBox.swift in Sources */,
 				E9531A0A21981C2E00980985 /* SurveyTableViewCell.swift in Sources */,
 				E9531A042197FBC500980985 /* Survey.swift in Sources */,
