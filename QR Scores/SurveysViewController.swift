@@ -96,4 +96,10 @@ extension SurveysViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let survey = viewModel.surveys.data[indexPath.row]
+        let shareVc = UIActivityViewController(activityItems: [survey.generatedUrl], applicationActivities: [])
+        self.present(shareVc, animated: true)
+    }
 }

@@ -13,6 +13,7 @@ struct Survey: Codable {
     let title: String
     let subtitle: String
     var numberOfParticipants: Int
+    let generatedUrl: URL
     
 //    init(title: String, subtitle: String) {
 //        self.title = title
@@ -25,6 +26,7 @@ struct Survey: Codable {
         case title
         case subtitle
         case numberOfParticipants
+        case generatedUrl
     }
 }
 
@@ -33,12 +35,15 @@ struct SurveyUpload: Codable {
     let title: String
     let subtitle: String
     var numberOfParticipants: Int
+    let generatedUrl: URL?
     
     init(title: String, subtitle: String) {
-        self.id = nil
         self.title = title
         self.subtitle = subtitle
         self.numberOfParticipants = 0
+
+        self.id = nil
+        self.generatedUrl = nil
     }
     
     enum CodingKeys: String, CodingKey {
@@ -46,5 +51,6 @@ struct SurveyUpload: Codable {
         case title
         case subtitle
         case numberOfParticipants
+        case generatedUrl
     }
 }

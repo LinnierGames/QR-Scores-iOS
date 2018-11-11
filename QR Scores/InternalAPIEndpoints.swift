@@ -18,7 +18,8 @@ enum InternalAPIEndpoints {
 
 extension InternalAPIEndpoints: TargetType {
     var baseURL: URL {
-        return URL(string: "http://localhost:3000/")!
+        //        return URL(string: "http://localhost:3000/")!
+        return URL(string: "http://qr-scores.herokuapp.com/")!
     }
     
     var path: String {
