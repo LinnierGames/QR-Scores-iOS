@@ -28,6 +28,8 @@
 		E9531A022197EC1B00980985 /* SurveysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A012197EC1B00980985 /* SurveysViewModel.swift */; };
 		E9531A042197FBC500980985 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A032197FBC500980985 /* Survey.swift */; };
 		E9531A062197FF7700980985 /* ReactiveBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A052197FF7700980985 /* ReactiveBox.swift */; };
+		E9531A0A21981C2E00980985 /* SurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A0821981C2E00980985 /* SurveyTableViewCell.swift */; };
+		E9531A0B21981C2E00980985 /* SurveyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9531A0921981C2E00980985 /* SurveyTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		E9531A012197EC1B00980985 /* SurveysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysViewModel.swift; sourceTree = "<group>"; };
 		E9531A032197FBC500980985 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		E9531A052197FF7700980985 /* ReactiveBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveBox.swift; sourceTree = "<group>"; };
+		E9531A0821981C2E00980985 /* SurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTableViewCell.swift; sourceTree = "<group>"; };
+		E9531A0921981C2E00980985 /* SurveyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyTableViewCell.xib; sourceTree = "<group>"; };
 		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +121,7 @@
 			children = (
 				E95319C721978EA200980985 /* QR Scores */,
 				E95319F72197DD1800980985 /* UserPersistence.swift */,
+				E9531A0721981C1700980985 /* UICustom */,
 				E95319F92197E8FE00980985 /* Interfacable.swift */,
 				E9531A052197FF7700980985 /* ReactiveBox.swift */,
 				E95319DC21978EA600980985 /* QR ScoresTests */,
@@ -189,6 +194,15 @@
 				E95319D421978EA500980985 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E9531A0721981C1700980985 /* UICustom */ = {
+			isa = PBXGroup;
+			children = (
+				E9531A0821981C2E00980985 /* SurveyTableViewCell.swift */,
+				E9531A0921981C2E00980985 /* SurveyTableViewCell.xib */,
+			);
+			name = UICustom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9531A0B21981C2E00980985 /* SurveyTableViewCell.xib in Resources */,
 				E95319D321978EA500980985 /* LaunchScreen.storyboard in Resources */,
 				E95319FC2197EB2500980985 /* LoginRegisterViewController.xib in Resources */,
 				E9531A002197EBFF00980985 /* SurveysViewController.xib in Resources */,
@@ -358,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9531A062197FF7700980985 /* ReactiveBox.swift in Sources */,
+				E9531A0A21981C2E00980985 /* SurveyTableViewCell.swift in Sources */,
 				E9531A042197FBC500980985 /* Survey.swift in Sources */,
 				E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */,
 				E95319EE219790A500980985 /* InternalAPIEndpoints.swift in Sources */,

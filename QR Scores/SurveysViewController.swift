@@ -53,7 +53,10 @@ class SurveysViewController: UIViewController, Interfacable {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddSurvey(_:)))
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(
+            SurveyTableViewCell.nib,
+            forCellReuseIdentifier: SurveyTableViewCell.identifier
+        )
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,11 +74,10 @@ extension SurveysViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SurveyTableViewCell.identifier, for: indexPath) as! SurveyTableViewCell
         
         let survey = viewModel.surveys.data[indexPath.row]
-        cell.textLabel?.text = survey.title
-        cell.detailTextLabel?.text = String(survey.numberOfParticipants)
+        cell.configure(survey)
         
         return cell
     }
