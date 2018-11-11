@@ -12,6 +12,7 @@ import Moya
 enum InternalAPIEndpoints {
     case signUp(user: UserRegister)
     case login(user: UserLogin)
+    case surveys
 }
 
 extension InternalAPIEndpoints: TargetType {
@@ -25,6 +26,8 @@ extension InternalAPIEndpoints: TargetType {
             return "signup"
         case .login:
             return "login"
+        case .surveys:
+            return "surveys"
         }
     }
     
@@ -32,7 +35,7 @@ extension InternalAPIEndpoints: TargetType {
         switch self {
         case .signUp, .login:
             return .post
-        default:
+        case .surveys:
             return .get
         }
     }
@@ -47,21 +50,37 @@ extension InternalAPIEndpoints: TargetType {
             return .requestJSONEncodable(user)
         case .login(let user):
             return .requestJSONEncodable(user)
-        default:
-            break
+        case .surveys:
+            return .requestPlain
         }
     }
     
     var headers: [String : String]? {
-        return nil
+        var defaultHeaders = [String : String]()
+        
+        // default header pairs
+        switch self {
+        case .surveys:
+            let token = UserPersistence.currentUser.token
+            
+            // Authorization
+            defaultHeaders["Authorization"] = "Token \(token)"
+        default:
+            break
+        }
+        
+        return defaultHeaders
     }
 }
 
 enum APIError: Error {
-    case failedToDecodeUser
+    
+    case somethingWentWrong(message: String)
+    
+    // login and registering
+    case failedToDecode
     case duplicateAccount
     case invalidCredentials
-    case somethingWentWrong(message: String)
 }
 
 

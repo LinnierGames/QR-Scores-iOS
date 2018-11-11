@@ -26,6 +26,7 @@
 		E95319FF2197EBFF00980985 /* SurveysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319FD2197EBFF00980985 /* SurveysViewController.swift */; };
 		E9531A002197EBFF00980985 /* SurveysViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E95319FE2197EBFF00980985 /* SurveysViewController.xib */; };
 		E9531A022197EC1B00980985 /* SurveysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A012197EC1B00980985 /* SurveysViewModel.swift */; };
+		E9531A042197FBC500980985 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A032197FBC500980985 /* Survey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E95319FD2197EBFF00980985 /* SurveysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysViewController.swift; sourceTree = "<group>"; };
 		E95319FE2197EBFF00980985 /* SurveysViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveysViewController.xib; sourceTree = "<group>"; };
 		E9531A012197EC1B00980985 /* SurveysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysViewModel.swift; sourceTree = "<group>"; };
+		E9531A032197FBC500980985 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				E95319F32197A84600980985 /* User.swift */,
+				E9531A032197FBC500980985 /* Survey.swift */,
 				E95319EB219790A400980985 /* InternalAPIEndpoints.swift */,
 				E95319F12197A7AE00980985 /* Networking Layer.swift */,
 				E95319EC219790A400980985 /* Result.swift */,
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9531A042197FBC500980985 /* Survey.swift in Sources */,
 				E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */,
 				E95319EE219790A500980985 /* InternalAPIEndpoints.swift in Sources */,
 				E95319F22197A7AE00980985 /* Networking Layer.swift in Sources */,

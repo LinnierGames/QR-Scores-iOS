@@ -23,7 +23,7 @@ struct InternalAPI {
                     guard let user = try? JSONDecoder().decode(User.self, from: response.data) else {
                         assertionFailure("failed to convert user")
                         
-                        return completion(.failure(APIError.failedToDecodeUser))
+                        return completion(.failure(APIError.failedToDecode))
                     }
                     
                     completion(.success(user))
@@ -52,12 +52,37 @@ struct InternalAPI {
                     guard let user = try? JSONDecoder().decode(User.self, from: response.data) else {
                         assertionFailure("failed to convert user")
                         
-                        return completion(.failure(APIError.failedToDecodeUser))
+                        return completion(.failure(APIError.failedToDecode))
                     }
                     
                     completion(.success(user))
                 case 401:
                     completion(.failure(APIError.invalidCredentials))
+                default:
+                    completion(.failure(APIError.somethingWentWrong(message: "")))
+                }
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+                
+                completion(.failure(APIError.somethingWentWrong(message: error.localizedDescription)))
+            }
+        }
+    }
+    
+    func fetchUserSurveys(completion: @escaping (Result<[Survey], APIError>) -> Void) {
+        
+        provider.request(InternalAPIEndpoints.surveys) { (result) in
+            switch result {
+            case .success(let response):
+                switch response.statusCode {
+                case 200:
+                    guard let surveys = try? JSONDecoder().decode([Survey].self, from: response.data) else {
+                        assertionFailure("failed to convert surveys")
+                        
+                        return completion(.failure(APIError.failedToDecode))
+                    }
+                    
+                    completion(.success(surveys))
                 default:
                     completion(.failure(APIError.somethingWentWrong(message: "")))
                 }

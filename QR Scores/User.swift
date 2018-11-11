@@ -18,6 +18,10 @@ struct User: Codable {
         return local.email
     }
     
+    var token: String {
+        return local.token
+    }
+    
     private struct LocalProvider: Codable {
         let email: String
         let name: String
