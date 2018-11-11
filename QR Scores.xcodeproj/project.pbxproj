@@ -32,6 +32,8 @@
 		E9531A0B21981C2E00980985 /* SurveyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9531A0921981C2E00980985 /* SurveyTableViewCell.xib */; };
 		E9531A0D2198BB6900980985 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A0C2198BB6900980985 /* QRGenerator.swift */; };
 		E9531A0F2198C73300980985 /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A0E2198C73300980985 /* PDFGenerator.swift */; };
+		E9531A122198DD8500980985 /* SurveyDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */; };
+		E9531A132198DD8500980985 /* SurveyDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		E9531A0921981C2E00980985 /* SurveyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyTableViewCell.xib; sourceTree = "<group>"; };
 		E9531A0C2198BB6900980985 /* QRGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRGenerator.swift; path = "QR Scores/QRGenerator.swift"; sourceTree = "<group>"; };
 		E9531A0E2198C73300980985 /* PDFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
+		E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailedViewController.swift; sourceTree = "<group>"; };
+		E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyDetailedViewController.xib; sourceTree = "<group>"; };
 		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +192,8 @@
 				E9531A012197EC1B00980985 /* SurveysViewModel.swift */,
 				E95319FD2197EBFF00980985 /* SurveysViewController.swift */,
 				E95319FE2197EBFF00980985 /* SurveysViewController.xib */,
+				E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */,
+				E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */,
 			);
 			name = "View Heirarchy";
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 			files = (
 				E9531A0B21981C2E00980985 /* SurveyTableViewCell.xib in Resources */,
 				E95319D321978EA500980985 /* LaunchScreen.storyboard in Resources */,
+				E9531A132198DD8500980985 /* SurveyDetailedViewController.xib in Resources */,
 				E95319FC2197EB2500980985 /* LoginRegisterViewController.xib in Resources */,
 				E9531A002197EBFF00980985 /* SurveysViewController.xib in Resources */,
 				E95319D021978EA500980985 /* Assets.xcassets in Resources */,
@@ -382,6 +389,7 @@
 				E9531A062197FF7700980985 /* ReactiveBox.swift in Sources */,
 				E9531A0A21981C2E00980985 /* SurveyTableViewCell.swift in Sources */,
 				E9531A042197FBC500980985 /* Survey.swift in Sources */,
+				E9531A122198DD8500980985 /* SurveyDetailedViewController.swift in Sources */,
 				E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */,
 				E95319EE219790A500980985 /* InternalAPIEndpoints.swift in Sources */,
 				E95319F22197A7AE00980985 /* Networking Layer.swift in Sources */,
