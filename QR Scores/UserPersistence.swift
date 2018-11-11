@@ -58,6 +58,12 @@ class UserPersistence {
         }
     }
     
+    static func logoutCurrentUser() {
+        self.clear()
+        
+        NotificationCenter.default.post(name: .userDidLogout, object: nil)
+    }
+    
     static func clear() {
         let userDefaults = UserDefaults.standard
         
@@ -67,4 +73,8 @@ class UserPersistence {
     // MARK: - IBACTIONS
     
     // MARK: - LIFE CYCLE
+}
+
+extension NSNotification.Name {
+    static let userDidLogout = Notification.Name.init("USER_DID_LOGOUT")
 }

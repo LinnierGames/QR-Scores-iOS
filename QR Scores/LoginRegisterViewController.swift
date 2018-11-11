@@ -18,6 +18,23 @@ class LoginRegisterViewController: UIViewController, Interfacable {
     
     // MARK: - METHODS
     
+    func presentMainView() {
+        if let mainVc = self.presentingViewController {
+            mainVc.dismiss(animated: true)
+        } else {
+            
+            //TODO: DRY
+            let tabController = UITabBarController()
+            
+            // User Surveys Tab
+            let surveyVc = SurveysViewController.initFromXib()
+            let surveyNavVc = UINavigationController(rootViewController: surveyVc)
+            tabController.viewControllers = [surveyNavVc]
+            
+            self.present(tabController, animated: true)
+        }
+    }
+    
     // MARK: - IBACTIONS
     
     @IBOutlet weak var textFieldEmail: UITextField!
@@ -30,7 +47,7 @@ class LoginRegisterViewController: UIViewController, Interfacable {
             
             switch result {
             case .accountCreated:
-                self?.labelMessage.text = "Sign up ok"
+                self?.presentMainView()
             case .duplicateAccount:
                 self?.labelMessage.text = "email taken"
             case .unexpectedError:
@@ -43,7 +60,7 @@ class LoginRegisterViewController: UIViewController, Interfacable {
         viewModel.login(email: textFieldEmail.text!, password: textFieldPassword.text!) { [weak self] (validLogin) in
             
             if validLogin {
-                self?.labelMessage.text = "successful login"
+                self?.presentMainView()
             } else {
                 self?.labelMessage.text = "invalid login"
             }

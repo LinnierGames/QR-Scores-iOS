@@ -8,9 +8,15 @@
 
 import Foundation
 
+protocol SurveysViewModelDelegate: class {
+    func userDidLogout()
+}
+
 class SurveysViewModel {
     
     // MARK: - VARS
+    
+    weak var delegate: SurveysViewModelDelegate?
     
     private(set) var surveys = ReactiveBox([Survey]())
     
@@ -18,6 +24,8 @@ class SurveysViewModel {
     
     init() {
         self.fetchSurveys()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(userDidLogout(_:)), name: .userDidLogout, object: nil)
     }
     
     // MARK: - RETURN VALUES
@@ -45,5 +53,11 @@ class SurveysViewModel {
                 assertionFailure(error.localizedDescription)
             }
         }
+    }
+    
+    @objc private func userDidLogout(_ notification: Notification) {
+        delegate?.userDidLogout()
+        
+        self.surveys.update([])
     }
 }

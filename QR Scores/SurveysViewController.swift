@@ -46,12 +46,27 @@ class SurveysViewController: UIViewController, Interfacable {
         self.present(surveyAlert, animated: true)
     }
     
+    @IBAction func pressLogout(_ sender: Any) {
+        UserPersistence.logoutCurrentUser()
+        
+        if let loginVc = self.tabBarController?.presentingViewController {
+            loginVc.dismiss(animated: true)
+        } else {
+            let loginVc = LoginRegisterViewController.initFromXib()
+            self.present(loginVc, animated: true)
+        }
+    }
+    
     // MARK: - LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.viewModel.delegate = self
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddSurvey(_:)))
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(pressLogout(_:)))
         
         tableView.register(
             SurveyTableViewCell.nib,
