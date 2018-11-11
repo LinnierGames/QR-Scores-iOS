@@ -13,21 +13,58 @@ import Result
 struct InternalAPI {
     private let provider = MoyaProvider<InternalAPIEndpoints>()
     
-    func signUpUser(name: String, email: String, password: String, completion: @escaping (Result<User, APIError>) -> Void) {
+    func signUp(_ registerUser: UserRegister, completion: @escaping (Result<User, APIError>) -> Void) {
         
-        let registerUser = UserRegister(email: email, name: name, password: password)
         provider.request(InternalAPIEndpoints.signUp(user: registerUser)) { (result) in
             switch result {
             case .success(let response):
-                guard let user = try? JSONDecoder().decode(User.self, from: response.data) else {
-                    assertionFailure("failed to convert user")
+                switch response.statusCode {
+                case 200:
+                    guard let user = try? JSONDecoder().decode(User.self, from: response.data) else {
+                        assertionFailure("failed to convert user")
+                        
+                        return completion(.failure(APIError.failedToDecodeUser))
+                    }
                     
-                    return completion(.failure(APIError.failedToDecodeUser))
+                    completion(.success(user))
+                case 409:
+                    completion(.failure(APIError.duplicateAccount))
+                default:
+                    assertionFailure("unhandled status code")
+                    
+                    completion(.failure(APIError.somethingWentWrong(message: "")))
                 }
-                
-                completion(.success(user))
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
+                
+                completion(.failure(APIError.somethingWentWrong(message: error.localizedDescription)))
+            }
+        }
+    }
+    
+    func login(_ loginUser: UserLogin, completion: @escaping (Result<User, APIError>) -> Void) {
+        
+        provider.request(InternalAPIEndpoints.login(user: loginUser)) { (result) in
+            switch result {
+            case .success(let response):
+                switch response.statusCode {
+                case 200:
+                    guard let user = try? JSONDecoder().decode(User.self, from: response.data) else {
+                        assertionFailure("failed to convert user")
+                        
+                        return completion(.failure(APIError.failedToDecodeUser))
+                    }
+                    
+                    completion(.success(user))
+                case 401:
+                    completion(.failure(APIError.invalidCredentials))
+                default:
+                    completion(.failure(APIError.somethingWentWrong(message: "")))
+                }
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+                
+                completion(.failure(APIError.somethingWentWrong(message: error.localizedDescription)))
             }
         }
     }

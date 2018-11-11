@@ -35,3 +35,8 @@ struct UserRegister: Codable {
     let name: String
     let password: String
 }
+
+struct UserLogin: Codable {
+    let email: String
+    let password: String
+}

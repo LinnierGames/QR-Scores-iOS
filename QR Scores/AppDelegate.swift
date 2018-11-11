@@ -16,7 +16,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UserPersistence.clear()
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        
+        self.assignInitialRootViewController(for: window)
+        
         return true
+    }
+    
+    func assignInitialRootViewController(for window: UIWindow) {
+        let rootViewController: UIViewController
+        
+        if UserPersistence.hasUserLoggedIn {
+            let tabController = UITabBarController()
+            let surveyVc = SurveysViewController.initFromXib()
+            tabController.viewControllers = [surveyVc]
+            
+            rootViewController = tabController
+        } else {
+            rootViewController = LoginRegisterViewController.initFromXib()
+        }
+        
+        window.rootViewController = rootViewController
+        window.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
