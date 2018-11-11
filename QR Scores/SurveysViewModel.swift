@@ -39,6 +39,8 @@ class SurveysViewModel {
                 self?.surveys.update(surveys)
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
+                
+                //TODO: handle 401
             }
         }
     }

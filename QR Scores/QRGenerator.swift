@@ -1,21 +1,40 @@
 import Foundation
+import UIKit
 
 struct QRCoeGenerator {
-
-   private(set) let url: URL
-   
-   init(url: URL) {
-      self.url = url
-   }
-   
-   func generateImage() -> UIImage {
-      let data = self.url.absolutePath.text.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
- 
-        let filter = CIFilter(name: "CIQRCodeGenerator")
- 
+    
+    let url: URL
+    
+    private var image: UIImage?
+    
+    init(url: URL) {
+        self.url = url
+    }
+    
+    func generateImage(outputSize: CGSize = CGSize(width: 512, height: 512)) -> UIImage? {
+        if let cachedImage = self.image {
+            return cachedImage
+        }
+        
+        let data = self.url.absoluteString.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+        
+        guard let filter = CIFilter(name: "CIQRCodeGenerator") else {
+            return nil
+        }
+        
         filter.setValue(data, forKey: "inputMessage")
         filter.setValue("Q", forKey: "inputCorrectionLevel")
- 
-        return filter.outputImage
-   }
+        
+        guard let ciImage = filter.outputImage else {
+            return nil
+        }
+        
+        let scaleX = outputSize.width / ciImage.extent.size.width
+        let scaleY = outputSize.height / ciImage.extent.size.height
+        
+        let transformedImage = ciImage.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
+        
+        return UIImage(ciImage: transformedImage)
+    }
 }
+

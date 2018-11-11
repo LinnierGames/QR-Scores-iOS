@@ -87,6 +87,7 @@ enum APIError: Error {
     case failedToDecode
     case duplicateAccount
     case invalidCredentials
+    case unathorizedOrNeedsRelogin
 }
 
 

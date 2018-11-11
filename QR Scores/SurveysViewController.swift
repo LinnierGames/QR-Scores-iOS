@@ -56,6 +56,7 @@ class SurveysViewController: UIViewController, Interfacable {
             self.present(loginVc, animated: true)
         }
     }
+    @IBOutlet weak var imageView: UIImageView!
     
     // MARK: - LIFE CYCLE
     
@@ -101,5 +102,12 @@ extension SurveysViewController: UITableViewDataSource, UITableViewDelegate {
         let survey = viewModel.surveys.data[indexPath.row]
         let shareVc = UIActivityViewController(activityItems: [survey.generatedUrl], applicationActivities: [])
         self.present(shareVc, animated: true)
+        
+        
+        guard let qrImage = QRCoeGenerator(url: survey.generatedUrl).generateImage() else {
+            return
+        }
+        
+        self.imageView.image = qrImage
     }
 }
