@@ -98,25 +98,19 @@ extension SurveysViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let survey = viewModel.surveys.data[indexPath.row]
         
-        guard let qrImage = QRCoeGenerator(url: survey.generatedUrl).generateImage() else {
-            return
-        }
+        let detailedVc = SurveyDetailedViewController.initFromXib()
+        detailedVc.hidesBottomBarWhenPushed = true
+        detailedVc.survey = survey
+        self.navigationController?.pushViewController(detailedVc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let survey = viewModel.surveys.data[indexPath.row]
+        let activity = UIActivityViewController(surveyURL: survey)
         
-        do {
-            var pdf = PDFGenerator()
-            try pdf.addGridPage(with: qrImage, imageSize: CGSize(width: 64, height: 64))
-            
-            guard let pdfData = pdf.pdf() else {
-                throw PDFGenerator.Errors.failedToGeneratePDFData
-            }
-            
-            let shareVc = UIActivityViewController(activityItems: [pdfData], applicationActivities: [])
-            self.present(shareVc, animated: true)
-        } catch {
-            assertionFailure(error.localizedDescription)
-        }
+        self.present(activity, animated: true)
     }
 }
