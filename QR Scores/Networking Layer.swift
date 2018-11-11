@@ -93,4 +93,29 @@ struct InternalAPI {
             }
         }
     }
+    
+    func createSurvey(_ survey: SurveyUpload, completion: @escaping (Result<Survey, APIError>) -> Void) {
+        
+        provider.request(InternalAPIEndpoints.createSurvey(survey: survey)) { (result) in
+            switch result {
+            case .success(let response):
+                switch response.statusCode {
+                case 200:
+                    guard let surveys = try? JSONDecoder().decode(Survey.self, from: response.data) else {
+                        assertionFailure("failed to convert survey")
+                        
+                        return completion(.failure(APIError.failedToDecode))
+                    }
+                    
+                    completion(.success(surveys))
+                default:
+                    completion(.failure(APIError.somethingWentWrong(message: "")))
+                }
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+                
+                completion(.failure(APIError.somethingWentWrong(message: error.localizedDescription)))
+            }
+        }
+    }
 }

@@ -30,8 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if UserPersistence.hasUserLoggedIn {
             let tabController = UITabBarController()
+            
+            // User Surveys Tab
             let surveyVc = SurveysViewController.initFromXib()
-            tabController.viewControllers = [surveyVc]
+            let surveyNavVc = UINavigationController(rootViewController: surveyVc)
+            tabController.viewControllers = [surveyNavVc]
             
             rootViewController = tabController
         } else {

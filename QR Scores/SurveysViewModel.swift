@@ -30,7 +30,19 @@ class SurveysViewModel {
             case .success(let surveys):
                 self?.surveys.update(surveys)
             case .failure(let error):
-                debugPrint(error.localizedDescription)
+                assertionFailure(error.localizedDescription)
+            }
+        }
+    }
+    
+    func createSurvey(title: String, subtitle: String) {
+        let surveyToUpload = SurveyUpload(title: title, subtitle: subtitle)
+        networkStack.createSurvey(surveyToUpload) { (result) in
+            switch result {
+            case .success(let createdSurvey):
+                self.surveys.append(createdSurvey)
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
             }
         }
     }

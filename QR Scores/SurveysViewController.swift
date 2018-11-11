@@ -21,11 +21,37 @@ class SurveysViewController: UIViewController, Interfacable {
     // MARK: - IBACTIONS
     
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func pressAddSurvey(_ sender: Any) {
+        let surveyAlert = UIAlertController(title: "New Survey", message: "enter the details of your new survey", preferredStyle: .alert)
+        
+        surveyAlert.addTextField { (textField) in
+            textField.placeholder = "Title"
+        }
+        surveyAlert.addTextField { (textField) in
+            textField.placeholder = "Subtitle"
+        }
+        
+        surveyAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak self] _ in
+            guard
+                let title = surveyAlert.textFields?[0].text,
+                let subtitle = surveyAlert.textFields?[1].text else {
+                    return
+            }
+            
+            self?.viewModel.createSurvey(title: title, subtitle: subtitle)
+        }))
+        
+        surveyAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        self.present(surveyAlert, animated: true)
+    }
     
     // MARK: - LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddSurvey(_:)))
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }

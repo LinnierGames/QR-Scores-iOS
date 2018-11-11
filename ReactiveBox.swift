@@ -37,7 +37,7 @@ class ReactiveBox<Z> {
     
     private(set) var data: Z {
         didSet {
-            subscribers.forEach { $0(data) }
+            notifySubscribers()
         }
     }
     
@@ -56,8 +56,19 @@ class ReactiveBox<Z> {
         subscribers.append(onNext)
     }
     
+    fileprivate func notifySubscribers() {
+        subscribers.forEach { $0(data) }
+    }
+    
     func update(_ newData: Z) {
         self.data = newData
+    }
+}
+
+extension ReactiveBox where Z: RangeReplaceableCollection {
+    func append(_ element: Z.Element) {
+        self.data.append(element)
+//        self.notifySubscribers()
     }
 }
 

@@ -13,6 +13,7 @@ enum InternalAPIEndpoints {
     case signUp(user: UserRegister)
     case login(user: UserLogin)
     case surveys
+    case createSurvey(survey: SurveyUpload)
 }
 
 extension InternalAPIEndpoints: TargetType {
@@ -26,7 +27,7 @@ extension InternalAPIEndpoints: TargetType {
             return "signup"
         case .login:
             return "login"
-        case .surveys:
+        case .surveys, .createSurvey:
             return "surveys"
         }
     }
@@ -37,6 +38,8 @@ extension InternalAPIEndpoints: TargetType {
             return .post
         case .surveys:
             return .get
+        case .createSurvey:
+            return .post
         }
     }
     
@@ -52,6 +55,8 @@ extension InternalAPIEndpoints: TargetType {
             return .requestJSONEncodable(user)
         case .surveys:
             return .requestPlain
+        case .createSurvey(let survey):
+            return .requestJSONEncodable(survey)
         }
     }
     
@@ -60,7 +65,7 @@ extension InternalAPIEndpoints: TargetType {
         
         // default header pairs
         switch self {
-        case .surveys:
+        case .surveys, .createSurvey:
             let token = UserPersistence.currentUser.token
             
             // Authorization
