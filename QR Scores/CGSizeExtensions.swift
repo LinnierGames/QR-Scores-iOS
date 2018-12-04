@@ -9,6 +9,10 @@
 import CoreGraphics
 
 extension CGSize {
+    
+    /**
+     returns a square using the smalles edge from `size`
+     */
     static func square(from size: CGSize) -> CGSize {
         let edgeLenght = min(size.width, size.height)
         

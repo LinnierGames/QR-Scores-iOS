@@ -9,7 +9,15 @@
 import UIKit.UIActivityViewController
 
 extension UIActivityViewController {
+    
+    /**
+     generates a pdf page from the survey
+     */
     convenience init?(surveyQRCode survey: Survey) {
+        /**
+         TODO: qrCodeTemplate-use the options defined there to create the page
+         */
+        
         guard let qrImage = QRCoeGenerator(url: survey.generatedUrl).generateImage() else {
             return nil
         }

@@ -14,6 +14,6 @@ protocol Interfacable {
 
 extension Interfacable where Self: UIViewController {
     static func initFromXib() -> Self {
-        return Self.self.init(nibName: String(describing: Self.self), bundle: nil)
+        return self.init(nibName: String(describing: self), bundle: nil)
     }
 }
