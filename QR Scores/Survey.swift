@@ -2,7 +2,7 @@
 //  Survey.swift
 //  QR Scores
 //
-//  Created by Erick Sanchez on 11/10/18.
+//  Created by Erick Sanchez on 12/4/18.
 //  Copyright © 2018 LinnierGames. All rights reserved.
 //
 
@@ -24,17 +24,13 @@ struct Survey: Decodable {
     }
 }
 
-struct SurveyUpload: Encodable {
+struct SurveyType {
     let title: String
-    let subtitle: String
+    let descriptionValue: String
     
-    init(title: String, subtitle: String) {
-        self.title = title
-        self.subtitle = subtitle
+    struct Option {
+        let name: String //Allow Duplicate votes
+        let type: String //String, Boolean, Number
     }
-    
-    enum CodingKeys: String, CodingKey {
-        case title
-        case subtitle
-    }
+    let additionalOptions: [Option]
 }
