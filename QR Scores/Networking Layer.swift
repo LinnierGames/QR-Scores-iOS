@@ -94,7 +94,7 @@ struct InternalAPI {
         }
     }
     
-    func createSurvey(_ survey: SurveyUpload, completion: @escaping (Result<Survey, APIError>) -> Void) {
+    func createSurvey(_ survey: SurveyUploader, completion: @escaping (Result<Survey, APIError>) -> Void) {
         
         provider.request(InternalAPIEndpoints.createSurvey(survey: survey)) { (result) in
             switch result {
