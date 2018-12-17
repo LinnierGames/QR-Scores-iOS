@@ -43,11 +43,14 @@ class Survey: Decodable {
         
         self.surveyBody = dictionary
         
-        guard let allowsDuplicateVotes = self.surveyBody["adv"] as! Bool? else {
-            throw DecodingError.typeMismatch([String: Decodable].self, .init(codingPath: [CodingKeys.surveyBody], debugDescription: "Failed to find value allowsDuplicateVotes"))
+        if let options = self.surveyBody["options"] as! [String: Decodable]? {
+            
+            guard let allowsDuplicateVotes = options["adv"] as! Bool? else {
+                throw DecodingError.typeMismatch([String: Decodable].self, .init(codingPath: [CodingKeys.surveyBody], debugDescription: "Failed to find value allowsDuplicateVotes"))
+            }
+            
+            self.allowsDuplicateVotes = allowsDuplicateVotes
         }
-        
-        self.allowsDuplicateVotes = allowsDuplicateVotes
     }
 }
 

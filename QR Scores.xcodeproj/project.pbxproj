@@ -138,6 +138,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E9189FC521C31C3300C4132A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E95319F52197DBD800980985 /* LoginViewModel.swift */,
+				E95319CA21978EA200980985 /* LoginRegisterViewController.swift */,
+				E95319FB2197EB2500980985 /* LoginRegisterViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		E9189FC621C31C4000C4132A /* My Surveys */ = {
+			isa = PBXGroup;
+			children = (
+				E9531A012197EC1B00980985 /* SurveysViewModel.swift */,
+				E95319FD2197EBFF00980985 /* SurveysViewController.swift */,
+				E95319FE2197EBFF00980985 /* SurveysViewController.xib */,
+				E9189FC721C31C5100C4132A /* Detailed Vc */,
+			);
+			name = "My Surveys";
+			sourceTree = "<group>";
+		};
+		E9189FC721C31C5100C4132A /* Detailed Vc */ = {
+			isa = PBXGroup;
+			children = (
+				E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */,
+				E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */,
+			);
+			name = "Detailed Vc";
+			sourceTree = "<group>";
+		};
 		E934F2CF21B7157600553138 /* Create a Survey */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,15 +268,9 @@
 		E95319E92197907400980985 /* View Heirarchy */ = {
 			isa = PBXGroup;
 			children = (
-				E95319F52197DBD800980985 /* LoginViewModel.swift */,
-				E95319CA21978EA200980985 /* LoginRegisterViewController.swift */,
-				E95319FB2197EB2500980985 /* LoginRegisterViewController.xib */,
-				E9531A012197EC1B00980985 /* SurveysViewModel.swift */,
-				E95319FD2197EBFF00980985 /* SurveysViewController.swift */,
-				E95319FE2197EBFF00980985 /* SurveysViewController.xib */,
+				E9189FC521C31C3300C4132A /* Login */,
+				E9189FC621C31C4000C4132A /* My Surveys */,
 				E934F2CF21B7157600553138 /* Create a Survey */,
-				E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */,
-				E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */,
 			);
 			name = "View Heirarchy";
 			sourceTree = "<group>";

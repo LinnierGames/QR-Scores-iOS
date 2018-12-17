@@ -35,37 +35,53 @@ import Foundation
 struct SurveyUploader: Encodable {
     
     enum CodingKeys: String, CodingKey {
+        case id
         case title
         case description
         case body
+        case surveyType
     }
     
+    let id: String?
     let title: String
     let description: String
+    let surveyType: Int
     var body: [String: Encodable] = [:]
     
-    init(title: String, description: String) {
+    init(title: String, description: String, type: Int) {
+        self.id = nil
         self.title = title
         self.description = description
+        self.surveyType = type
+    }
+    
+    init(from survey: Survey) {
+        self.id = survey.id
+        self.title = survey.title
+        self.description = survey.userDescription
+        self.surveyType = survey.surveyType.rawValue
+        self.body = survey.surveyBody as! [String : Encodable]
     }
     
     mutating func addProperty(_ info: DescriptorAdditionalInfo) {
         
-        let kabobCase = info.title.kabbobCased
+        let camelCased = info.title.camelCased
         
         if let string = info.string {
-            body[kabobCase] = string
+            body[camelCased] = string
         } else if let bool = info.boolean {
-            body[kabobCase] = bool
+            body[camelCased] = bool
         } else if let number = info.number {
-            body[kabobCase] = number.intValue
+            body[camelCased] = number.intValue
         }
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(self.id, forKey: .id)
         try container.encode(self.title, forKey: .title)
         try container.encode(self.description, forKey: .description)
+        try container.encode(self.surveyType, forKey: .surveyType)
         
         if let jsonData = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted) {
             try container.encode(jsonData, forKey: .body)

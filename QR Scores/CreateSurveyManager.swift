@@ -55,7 +55,7 @@ class CreateSurveyManager {
         let title = survey.userTitle
         let description = survey.userDescription
         
-        var uploader = SurveyUploader(title: title, description: description)
+        var uploader = SurveyUploader(title: title, description: description, type: survey.type.rawValue)
         
         survey.additionalInfo.forEach { uploader.addProperty($0) }
         
