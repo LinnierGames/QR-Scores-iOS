@@ -12,6 +12,9 @@ enum SurveyType: Int, Codable, CaseIterable {
     
     //TODO: other survey types
     case scanToVote
+//    case likeDislike
+//    case sliderAverage
+//    case sliderHistogram
     
     var title: String {
         switch self {

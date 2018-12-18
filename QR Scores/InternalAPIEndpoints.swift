@@ -13,7 +13,11 @@ enum InternalAPIEndpoints {
     case signUp(user: UserRegister)
     case login(user: UserLogin)
     case surveys
-    case createSurvey(survey: SurveyUploader)
+    case createSurvey(survey: SurveyHolder<<#T: CreateSurveyProtocol#>>)
+}
+
+struct SurveyHolder<T: CreateSurveyProtocol> {
+    let survey: T
 }
 
 extension InternalAPIEndpoints: TargetType {

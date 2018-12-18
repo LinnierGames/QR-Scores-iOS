@@ -8,91 +8,158 @@
 
 import Foundation
 
-//struct AnyEncodable: Encodable {
-//    let value: Encodable
-//
-//    enum CodingKeys: String, CodingKey {
-//        case value
-//    }
-//
-//    func encode(to encoder: Encoder) throws {
-//        try value.encode(to: encoder)
-//    }
-//
-//    static func string(_ string: String) -> AnyEncodable {
-//        return AnyEncodable(value: string)
-//    }
-//
-//    static func boolean(_ boolean: Bool) -> AnyEncodable {
-//        return AnyEncodable(value: boolean)
-//    }
-//
-//    static func integer(_ integer: Int) -> AnyEncodable {
-//        return AnyEncodable(value: integer)
-//    }
-//}
+protocol CreateSurvey {
+    var surveyMetadata: SurveyMetadata { get }
+    var options: SurveyOptions { get }
+}
 
-struct SurveyUploader: Encodable {
+protocol CreateSurveyProtocol {
+    associatedtype Metadata: SurveyMetadata
+    associatedtype Options: SurveyOptions
     
-    enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case description
-        case body
-        case surveyType
+    var surveyMetadata: Metadata { get }
+    var options: Options { get }
+}
+
+extension CreateSurveyProtocol {
+    
+    var type: Int {
+        return self.surveyMetadata.type
     }
     
-    let id: String?
-    let title: String
-    let description: String
-    let surveyType: Int
-    var body: [String: Encodable] = [:]
-    
-    init(title: String, description: String, type: Int) {
-        self.id = nil
-        self.title = title
-        self.description = description
-        self.surveyType = type
+    var title: String {
+        return self.surveyMetadata.title
     }
     
-    init(from survey: Survey) {
-        self.id = survey.id
-        self.title = survey.title
-        self.description = survey.userDescription
-        self.surveyType = survey.surveyType.rawValue
-        self.body = survey.surveyBody as! [String : Encodable]
+    var description: String {
+        return self.surveyMetadata.description
     }
     
-    mutating func addProperty(_ info: DescriptorAdditionalInfo) {
+    var allowsDuplicateVotes: Bool {
+        return self.options.allowsDuplicateVotes
+    }
+}
+
+protocol SurveyMetadata {
+    var type: Int { get }
+    var title: String { get }
+    var description: String { get }
+}
+
+protocol SurveyOptions {
+    var allowsDuplicateVotes: Bool { get }
+}
+
+struct CreateScanToVoteSurvey: CreateSurveyProtocol, Encodable {
+    
+    struct Metadata: SurveyMetadata, Encodable {
+        let type: Int
+        let title: String
+        let description: String
+    }
+    let surveyMetadata: Metadata
+    
+    struct Options: SurveyOptions, Encodable {
+        let allowsDuplicateVotes: Bool
+    }
+    let options: Options
+    
+    init(title: String, description: String, options: Options) {
+        let metadata = Metadata(
+            type: 0,
+            title: title,
+            description: description
+        )
+        self.surveyMetadata = metadata
+        self.options = options
+    }
+}
+
+struct CreateLikeOrDislikeSurvey: CreateSurveyProtocol, Encodable {
+    
+    struct Metadata: SurveyMetadata, Encodable {
+        let type: Int
+        let title: String
+        let description: String
+    }
+    let surveyMetadata: Metadata
+    
+    struct Options: SurveyOptions, Encodable {
+        let allowsDuplicateVotes: Bool
+    }
+    let options: Options
+    
+    init(title: String, description: String, options: Options) {
+        let metadata = Metadata(
+            type: 1,
+            title: title,
+            description: description
+        )
+        self.surveyMetadata = metadata
+        self.options = options
+    }
+}
+
+struct CreateSliderAverageSurvey: CreateSurveyProtocol, Encodable {
+    
+    struct Metadata: SurveyMetadata, Encodable {
+        let type: Int
+        let title: String
+        let description: String
         
-        let camelCased = info.title.camelCased
-        
-        if let string = info.string {
-            body[camelCased] = string
-        } else if let bool = info.boolean {
-            body[camelCased] = bool
-        } else if let number = info.number {
-            body[camelCased] = number.intValue
+        struct SliderMetadata: Encodable {
+            let title: String
+            let color: String // hex
         }
+        let left: SliderMetadata
+        let right: SliderMetadata
+    }
+    let surveyMetadata: Metadata
+    
+    struct Options: SurveyOptions, Encodable {
+        let allowsDuplicateVotes: Bool
+    }
+    let options: Options
+    
+    var leftTitle: String {
+        return surveyMetadata.left.title
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(self.id, forKey: .id)
-        try container.encode(self.title, forKey: .title)
-        try container.encode(self.description, forKey: .description)
-        try container.encode(self.surveyType, forKey: .surveyType)
+    var leftColor: String {
+        return surveyMetadata.left.color
+    }
+    
+    var rightTitle: String {
+        return surveyMetadata.right.title
+    }
+    
+    var rightColor: String {
+        return surveyMetadata.right.color
+    }
+    
+    init(title: String, description: String, leftTitle: String, leftColor: String, rightTitle: String, rightColor: String, options: Options) {
+        let left = Metadata.SliderMetadata(title: leftTitle, color: leftColor)
+        let right = Metadata.SliderMetadata(title: rightTitle, color: rightColor)
         
-        if let jsonData = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted) {
-            try container.encode(jsonData, forKey: .body)
-        }
+        let metadata = Metadata(
+            type: 2,
+            title: title,
+            description: description,
+            left: left,
+            right: right
+        )
+        self.surveyMetadata = metadata
+        self.options = options
     }
 }
 
 struct SurveyDecoder {
     
     private struct TypeChecker: Decodable {
-        let surveyType: SurveyType
+        struct SurveyMetaData: Decodable {
+            let type: SurveyType
+        }
+        let surveyMetadata: SurveyMetaData
     }
     
     static func decode(from data: Data) -> Survey? {
@@ -100,7 +167,7 @@ struct SurveyDecoder {
             return nil
         }
 
-        return decode(from: data, using: type.surveyType)
+        return decode(from: data, using: type.surveyMetadata.type)
     }
     
     static func decode(from data: Data, using type: SurveyType) -> Survey? {

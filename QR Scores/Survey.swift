@@ -8,62 +8,158 @@
 
 import Foundation
 
-//TODO: allow the user to make changes to survey
-class Survey: Decodable {
+protocol Survey: CreateSurveyProtocol {
+    associatedtype Participants: SurveyParticipants
     
-    let id: String
-    let title: String
-    let userDescription: String
-    let surveyType: SurveyType
-    let surveyBody: [String: Decodable]
+    var participants: Participants { get }
+}
+
+extension Survey {
     
-    //options
-    var allowsDuplicateVotes: Bool = false
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "_id"
-        case title
-        case userDescription = "description"
-        case surveyType
-        case surveyBody
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decode(String.self, forKey: .id)
-        self.title = try container.decode(String.self, forKey: .title)
-        self.userDescription = try container.decode(String.self, forKey: .userDescription)
-        self.surveyType = try container.decode(SurveyType.self, forKey: .surveyType)
-        
-        let dataFromContainer = try container.decode(Data.self, forKey: .surveyBody)
-        let jsonFromData = try JSONSerialization.jsonObject(with: dataFromContainer, options: .allowFragments)
-        guard let dictionary = jsonFromData as? [String: Decodable] else {
-            throw DecodingError.typeMismatch([String: Decodable].self, .init(codingPath: [CodingKeys.surveyBody], debugDescription: "Failed to find a dictionary at coding key"))
-        }
-        
-        self.surveyBody = dictionary
-        
-        if let options = self.surveyBody["options"] as! [String: Decodable]? {
-            
-            guard let allowsDuplicateVotes = options["adv"] as! Bool? else {
-                throw DecodingError.typeMismatch([String: Decodable].self, .init(codingPath: [CodingKeys.surveyBody], debugDescription: "Failed to find value allowsDuplicateVotes"))
-            }
-            
-            self.allowsDuplicateVotes = allowsDuplicateVotes
-        }
+    var count: Int {
+        return self.participants.count
     }
 }
 
-class ScanToVoteSurvey: Survey {
+protocol SurveyParticipants {
+    var count: Int { get }
+}
+
+class BaseSurvey {
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case surveyMetadata
+        case participants
+        case options
+    }
     
-    var nParticipants: Int = 0
+    let id: String = {
+        fatalError("this is an abstract class")
+    }()
+}
+
+class ScanToVoteSurvey: BaseSurvey, Codable, Survey {
     
-    required init(from decoder: Decoder) throws {
-        try super.init(from: decoder)
+    var surveyMetadata: Metadata
+    struct Metadata: SurveyMetadata, Codable {
+        let type: Int
+        var title: String
+        var description: String
+    }
+    
+    var options: Options
+    struct Options: SurveyOptions, Codable {
+        var allowsDuplicateVotes: Bool
+    }
+    
+    var participants: Participants
+    struct Participants: SurveyParticipants, Codable {
+        let count: Int
+    }
+}
+
+class LikeOrDislikeSurvey: BaseSurvey, Codable, Survey {
+    
+    var surveyMetadata: Metadata
+    struct Metadata: SurveyMetadata, Codable {
+        let type: Int
+        var title: String
+        var description: String
+    }
+    
+    var options: Options
+    struct Options: SurveyOptions, Codable {
+        var allowsDuplicateVotes: Bool
+    }
+    
+    var participants: Participants
+    struct Participants: SurveyParticipants, Codable {
+        let count: Int
+        let likes: Int
+        let dislikes: Int
+    }
+    
+    var likes: Int {
+        return participants.likes
+    }
+    
+    var dislikes: Int {
+        return participants.dislikes
+    }
+}
+
+class SliderAverageSurvey: BaseSurvey, Codable, Survey {
+    
+    var surveyMetadata: Metadata
+    struct Metadata: SurveyMetadata, Codable {
+        let type: Int
+        var title: String
+        var description: String
         
-        //TODO: decode from surveyBody dictionary
-        if let value = self.surveyBody["participants"] as! Int? {
-            self.nParticipants = value
+        struct SliderData: Codable {
+            var title: String
+            var color: String
         }
+        var left: SliderData
+        var right: SliderData
+    }
+    
+    var options: Options
+    struct Options: SurveyOptions, Codable {
+        var allowsDuplicateVotes: Bool
+    }
+    
+    var participants: Participants
+    struct Participants: SurveyParticipants, Codable {
+        let count: Int
+        let average: Float
+    }
+    
+    var leftTitle: String {
+        return surveyMetadata.left.title
+    }
+    
+    var leftColor: String {
+        return surveyMetadata.left.color
+    }
+    
+    var rightTitle: String {
+        return surveyMetadata.right.title
+    }
+    
+    var rightColor: String {
+        return surveyMetadata.right.color
+    }
+}
+
+class SliderHistogramSurvey: BaseSurvey, Codable, Survey {
+    
+    var surveyMetadata: Metadata
+    struct Metadata: SurveyMetadata, Codable {
+        let type: Int
+        var title: String
+        var description: String
+        
+        var min: Int
+        var max: Int
+    }
+    
+    var options: Options
+    struct Options: SurveyOptions, Codable {
+        var allowsDuplicateVotes: Bool
+    }
+    
+    var participants: Participants
+    struct Participants: SurveyParticipants, Codable {
+        let count: Int
+        let histogram: [Int: Int]
+    }
+    
+    var min: Int {
+        return surveyMetadata.min
+    }
+    
+    var max: Int {
+        return surveyMetadata.max
     }
 }
