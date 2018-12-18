@@ -8,43 +8,73 @@
 
 import Foundation
 
-protocol Survey: CreateSurveyProtocol {
+protocol SurveyProtocol: CreateSurveyProtocol {
     associatedtype Participants: SurveyParticipants
     
     var participants: Participants { get }
-}
-
-extension Survey {
-    
-    var count: Int {
-        return self.participants.count
-    }
 }
 
 protocol SurveyParticipants {
     var count: Int { get }
 }
 
-class BaseSurvey {
+extension SurveyProtocol {
+    var numberOfParticipants: Int {
+        return self.participants.count
+    }
+}
+
+class Survey: Codable {
+    
     enum CodingKeys: String, CodingKey {
         case id = "_id"
+        case title
+        case description
+        case surveyType
+        case generatedUrl
+        case isArchived
+        case createdAt
+    }
+    
+    let id: String
+    var title: String
+    var description: String
+    let surveyType: SurveyType
+    
+    let generatedUrl: URL
+    var isArchived: Bool
+    let createdAt: Date
+}
+
+func check(
+    survey: Survey,
+    scanToVote: (ScanToVoteSurvey) -> Void,
+    likeOrDislike: (LikeOrDislikeSurvey) -> Void,
+    sliderAverage: (SliderAverageSurvey) -> Void,
+    sliderHistogram: (SliderHistogramSurvey) -> Void) {
+    
+    if let castedSurvey = survey as? ScanToVoteSurvey {
+        scanToVote(castedSurvey)
+    } else if let castedSurvey = survey as? LikeOrDislikeSurvey {
+        likeOrDislike(castedSurvey)
+    } else if let castedSurvey = survey as? SliderAverageSurvey {
+        sliderAverage(castedSurvey)
+    } else if let castedSurvey = survey as? SliderHistogramSurvey {
+        sliderHistogram(castedSurvey)
+    }
+}
+
+class ScanToVoteSurvey: Survey, SurveyProtocol {
+    
+    enum InnerCodingKeys: String, CodingKey {
         case surveyMetadata
         case participants
         case options
     }
     
-    let id: String = {
-        fatalError("this is an abstract class")
-    }()
-}
-
-class ScanToVoteSurvey: BaseSurvey, Codable, Survey {
-    
     var surveyMetadata: Metadata
     struct Metadata: SurveyMetadata, Codable {
-        let type: Int
-        var title: String
-        var description: String
+        
     }
     
     var options: Options
@@ -55,16 +85,39 @@ class ScanToVoteSurvey: BaseSurvey, Codable, Survey {
     var participants: Participants
     struct Participants: SurveyParticipants, Codable {
         let count: Int
+        let likes: Int
+        let dislikes: Int
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: InnerCodingKeys.self)
+        self.surveyMetadata = try container.decode(Metadata.self, forKey: .surveyMetadata)
+        self.options = try container.decode(Options.self, forKey: .options)
+        self.participants = try container.decode(Participants.self, forKey: .participants)
+        
+        try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        try self.surveyMetadata.encode(to: encoder)
+        try self.options.encode(to: encoder)
+        try self.participants.encode(to: encoder)
+        
+        try super.encode(to: encoder)
     }
 }
 
-class LikeOrDislikeSurvey: BaseSurvey, Codable, Survey {
+class LikeOrDislikeSurvey: Survey, SurveyProtocol {
+    
+    enum InnerCodingKeys: String, CodingKey {
+        case surveyMetadata
+        case participants
+        case options
+    }
     
     var surveyMetadata: Metadata
     struct Metadata: SurveyMetadata, Codable {
-        let type: Int
-        var title: String
-        var description: String
+        
     }
     
     var options: Options
@@ -86,15 +139,35 @@ class LikeOrDislikeSurvey: BaseSurvey, Codable, Survey {
     var dislikes: Int {
         return participants.dislikes
     }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: InnerCodingKeys.self)
+        self.surveyMetadata = try container.decode(Metadata.self, forKey: .surveyMetadata)
+        self.options = try container.decode(Options.self, forKey: .options)
+        self.participants = try container.decode(Participants.self, forKey: .participants)
+        
+        try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        try self.surveyMetadata.encode(to: encoder)
+        try self.options.encode(to: encoder)
+        try self.participants.encode(to: encoder)
+        
+        try super.encode(to: encoder)
+    }
 }
 
-class SliderAverageSurvey: BaseSurvey, Codable, Survey {
+class SliderAverageSurvey: Survey, SurveyProtocol {
+    
+    enum InnerCodingKeys: String, CodingKey {
+        case surveyMetadata
+        case participants
+        case options
+    }
     
     var surveyMetadata: Metadata
     struct Metadata: SurveyMetadata, Codable {
-        let type: Int
-        var title: String
-        var description: String
         
         struct SliderData: Codable {
             var title: String
@@ -130,16 +203,35 @@ class SliderAverageSurvey: BaseSurvey, Codable, Survey {
     var rightColor: String {
         return surveyMetadata.right.color
     }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: InnerCodingKeys.self)
+        self.surveyMetadata = try container.decode(Metadata.self, forKey: .surveyMetadata)
+        self.options = try container.decode(Options.self, forKey: .options)
+        self.participants = try container.decode(Participants.self, forKey: .participants)
+        
+        try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        try self.surveyMetadata.encode(to: encoder)
+        try self.options.encode(to: encoder)
+        try self.participants.encode(to: encoder)
+        
+        try super.encode(to: encoder)
+    }
 }
 
-class SliderHistogramSurvey: BaseSurvey, Codable, Survey {
+class SliderHistogramSurvey: Survey, SurveyProtocol {
+    
+    enum InnerCodingKeys: String, CodingKey {
+        case surveyMetadata
+        case participants
+        case options
+    }
     
     var surveyMetadata: Metadata
     struct Metadata: SurveyMetadata, Codable {
-        let type: Int
-        var title: String
-        var description: String
-        
         var min: Int
         var max: Int
     }
@@ -161,5 +253,22 @@ class SliderHistogramSurvey: BaseSurvey, Codable, Survey {
     
     var max: Int {
         return surveyMetadata.max
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: InnerCodingKeys.self)
+        self.surveyMetadata = try container.decode(Metadata.self, forKey: .surveyMetadata)
+        self.options = try container.decode(Options.self, forKey: .options)
+        self.participants = try container.decode(Participants.self, forKey: .participants)
+        
+        try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        try self.surveyMetadata.encode(to: encoder)
+        try self.options.encode(to: encoder)
+        try self.participants.encode(to: encoder)
+        
+        try super.encode(to: encoder)
     }
 }

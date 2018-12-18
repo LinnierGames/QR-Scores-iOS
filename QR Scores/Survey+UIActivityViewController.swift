@@ -13,7 +13,7 @@ extension UIActivityViewController {
     /**
      generates a pdf page from the survey
      */
-    convenience init?(surveyQRCode survey: BaseSurvey) {
+    convenience init?(surveyQRCode survey: Survey) {
         /**
          TODO: qrCodeTemplate-use the options defined there to create the page
          */
@@ -37,8 +37,8 @@ extension UIActivityViewController {
             return nil
         }
     }
-    BaseSurvey
-    convenience init(surveyURL survey: BaseSurvey) {
+    
+    convenience init(surveyURL survey: Survey) {
         self.init(activityItems: [survey.generatedUrl], applicationActivities: [])
     }
 }

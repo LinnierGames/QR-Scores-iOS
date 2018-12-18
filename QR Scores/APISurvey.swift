@@ -12,23 +12,15 @@ protocol CreateSurveyProtocol {
     associatedtype Metadata: SurveyMetadata
     associatedtype Options: SurveyOptions
     
+    var title: String { get }
+    var description: String { get }
+    var surveyType: SurveyType { get }
+    
     var surveyMetadata: Metadata { get }
     var options: Options { get }
 }
 
 extension CreateSurveyProtocol {
-    
-    var type: Int {
-        return self.surveyMetadata.type
-    }
-    
-    var title: String {
-        return self.surveyMetadata.title
-    }
-    
-    var description: String {
-        return self.surveyMetadata.description
-    }
     
     var allowsDuplicateVotes: Bool {
         return self.options.allowsDuplicateVotes
@@ -36,9 +28,7 @@ extension CreateSurveyProtocol {
 }
 
 protocol SurveyMetadata {
-    var type: Int { get }
-    var title: String { get }
-    var description: String { get }
+    
 }
 
 protocol SurveyOptions {
@@ -47,10 +37,12 @@ protocol SurveyOptions {
 
 struct CreateScanToVoteSurvey: CreateSurveyProtocol, Encodable {
     
+    let title: String
+    let description: String
+    let surveyType: SurveyType
+    
     struct Metadata: SurveyMetadata, Encodable {
-        let type: Int
-        let title: String
-        let description: String
+        
     }
     let surveyMetadata: Metadata
     
@@ -60,11 +52,11 @@ struct CreateScanToVoteSurvey: CreateSurveyProtocol, Encodable {
     let options: Options
     
     init(title: String, description: String, options: Options) {
-        let metadata = Metadata(
-            type: 0,
-            title: title,
-            description: description
-        )
+        self.title = title
+        self.description = description
+        self.surveyType = .scanToVote
+        
+        let metadata = Metadata()
         self.surveyMetadata = metadata
         self.options = options
     }
@@ -72,10 +64,12 @@ struct CreateScanToVoteSurvey: CreateSurveyProtocol, Encodable {
 
 struct CreateLikeOrDislikeSurvey: CreateSurveyProtocol, Encodable {
     
+    let title: String
+    let description: String
+    let surveyType: SurveyType
+    
     struct Metadata: SurveyMetadata, Encodable {
-        let type: Int
-        let title: String
-        let description: String
+        
     }
     let surveyMetadata: Metadata
     
@@ -85,11 +79,13 @@ struct CreateLikeOrDislikeSurvey: CreateSurveyProtocol, Encodable {
     let options: Options
     
     init(title: String, description: String, options: Options) {
-        let metadata = Metadata(
-            type: 1,
-            title: title,
-            description: description
-        )
+        self.title = title
+        self.description = description
+        
+        #error ("replace with actual type")
+        self.surveyType = .scanToVote
+        
+        let metadata = Metadata()
         self.surveyMetadata = metadata
         self.options = options
     }
@@ -97,10 +93,11 @@ struct CreateLikeOrDislikeSurvey: CreateSurveyProtocol, Encodable {
 
 struct CreateSliderAverageSurvey: CreateSurveyProtocol, Encodable {
     
+    let title: String
+    let description: String
+    let surveyType: SurveyType
+    
     struct Metadata: SurveyMetadata, Encodable {
-        let type: Int
-        let title: String
-        let description: String
         
         struct SliderMetadata: Encodable {
             let title: String
@@ -133,13 +130,16 @@ struct CreateSliderAverageSurvey: CreateSurveyProtocol, Encodable {
     }
     
     init(title: String, description: String, leftTitle: String, leftColor: String, rightTitle: String, rightColor: String, options: Options) {
+        self.title = title
+        self.description = description
+        
+        #error ("replace with actual type")
+        self.surveyType = .scanToVote
+        
         let left = Metadata.SliderMetadata(title: leftTitle, color: leftColor)
         let right = Metadata.SliderMetadata(title: rightTitle, color: rightColor)
         
         let metadata = Metadata(
-            type: 2,
-            title: title,
-            description: description,
             left: left,
             right: right
         )
@@ -148,22 +148,21 @@ struct CreateSliderAverageSurvey: CreateSurveyProtocol, Encodable {
     }
 }
 
+//TODO: create CreateSliderHistogramSurvey
+
 struct SurveyDecoder {
     
     private struct TypeChecker: Decodable {
-        struct SurveyMetaData: Decodable {
-            let type: SurveyType
-        }
-        let surveyMetadata: SurveyMetaData
+        let surveyType: SurveyType
     }
     
-    static func decode(from data: Data) throws -> BaseSurvey {
+    static func decode(from data: Data) throws -> Survey {
         let type = try JSONDecoder().decode(TypeChecker.self, from: data)
 
-        return try decode(from: data, using: type.surveyMetadata.type)
+        return try decode(from: data, using: type.surveyType)
     }
     
-    static func decode(from data: Data, using type: SurveyType) throws -> BaseSurvey {
+    static func decode(from data: Data, using type: SurveyType) throws -> Survey {
         switch type {
         case .scanToVote:
             let survey = try JSONDecoder().decode(ScanToVoteSurvey.self, from: data)

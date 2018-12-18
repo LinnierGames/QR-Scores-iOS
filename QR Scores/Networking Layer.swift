@@ -69,7 +69,7 @@ struct InternalAPI {
         }
     }
     
-    func fetchUserSurveys(completion: @escaping (Result<[BaseSurvey], APIError>) -> Void) {
+    func fetchUserSurveys(completion: @escaping (Result<[Survey], APIError>) -> Void) {
         
         provider.request(InternalAPIEndpoints.surveys) { (result) in
             switch result {
@@ -94,7 +94,7 @@ struct InternalAPI {
         }
     }
     
-    func createSurvey<T: CreateSurveyProtocol>(_ survey: T, completion: @escaping (Result<BaseSurvey, APIError>) -> Void) {
+    func createSurvey<T: CreateSurveyProtocol>(_ survey: T, completion: @escaping (Result<Survey, APIError>) -> Void) {
         
         provider.request(InternalAPIEndpoints.createSurvey(survey: survey)) { (result) in
             switch result {

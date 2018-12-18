@@ -22,10 +22,24 @@ class SurveyTableViewCell: UITableViewCell {
     
     // MARK: - METHODS
     
-    func configure(_ survey: BaseSurvey) {
+    func configure(_ survey: Survey) {
         self.labelTitle.text = survey.title
-        self.labelSubtitle.text = survey.subtitle
-        self.labelCount.text = "count: \(survey.numberOfParticipants)"
+        self.labelSubtitle.text = survey.description
+        
+        check(
+            survey: survey,
+            scanToVote: { (survey) in
+                self.labelCount.text = "count: \(survey.numberOfParticipants)"
+        },
+            likeOrDislike: { (survey) in
+                self.labelCount.text = "count: \(survey.numberOfParticipants)"
+        },
+            sliderAverage: { (survey) in
+                self.labelCount.text = "count: \(survey.numberOfParticipants)"
+        },
+            sliderHistogram: { (survey) in
+                self.labelCount.text = "count: \(survey.numberOfParticipants)"
+        })
         
         self.accessoryType = .detailDisclosureButton
     }

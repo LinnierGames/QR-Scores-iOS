@@ -55,16 +55,21 @@ class CreateSurveyManager {
         let title = survey.userTitle
         let description = survey.userDescription
         
-        
-        
         let stack = InternalAPI()
-        stack.createSurvey
+        switch survey.type {
+        default:
+            let survey = CreateScanToVoteSurvey(title: title, description: description, options: .init(allowsDuplicateVotes: false))
+            
+            stack.createSurvey(survey) { (result) in
+                
+            }
+        }
         
         //donwload from DB
-        func responseFromDB() -> BaseSurvey {
+        func responseFromDB() -> Survey {
             let dataFromResponse = Data()
             
-            guard let survey = SurveyDecoder.decode(from: dataFromResponse, using: survey.type) else {
+            guard let survey = try? SurveyDecoder.decode(from: dataFromResponse, using: survey.type) else {
                 fatalError("failed to decode into survey type")
             }
             
@@ -72,18 +77,18 @@ class CreateSurveyManager {
         }
     }
     
-    func downloadFromDB() -> [BaseSurvey] {
+    func downloadFromDB() -> [Survey] {
         let dataFromResponse = Data() //contains array of surveys
         
         guard let surveyDatas = try? JSONDecoder().decode([Data].self, from: dataFromResponse) else {
             return []
         }
         
-        var result: [BaseSurvey] = []
+        var result: [Survey] = []
         
         for aSurveyData in surveyDatas {
             
-            guard let survey = SurveyDecoder.decode(from: aSurveyData) else {
+            guard let survey = try? SurveyDecoder.decode(from: aSurveyData) else {
                 continue
             }
             
@@ -95,7 +100,7 @@ class CreateSurveyManager {
     
     class SurveyVc: UIViewController {
         
-        private var survey: BaseSurvey!
+        private var survey: Survey!
         
         private func updateUI() {
             //layout basic info
@@ -122,7 +127,7 @@ class CreateSurveyManager {
     class SurveysVc: UIViewController {
         
         func presentCorrectVC() {
-            let surveys: [BaseSurvey] = []
+            let surveys: [Survey] = []
             let indexPath = IndexPath(row: 0, section: 0)
             let selectedSurvey = surveys[indexPath.row]
             

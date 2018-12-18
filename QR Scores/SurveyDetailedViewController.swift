@@ -12,7 +12,7 @@ class SurveyDetailedViewController: UIViewController, Interfacable {
 
     // MARK: - VARS
     
-    var survey: BaseSurvey!
+    var survey: Survey!
     
     // MARK: - RETURN VALUES
     
@@ -20,8 +20,22 @@ class SurveyDetailedViewController: UIViewController, Interfacable {
     
     private func updateUI() {
         self.labelTitle.text = survey.title
-        self.labelSubtitle.text = survey.subtitle
-        self.labelNumberOfParticipants.text = String(survey.numberOfParticipants)
+        self.labelSubtitle.text = survey.description
+        
+        check(
+            survey: survey,
+            scanToVote: { (survey) in
+                self.labelNumberOfParticipants.text = String(survey.numberOfParticipants)
+        },
+            likeOrDislike: { (survey) in
+                self.labelNumberOfParticipants.text = String(survey.numberOfParticipants)
+        },
+            sliderAverage: { (survey) in
+                self.labelNumberOfParticipants.text = String(survey.numberOfParticipants)
+        },
+            sliderHistogram: { (survey) in
+                self.labelNumberOfParticipants.text = String(survey.numberOfParticipants)
+        })
         
         let queue = DispatchQueue.global(qos: .userInitiated)
         let url = self.survey.generatedUrl
