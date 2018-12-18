@@ -79,11 +79,13 @@ struct InternalAPI {
             case .success(let response):
                 switch response.statusCode {
                 case 200:
-                    guard let surveysData = try? JSONDecoder().decode([JSON].self, from: response.data) else {
+                    guard let jsonData = try? JSON(data: response.data).arrayValue else {
                         assertionFailure("response did not contain array of data")
                         
                         return completion(.failure(APIError.somethingWentWrong(message: "")))
                     }
+                    
+                    let surveysData = jsonData.compactMap({ try? $0.rawData() })
                     
                     let surveys = surveysData.compactMap({ try? SurveyDecoder.decode(from: $0) })
                     

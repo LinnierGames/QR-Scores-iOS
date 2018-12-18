@@ -33,7 +33,7 @@ class Survey: Codable {
         case surveyType
         case generatedUrl
         case isArchived
-        case createdAt
+//        case createdAt
     }
     
     let id: String
@@ -43,7 +43,7 @@ class Survey: Codable {
     
     let generatedUrl: URL
     var isArchived: Bool
-    let createdAt: Date
+//    let createdAt: Date
 }
 
 func check(
@@ -85,8 +85,6 @@ class ScanToVoteSurvey: Survey, SurveyProtocol {
     var participants: Participants
     struct Participants: SurveyParticipants, Codable {
         let count: Int
-        let likes: Int
-        let dislikes: Int
     }
     
     required init(from decoder: Decoder) throws {
