@@ -7,6 +7,8 @@ target 'QR Scores' do
 
   # Pods for QR Scores
   pod 'Moya'
+  
+  pod 'SwiftyJSON'
 
   target 'QR ScoresTests' do
     inherit! :search_paths

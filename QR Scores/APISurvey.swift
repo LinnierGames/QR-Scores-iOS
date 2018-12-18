@@ -81,9 +81,7 @@ struct CreateLikeOrDislikeSurvey: CreateSurveyProtocol, Encodable {
     init(title: String, description: String, options: Options) {
         self.title = title
         self.description = description
-        
-        #error ("replace with actual type")
-        self.surveyType = .scanToVote
+        self.surveyType = .likeDislike
         
         let metadata = Metadata()
         self.surveyMetadata = metadata
@@ -132,9 +130,7 @@ struct CreateSliderAverageSurvey: CreateSurveyProtocol, Encodable {
     init(title: String, description: String, leftTitle: String, leftColor: String, rightTitle: String, rightColor: String, options: Options) {
         self.title = title
         self.description = description
-        
-        #error ("replace with actual type")
-        self.surveyType = .scanToVote
+        self.surveyType = .sliderAverage
         
         let left = Metadata.SliderMetadata(title: leftTitle, color: leftColor)
         let right = Metadata.SliderMetadata(title: rightTitle, color: rightColor)
@@ -142,6 +138,45 @@ struct CreateSliderAverageSurvey: CreateSurveyProtocol, Encodable {
         let metadata = Metadata(
             left: left,
             right: right
+        )
+        self.surveyMetadata = metadata
+        self.options = options
+    }
+}
+
+struct CreateSliderHistogramSurvey: CreateSurveyProtocol, Encodable {
+    
+    let title: String
+    let description: String
+    let surveyType: SurveyType
+    
+    struct Metadata: SurveyMetadata, Encodable {
+        let min: Int
+        let max: Int
+    }
+    let surveyMetadata: Metadata
+    
+    struct Options: SurveyOptions, Encodable {
+        let allowsDuplicateVotes: Bool
+    }
+    let options: Options
+    
+    var min: Int {
+        return surveyMetadata.min
+    }
+    
+    var max: Int {
+        return surveyMetadata.max
+    }
+    
+    init(title: String, description: String, min: Int, max: Int, options: Options) {
+        self.title = title
+        self.description = description
+        self.surveyType = .sliderHistogram
+        
+        let metadata = Metadata(
+            min: min,
+            max: max
         )
         self.surveyMetadata = metadata
         self.options = options
@@ -166,7 +201,19 @@ struct SurveyDecoder {
         switch type {
         case .scanToVote:
             let survey = try JSONDecoder().decode(ScanToVoteSurvey.self, from: data)
-
+            
+            return survey
+        case .likeDislike:
+            let survey = try JSONDecoder().decode(LikeOrDislikeSurvey.self, from: data)
+            
+            return survey
+        case .sliderAverage:
+            let survey = try JSONDecoder().decode(SliderAverageSurvey.self, from: data)
+            
+            return survey
+        case .sliderHistogram:
+            let survey = try JSONDecoder().decode(SliderHistogramSurvey.self, from: data)
+            
             return survey
         }
     }

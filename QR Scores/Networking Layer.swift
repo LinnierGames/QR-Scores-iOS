@@ -9,6 +9,7 @@
 import Foundation
 import Moya
 import Result
+import SwiftyJSON
 
 struct InternalAPI {
     private let provider = MoyaProvider<InternalAPIEndpoints>()
@@ -27,6 +28,8 @@ struct InternalAPI {
                     }
                     
                     completion(.success(user))
+                case 400:
+                    completion(.failure(APIError.somethingWentWrong(message: "Please enter the required info")))
                 case 409:
                     completion(.failure(APIError.duplicateAccount))
                 default:
@@ -76,8 +79,10 @@ struct InternalAPI {
             case .success(let response):
                 switch response.statusCode {
                 case 200:
-                    guard let surveysData = try? JSONDecoder().decode([Data].self, from: response.data) else {
-                        return
+                    guard let surveysData = try? JSONDecoder().decode([JSON].self, from: response.data) else {
+                        assertionFailure("response did not contain array of data")
+                        
+                        return completion(.failure(APIError.somethingWentWrong(message: "")))
                     }
                     
                     let surveys = surveysData.compactMap({ try? SurveyDecoder.decode(from: $0) })
@@ -100,7 +105,7 @@ struct InternalAPI {
             switch result {
             case .success(let response):
                 switch response.statusCode {
-                case 200:
+                case 201:
                     guard let survey = try? SurveyDecoder.decode(from: response.data) else {
                         assertionFailure("failed to convert survey")
                         

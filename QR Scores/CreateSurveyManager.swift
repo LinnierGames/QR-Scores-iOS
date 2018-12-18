@@ -32,17 +32,17 @@ class CreateSurveyManager {
         let additionalInfo = survey.additionalInfo
         
         //poulate the form
-        for infoToCollect in additionalInfo {
+        for (title, type) in additionalInfo {
             
             //create uilabel
-            let labelText = infoToCollect.title
+            let labelText = title
             
             //create input component
-            if let string = infoToCollect.string {
+            if let string = type.string {
                 //create textfield
-            } else if let bool = infoToCollect.boolean {
+            } else if let bool = type.boolean {
                 //create switch
-            } else if let number = infoToCollect.number {
+            } else if let number = type.number {
                 //create number pickers
             } else {
                 
@@ -57,8 +57,62 @@ class CreateSurveyManager {
         
         let stack = InternalAPI()
         switch survey.type {
-        default:
-            let survey = CreateScanToVoteSurvey(title: title, description: description, options: .init(allowsDuplicateVotes: false))
+        case .scanToVote:
+            guard
+                let allowsDuplicateVotes = self.survey.additionalInfo["Allows Duplicate Votes"]?.boolean else {
+                    return assertionFailure("additional info not set up correctly")
+            }
+            
+            let survey = CreateScanToVoteSurvey(
+                title: title,
+                description: description,
+                options: .init(allowsDuplicateVotes: allowsDuplicateVotes))
+            
+            stack.createSurvey(survey) { (result) in
+                
+            }
+        case .likeDislike:
+            let survey = CreateLikeOrDislikeSurvey(title: title, description: description, options: .init(allowsDuplicateVotes: false))
+            
+            stack.createSurvey(survey) { (result) in
+                
+            }
+        case .sliderAverage:
+            guard
+                let leftTitle = self.survey.additionalInfo["Left Title"]?.string,
+                let leftColor = self.survey.additionalInfo["Left Color"]?.string,
+                let rightTitle = self.survey.additionalInfo["Right Title"]?.string,
+                let rightColor = self.survey.additionalInfo["Right Color"]?.string,
+                let allowsDuplicateVotes = self.survey.additionalInfo["Allows Duplicate Votes"]?.boolean else {
+                    return assertionFailure("additional info not set up correctly")
+            }
+            
+            let survey = CreateSliderAverageSurvey(
+                title: title,
+                description: description,
+                leftTitle: leftTitle,
+                leftColor: leftColor,
+                rightTitle: rightTitle,
+                rightColor: rightColor,
+                options: .init(allowsDuplicateVotes: allowsDuplicateVotes))
+            
+            stack.createSurvey(survey) { (result) in
+                
+            }
+        case .sliderHistogram:
+            guard
+                let min = self.survey.additionalInfo["Min"]?.number?.intValue,
+                let max = self.survey.additionalInfo["Max"]?.number?.intValue,
+                let allowsDuplicateVotes = self.survey.additionalInfo["Allows Duplicate Votes"]?.boolean else {
+                    return assertionFailure("additional info not set up correctly")
+            }
+            
+            let survey = CreateSliderHistogramSurvey(
+                title: title,
+                description: description,
+                min: min,
+                max: max,
+                options: .init(allowsDuplicateVotes: allowsDuplicateVotes))
             
             stack.createSurvey(survey) { (result) in
                 
@@ -131,13 +185,18 @@ class CreateSurveyManager {
             let indexPath = IndexPath(row: 0, section: 0)
             let selectedSurvey = surveys[indexPath.row]
             
-            let surveyType = selectedSurvey.surveyType
-            switch surveyType {
-            case .scanToVote:
-                let vc = ScanToVoteVc()
-                vc.survey = (selectedSurvey as! ScanToVoteSurvey)
-                self.present(vc, animated: true)
-            }
+            check(survey: selectedSurvey,
+                  scanToVote: { (survey) in
+                    let vc = ScanToVoteVc()
+                    vc.survey = survey
+                    self.present(vc, animated: true)
+            }, likeOrDislike: { (survey) in
+                
+            }, sliderAverage: { (survey) in
+                
+            }, sliderHistogram: { (survey) in
+                
+            })
         }
     }
 }
