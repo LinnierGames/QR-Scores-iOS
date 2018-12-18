@@ -18,7 +18,7 @@ class SurveysViewModel {
     
     weak var delegate: SurveysViewModelDelegate?
     
-    private(set) var surveys = ReactiveBox([Survey]())
+    private(set) var surveys = ReactiveBox([BaseSurvey]())
     
     private let networkStack = InternalAPI()
     

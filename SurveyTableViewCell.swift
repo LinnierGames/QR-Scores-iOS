@@ -22,7 +22,7 @@ class SurveyTableViewCell: UITableViewCell {
     
     // MARK: - METHODS
     
-    func configure(_ survey: Survey) {
+    func configure(_ survey: BaseSurvey) {
         self.labelTitle.text = survey.title
         self.labelSubtitle.text = survey.subtitle
         self.labelCount.text = "count: \(survey.numberOfParticipants)"

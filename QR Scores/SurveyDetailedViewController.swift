@@ -12,7 +12,7 @@ class SurveyDetailedViewController: UIViewController, Interfacable {
 
     // MARK: - VARS
     
-    var survey: Survey!
+    var survey: BaseSurvey!
     
     // MARK: - RETURN VALUES
     

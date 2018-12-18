@@ -8,11 +8,6 @@
 
 import Foundation
 
-protocol CreateSurvey {
-    var surveyMetadata: SurveyMetadata { get }
-    var options: SurveyOptions { get }
-}
-
 protocol CreateSurveyProtocol {
     associatedtype Metadata: SurveyMetadata
     associatedtype Options: SurveyOptions
@@ -162,20 +157,16 @@ struct SurveyDecoder {
         let surveyMetadata: SurveyMetaData
     }
     
-    static func decode(from data: Data) -> Survey? {
-        guard let type = try? JSONDecoder().decode(TypeChecker.self, from: data) else {
-            return nil
-        }
+    static func decode(from data: Data) throws -> BaseSurvey {
+        let type = try JSONDecoder().decode(TypeChecker.self, from: data)
 
-        return decode(from: data, using: type.surveyMetadata.type)
+        return try decode(from: data, using: type.surveyMetadata.type)
     }
     
-    static func decode(from data: Data, using type: SurveyType) -> Survey? {
+    static func decode(from data: Data, using type: SurveyType) throws -> BaseSurvey {
         switch type {
         case .scanToVote:
-            guard let survey = try? JSONDecoder().decode(ScanToVoteSurvey.self, from: data) else {
-                return nil
-            }
+            let survey = try JSONDecoder().decode(ScanToVoteSurvey.self, from: data)
 
             return survey
         }

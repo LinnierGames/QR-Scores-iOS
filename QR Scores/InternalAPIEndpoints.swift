@@ -9,15 +9,58 @@
 import Foundation
 import Moya
 
+//struct InternalAPIEndpointRequest: TargetType {
+//
+//    var baseURL: URL {
+//        return URL(string: "http://qr-scores.herokuapp.com/")!
+//    }
+//
+//    var path: String
+//
+//    var method: Moya.Method
+//
+//    var sampleData: Data
+//
+//    var task: Task
+//
+//    var headers: [String : String]?
+//
+//    // MARK: - Endpoints
+//
+//    static func signUp(user: UserRegister) -> InternalAPIEndpointRequest {
+//        return InternalAPIEndpointRequest(
+//            path: <#T##String#>,
+//            method: <#T##Method#>,
+//            sampleData: <#T##Data#>,
+//            task: <#T##Task#>,
+//            headers: <#T##[String : String]?#>
+//        )
+//    }
+//
+//    static func createSurvey<T: CreateSurveyProtocol>(survey: T) -> InternalAPIEndpointRequest {
+//        return InternalAPIEndpointRequest(
+//            path: <#T##String#>,
+//            method: <#T##Method#>,
+//            sampleData: <#T##Data#>,
+//            task: <#T##Task#>,
+//            headers: <#T##[String : String]?#>
+//        )
+//    }
+//}
+
 enum InternalAPIEndpoints {
     case signUp(user: UserRegister)
     case login(user: UserLogin)
     case surveys
-    case createSurvey(survey: SurveyHolder<<#T: CreateSurveyProtocol#>>)
-}
-
-struct SurveyHolder<T: CreateSurveyProtocol> {
-    let survey: T
+    case createSurvey(payload: Encodable)
+    
+    static func createSurvey<T: CreateSurveyProtocol>(survey: T) -> InternalAPIEndpoints {
+        guard let encodableSurvey = survey as? Encodable else {
+            fatalError("Survey needs to be encodable")
+        }
+        
+        return .createSurvey(payload: encodableSurvey)
+    }
 }
 
 extension InternalAPIEndpoints: TargetType {
@@ -60,8 +103,8 @@ extension InternalAPIEndpoints: TargetType {
             return .requestJSONEncodable(user)
         case .surveys:
             return .requestPlain
-        case .createSurvey(let survey):
-            return .requestJSONEncodable(survey)
+        case .createSurvey(let payload):
+            return .requestJSONEncodable(payload)
         }
     }
     

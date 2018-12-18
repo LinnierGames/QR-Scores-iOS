@@ -55,15 +55,13 @@ class CreateSurveyManager {
         let title = survey.userTitle
         let description = survey.userDescription
         
-        var uploader = SurveyUploader(title: title, description: description, type: survey.type.rawValue)
         
-        survey.additionalInfo.forEach { uploader.addProperty($0) }
         
         let stack = InternalAPI()
-        stack.createSurvey(uploader, completion: { _ in })
+        stack.createSurvey
         
         //donwload from DB
-        func responseFromDB() -> Survey {
+        func responseFromDB() -> BaseSurvey {
             let dataFromResponse = Data()
             
             guard let survey = SurveyDecoder.decode(from: dataFromResponse, using: survey.type) else {
@@ -74,14 +72,14 @@ class CreateSurveyManager {
         }
     }
     
-    func downloadFromDB() -> [Survey] {
+    func downloadFromDB() -> [BaseSurvey] {
         let dataFromResponse = Data() //contains array of surveys
         
         guard let surveyDatas = try? JSONDecoder().decode([Data].self, from: dataFromResponse) else {
             return []
         }
         
-        var result: [Survey] = []
+        var result: [BaseSurvey] = []
         
         for aSurveyData in surveyDatas {
             
@@ -97,7 +95,7 @@ class CreateSurveyManager {
     
     class SurveyVc: UIViewController {
         
-        private var survey: Survey!
+        private var survey: BaseSurvey!
         
         private func updateUI() {
             //layout basic info
@@ -124,7 +122,7 @@ class CreateSurveyManager {
     class SurveysVc: UIViewController {
         
         func presentCorrectVC() {
-            let surveys: [Survey] = []
+            let surveys: [BaseSurvey] = []
             let indexPath = IndexPath(row: 0, section: 0)
             let selectedSurvey = surveys[indexPath.row]
             
