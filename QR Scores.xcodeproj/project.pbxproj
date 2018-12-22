@@ -276,7 +276,7 @@
 				E9408C012199145500A2FC47 /* Stacks */,
 				E934F2D221B715F100553138 /* Models */,
 				E9408C022199149A00A2FC47 /* Extensions */,
-				E9531A0721981C1700980985 /* UICustom */,
+				E991C95121CDF3DB008F3509 /* UICustom */,
 				E95319EA2197908200980985 /* Supporting Files */,
 			);
 			path = "QR Scores";
@@ -327,7 +327,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E9531A0721981C1700980985 /* UICustom */ = {
+		E991C95121CDF3DB008F3509 /* UICustom */ = {
 			isa = PBXGroup;
 			children = (
 				E9531A0821981C2E00980985 /* SurveyTableViewCell.swift */,
