@@ -44,34 +44,34 @@ class CreateSurveyManager {
     
     // MARK: - LIFE CYCLE
     
-    func pickSurvey() {
-        for aSurvey in availableTypes {
-            let labelTitle = aSurvey.title
-            let labelSubtitle = aSurvey.description
-        }
-    }
-    
-    func collectInfoFromUser() {
-        let additionalInfo = survey.additionalInfo
-        
-        //poulate the form
-        for (title, type) in additionalInfo {
-            
-            //create uilabel
-            let labelText = title
-            
-            //create input component
-            if let string = type.string {
-                //create textfield
-            } else if let bool = type.boolean {
-                //create switch
-            } else if let number = type.number {
-                //create number pickers
-            } else {
-                
-            }
-        }
-    }
+//    func pickSurvey() {
+//        for aSurvey in availableTypes {
+//            let labelTitle = aSurvey.title
+//            let labelSubtitle = aSurvey.description
+//        }
+//    }
+//
+//    func collectInfoFromUser() {
+//        let additionalInfo = survey.additionalInfo
+//
+//        //poulate the form
+//        for (title, type) in additionalInfo {
+//
+//            //create uilabel
+//            let labelText = title
+//
+//            //create input component
+//            if let string = type.string {
+//                //create textfield
+//            } else if let bool = type.boolean {
+//                //create switch
+//            } else if let number = type.number {
+//                //create number pickers
+//            } else {
+//
+//            }
+//        }
+//    }
     
     func submitSurvey(completion: @escaping (Bool) -> Void) {
         
@@ -129,8 +129,8 @@ class CreateSurveyManager {
             stack.createSurvey(survey, completion: handler)
         case .sliderHistogram:
             guard
-                let min = self.survey.additionalInfo["Min"]?.number?.intValue,
-                let max = self.survey.additionalInfo["Max"]?.number?.intValue,
+                let min = self.survey.additionalInfo["Min"]?.integer,
+                let max = self.survey.additionalInfo["Max"]?.integer,
                 let allowsDuplicateVotes = self.survey.additionalInfo["Allows Duplicate Votes"]?.boolean else {
                     return assertionFailure("additional info not set up correctly")
             }

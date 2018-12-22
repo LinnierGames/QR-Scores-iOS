@@ -33,6 +33,7 @@ class SurveyOptionsViewController: UIViewController {
                 fatalError("cannot set manager to nil")
             }
             
+            //FIXME: This does not map in the correct order
             let listOfInfos = infos.map({ AdditionalInfo(title: $0.key, key: $0.key, inputType: $0.value) })
             self.additionalInfo = listOfInfos
         }
@@ -43,6 +44,14 @@ class SurveyOptionsViewController: UIViewController {
     // MARK: - RETURN VALUES
     
     // MARK: - METHODS
+    
+    fileprivate func updateAdditionalInfo(_ info: AdditionalInfo, to newValue: ValueType) {
+        manager.updateAdditional(infoKey: info.key, to: newValue)
+        
+        if let infoIndex = self.additionalInfo.firstIndex(of: info) {
+            additionalInfo[infoIndex].inputType = newValue
+        }
+    }
     
     // MARK: - IBACTIONS
     
@@ -66,7 +75,15 @@ class SurveyOptionsViewController: UIViewController {
             action: #selector(pressNext(_:))
         )
         navigationItem.setRightBarButton(nextButton, animated: false)
+        
         tableView.register(BooleanTableViewCell.self)
+        tableView.register(TextFieldTableViewCell.self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        view.endEditing(true)
     }
 }
 
@@ -81,34 +98,70 @@ extension SurveyOptionsViewController: UITableViewDataSource, UITableViewDelegat
         
         switch infoForCell.inputType {
         case .boolean:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: BooleanTableViewCell.identifier,
-                for: indexPath
-            ) as! BooleanTableViewCell
+            let cell = tableView.dequeue(BooleanTableViewCell.self, at: indexPath)
+            
+            cell.configure(infoForCell)
+            cell.delegate = self
+            
+            return cell
+        case .string, .integer, .double:
+            let cell = tableView.dequeue(TextFieldTableViewCell.self, at: indexPath)
             
             cell.configure(infoForCell)
             cell.delegate = self
             
             return cell
         default:
-            break
+            #warning ("number input type not implemented")
+            
+            fatalError("\(#function) not implemented")
         }
         
-        fatalError("\(#function) not implemented")
     }
 }
 
-extension SurveyOptionsViewController: BooleanTableViewCellDelegate {
+extension SurveyOptionsViewController: BooleanTableViewCellDelegate, TextFieldTableViewCellDelegate {
     func booleanCell(_ booleanCell: BooleanTableViewCell, didChangeTo newState: Bool) {
         guard let info = booleanCell.info else {
             return assertionFailure("no info found")
         }
         
         let newValue = ValueType.boolean(value: newState)
-        manager.updateAdditional(infoKey: info.key, to: newValue)
-        
-        if let infoIndex = self.additionalInfo.firstIndex(of: info) {
-            additionalInfo[infoIndex].inputType = newValue
+        updateAdditionalInfo(info, to: newValue)
+    }
+    
+    func textFieldCell(_ textFieldCell: TextFieldTableViewCell, didChangeTo newState: String) {
+        guard let info = textFieldCell.info else {
+            return assertionFailure("no info found")
         }
+        
+        guard let newValue = info.inputType.fromString(newState) else {
+            return assertionFailure("failed to change from string to inputType ValyeType")
+        }
+        
+        updateAdditionalInfo(info, to: newValue)
+        
+//        switch info.inputType {
+//        case .string:
+//            let newValue = ValueType.string(value: newState)
+//            updateAdditionalInfo(info, to: newValue)
+//        case .integer:
+//            guard let integerFromString = Int(newState) else {
+//                return assertionFailure("failed to turn string into integer")
+//            }
+//
+//            let newValue = ValueType.integer(value: integerFromString)
+//            updateAdditionalInfo(info, to: newValue)
+//        case .double:
+//            guard let doubleFromString = Double(newState) else {
+//                return assertionFailure("failed to turn string into double")
+//            }
+//
+//            let newValue = ValueType.double(value: doubleFromString)
+//            updateAdditionalInfo(info, to: newValue)
+//        default:
+//            //TODO: other survey types
+//            fatalError("\(#function) not implemented")
+//        }
     }
 }

@@ -60,6 +60,8 @@
 		E991C95F21CDFB41008F3509 /* UniversalExtensions+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E991C95E21CDFB41008F3509 /* UniversalExtensions+UIAlertController.swift */; };
 		E9A91C2421B9D693007BBF6F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A91C2321B9D693007BBF6F /* StringExtensions.swift */; };
 		E9A91C2621B9FA39007BBF6F /* SurveyDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A91C2521B9FA39007BBF6F /* SurveyDescriptor.swift */; };
+		E9F4239221CEE33100F1DB5D /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4239021CEE33100F1DB5D /* TextFieldTableViewCell.swift */; };
+		E9F4239321CEE33100F1DB5D /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F4239121CEE33100F1DB5D /* TextFieldTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,8 @@
 		E991C95E21CDFB41008F3509 /* UniversalExtensions+UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniversalExtensions+UIAlertController.swift"; sourceTree = "<group>"; };
 		E9A91C2321B9D693007BBF6F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		E9A91C2521B9FA39007BBF6F /* SurveyDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDescriptor.swift; sourceTree = "<group>"; };
+		E9F4239021CEE33100F1DB5D /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldTableViewCell.swift; path = "QR Scores/TextFieldTableViewCell.swift"; sourceTree = "<group>"; };
+		E9F4239121CEE33100F1DB5D /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TextFieldTableViewCell.xib; path = "QR Scores/TextFieldTableViewCell.xib"; sourceTree = "<group>"; };
 		F2BCC4CF97A941A3F6FB3B01 /* Pods-QR ScoresTests.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.production.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.production.xcconfig"; sourceTree = "<group>"; };
 		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -357,6 +361,8 @@
 				E991C94621CDE31A008F3509 /* SurveyTypeTableViewCell.xib */,
 				E991C94D21CDEA36008F3509 /* BooleanTableViewCell.swift */,
 				E991C94E21CDEA36008F3509 /* BooleanTableViewCell.xib */,
+				E9F4239021CEE33100F1DB5D /* TextFieldTableViewCell.swift */,
+				E9F4239121CEE33100F1DB5D /* TextFieldTableViewCell.xib */,
 			);
 			name = UICustom;
 			path = ..;
@@ -457,6 +463,7 @@
 				E95319D021978EA500980985 /* Assets.xcassets in Resources */,
 				E991C94C21CDE60D008F3509 /* SurveyOptionsViewController.xib in Resources */,
 				E991C95021CDEA36008F3509 /* BooleanTableViewCell.xib in Resources */,
+				E9F4239321CEE33100F1DB5D /* TextFieldTableViewCell.xib in Resources */,
 				E991C95521CDF428008F3509 /* SurveyTitleViewController.xib in Resources */,
 				E991C94821CDE31A008F3509 /* SurveyTypeTableViewCell.xib in Resources */,
 			);
@@ -576,6 +583,7 @@
 				E98036D521C8E9E5002344C7 /* InfoPlist.swift in Sources */,
 				E95319F42197A84600980985 /* APIUser.swift in Sources */,
 				E991C94B21CDE60D008F3509 /* SurveyOptionsViewController.swift in Sources */,
+				E9F4239221CEE33100F1DB5D /* TextFieldTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,9 +8,13 @@
 
 import Foundation
 
-enum SurveyType: Int, Codable, CaseIterable {
+enum SurveyType: Int, Codable {
     
     //TODO: other survey types
+    static var allCases: [SurveyType] {
+        return [.scanToVote, .sliderAverage, .sliderHistogram]
+    }
+    
     case scanToVote
     case likeDislike
     case sliderAverage
@@ -77,7 +81,48 @@ protocol DescriptorSurvey {
 enum ValueType {
     case string(value: String)
     case boolean(value: Bool)
-    case number(value: NSNumber)
+    case integer(value: Int)
+    case double(value: Double)
+    
+    var intoString: String? {
+        switch self {
+        case .string(let value):
+            return value
+        case .integer(let value):
+            return String(value)
+        case .double(let value):
+            return String(value)
+        default:
+            return String(describing: self)
+        }
+    }
+    
+    func fromString(_ string: String) -> ValueType? {
+        switch self {
+        case .string:
+            return .string(value: string)
+        case .integer:
+            guard let int = Int(string) else {
+                assertionFailure("no an int")
+                
+                return nil
+            }
+            
+            return .integer(value: int)
+        case .double:
+            guard let double = Double(string) else {
+                assertionFailure("no an double")
+                
+                return nil
+            }
+            
+            return .double(value: double)
+        default:
+            assertionFailure("unsupported type from string to current case \(self)")
+            
+            return nil
+        }
+    }
     
     var string: String? {
         switch self {
@@ -97,9 +142,18 @@ enum ValueType {
         }
     }
     
-    var number: NSNumber? {
+    var integer: Int? {
         switch self {
-        case .number(let value):
+        case .integer(let value):
+            return value
+        default:
+            return nil
+        }
+    }
+    
+    var double: Double? {
+        switch self {
+        case .double(let value):
             return value
         default:
             return nil
@@ -194,6 +248,10 @@ struct DescriptorSliderAverageSurvey: DescriptorSurvey {
             userTitle: "",
             userDescription: "",
             additionalInfo: [
+                "Left Title": .string(value: ""),
+                "Left Color": .string(value: ""),
+                "Right Title": .string(value: ""),
+                "Right Color": .string(value: ""),
                 "Allows Duplicate Votes": .boolean(value: false)
             ]
         )
@@ -215,6 +273,8 @@ struct DescriptorSliderHistogramSurvey: DescriptorSurvey {
             userTitle: "",
             userDescription: "",
             additionalInfo: [
+                "Min": .integer(value: 0),
+                "Max": .integer(value: 10),
                 "Allows Duplicate Votes": .boolean(value: false)
             ]
         )

@@ -26,4 +26,8 @@ extension UITableView {
         
         self.register(nib, forCellReuseIdentifier: identifier)
     }
+    
+    func dequeue<T: RegisterableCell>(_ type: T.Type, at indexPath: IndexPath) -> T {
+        return self.dequeueReusableCell(withIdentifier: type.identifier, for: indexPath) as! T
+    }
 }
