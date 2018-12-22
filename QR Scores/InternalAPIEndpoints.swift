@@ -8,45 +8,7 @@
 
 import Foundation
 import Moya
-
-//struct InternalAPIEndpointRequest: TargetType {
-//
-//    var baseURL: URL {
-//        return URL(string: "http://qr-scores.herokuapp.com/")!
-//    }
-//
-//    var path: String
-//
-//    var method: Moya.Method
-//
-//    var sampleData: Data
-//
-//    var task: Task
-//
-//    var headers: [String : String]?
-//
-//    // MARK: - Endpoints
-//
-//    static func signUp(user: UserRegister) -> InternalAPIEndpointRequest {
-//        return InternalAPIEndpointRequest(
-//            path: <#T##String#>,
-//            method: <#T##Method#>,
-//            sampleData: <#T##Data#>,
-//            task: <#T##Task#>,
-//            headers: <#T##[String : String]?#>
-//        )
-//    }
-//
-//    static func createSurvey<T: CreateSurveyProtocol>(survey: T) -> InternalAPIEndpointRequest {
-//        return InternalAPIEndpointRequest(
-//            path: <#T##String#>,
-//            method: <#T##Method#>,
-//            sampleData: <#T##Data#>,
-//            task: <#T##Task#>,
-//            headers: <#T##[String : String]?#>
-//        )
-//    }
-//}
+import Result
 
 enum InternalAPIEndpoints {
     case signUp(user: UserRegister)
@@ -129,13 +91,46 @@ enum APIError: Error {
     
     case somethingWentWrong(message: String)
     
-    // login and registering
     case failedToDecode
     case duplicateAccount
     case invalidCredentials
     case unathorizedOrNeedsRelogin
     
     var localizedDescription: String {
-        return String(describing: self)
+        switch self {
+        case .somethingWentWrong(let message):
+            return message
+        default:
+            return String(describing: self)
+        }
+    }
+}
+
+func jsonResponse<T: Decodable>(
+    expectedSuccessCode statusCode: Int = 200,
+    next: @escaping (Result<T, APIError>) -> Void) -> Completion {
+    
+    return { (result) in
+        switch result {
+        case .success(let response):
+            switch response.statusCode {
+            case statusCode:
+                guard let payload = try? JSONDecoder().decode(T.self, from: response.data) else {
+                    return next(.failure(APIError.failedToDecode))
+                }
+                
+                next(.success(payload))
+            case 400:
+                next(.failure(APIError.somethingWentWrong(message: "Bad Request")))
+            case 401:
+                next(.failure(APIError.unathorizedOrNeedsRelogin))
+            case 409:
+                next(.failure(APIError.duplicateAccount))
+            default:
+                next(.failure(APIError.somethingWentWrong(message: "")))
+            }
+        case .failure(let error):
+            next(.failure(APIError.somethingWentWrong(message: error.localizedDescription)))
+        }
     }
 }

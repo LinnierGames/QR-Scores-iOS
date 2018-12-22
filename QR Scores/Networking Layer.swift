@@ -16,113 +16,44 @@ struct InternalAPI {
     
     func signUp(_ registerUser: UserRegister, completion: @escaping (Result<User, APIError>) -> Void) {
         
-        provider.request(InternalAPIEndpoints.signUp(user: registerUser)) { (result) in
-            switch result {
-            case .success(let response):
-                switch response.statusCode {
-                case 200:
-                    guard let user = try? JSONDecoder().decode(User.self, from: response.data) else {
-                        assertionFailure("failed to convert user")
-                        
-                        return completion(.failure(APIError.failedToDecode))
-                    }
-                    
-                    completion(.success(user))
-                case 400:
-                    completion(.failure(APIError.somethingWentWrong(message: "Please enter the required info")))
-                case 409:
-                    completion(.failure(APIError.duplicateAccount))
-                default:
-                    assertionFailure("unhandled status code")
-                    
-                    completion(.failure(APIError.somethingWentWrong(message: "")))
-                }
-            case .failure(let error):
-                assertionFailure(error.localizedDescription)
-                
-                completion(.failure(APIError.somethingWentWrong(message: error.localizedDescription)))
-            }
-        }
+        provider.request(
+            .signUp(user: registerUser),
+            completion: jsonResponse(next: completion)
+        )
     }
     
     func login(_ loginUser: UserLogin, completion: @escaping (Result<User, APIError>) -> Void) {
         
-        provider.request(InternalAPIEndpoints.login(user: loginUser)) { (result) in
-            switch result {
-            case .success(let response):
-                switch response.statusCode {
-                case 200:
-                    guard let user = try? JSONDecoder().decode(User.self, from: response.data) else {
-                        assertionFailure("failed to convert user")
-                        
-                        return completion(.failure(APIError.failedToDecode))
-                    }
-                    
-                    completion(.success(user))
-                case 401:
-                    completion(.failure(APIError.invalidCredentials))
-                default:
-                    completion(.failure(APIError.somethingWentWrong(message: "")))
-                }
-            case .failure(let error):
-                assertionFailure(error.localizedDescription)
-                
-                completion(.failure(APIError.somethingWentWrong(message: error.localizedDescription)))
-            }
-        }
+        provider.request(
+            .login(user: loginUser),
+            completion: jsonResponse(next: completion)
+        )
     }
     
     func fetchUserSurveys(completion: @escaping (Result<[Survey], APIError>) -> Void) {
         
-        provider.request(InternalAPIEndpoints.surveys) { (result) in
-            switch result {
-            case .success(let response):
-                switch response.statusCode {
-                case 200:
-                    guard let jsonData = try? JSON(data: response.data).arrayValue else {
-                        assertionFailure("response did not contain array of data")
-                        
-                        return completion(.failure(APIError.somethingWentWrong(message: "")))
-                    }
-                    
+        provider.request(
+            .surveys,
+            completion: jsonResponse(next: { (result: Result<[JSON], APIError>) in
+                switch result {
+                case .success(let jsonData):
                     let surveysData = jsonData.compactMap({ try? $0.rawData() })
                     
                     let surveys = surveysData.compactMap({ try? SurveyDecoder.decode(from: $0) })
                     
                     completion(.success(surveys))
-                default:
-                    completion(.failure(APIError.somethingWentWrong(message: "")))
+                case .failure(let err):
+                    completion(.failure(err))
                 }
-            case .failure(let error):
-                assertionFailure(error.localizedDescription)
-                
-                completion(.failure(APIError.somethingWentWrong(message: error.localizedDescription)))
-            }
-        }
+            })
+        )
     }
     
     func createSurvey<T: CreateSurveyProtocol>(_ survey: T, completion: @escaping (Result<Survey, APIError>) -> Void) {
         
-        provider.request(InternalAPIEndpoints.createSurvey(survey: survey)) { (result) in
-            switch result {
-            case .success(let response):
-                switch response.statusCode {
-                case 201:
-                    guard let survey = try? SurveyDecoder.decode(from: response.data) else {
-                        assertionFailure("failed to convert survey")
-                        
-                        return completion(.failure(APIError.failedToDecode))
-                    }
-                    
-                    completion(.success(survey))
-                default:
-                    completion(.failure(APIError.somethingWentWrong(message: "")))
-                }
-            case .failure(let error):
-                assertionFailure(error.localizedDescription)
-                
-                completion(.failure(APIError.somethingWentWrong(message: error.localizedDescription)))
-            }
-        }
+        provider.request(
+            .createSurvey(survey: survey),
+            completion: jsonResponse(expectedSuccessCode: 201, next: completion)
+        )
     }
 }

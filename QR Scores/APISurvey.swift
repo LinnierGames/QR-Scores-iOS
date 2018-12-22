@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol CreateSurveyProtocol {
     associatedtype Metadata: SurveyMetadata
@@ -215,6 +216,23 @@ struct SurveyDecoder {
             let survey = try JSONDecoder().decode(SliderHistogramSurvey.self, from: data)
             
             return survey
+        }
+    }
+    
+    //TODO: middleware
+    static var moya: (Data) -> [Survey] {
+        return { data in
+            guard let jsonData = try? JSON(data: data).arrayValue else {
+                assertionFailure("response did not contain array of data")
+                
+                return []
+            }
+            
+            let surveysData = jsonData.compactMap({ try? $0.rawData() })
+            
+            let surveys = surveysData.compactMap({ try? SurveyDecoder.decode(from: $0) })
+            
+            return surveys
         }
     }
 }
