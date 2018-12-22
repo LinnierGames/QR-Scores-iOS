@@ -28,15 +28,9 @@ class SurveyDescriptionViewController: UIViewController {
     @objc func pressFinish(_ barButton: UIBarButtonItem) {
         
         //TODO: validate input
-        if let description = textViewDescription.text {
-            manager.updateUserDescription(with: description)
-            
-            let reviewSurveyVc = ReviewSurveyViewController()
-            reviewSurveyVc.manager = self.manager
-            
-            navigationItem.setHidesBackButton(true, animated: true)
-            navigationController?.pushViewController(reviewSurveyVc, animated: true)
-        }
+        let reviewSurveyVc = ReviewSurveyViewController()
+        reviewSurveyVc.manager = self.manager
+        navigationController?.pushViewController(reviewSurveyVc, animated: true)
     }
     
     // MARK: - LIFE CYCLE
@@ -53,6 +47,15 @@ class SurveyDescriptionViewController: UIViewController {
         navigationItem.setRightBarButton(finishButton, animated: false)
         
         updateUI()
+        
+        textViewDescription.becomeFirstResponder()
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let description = textViewDescription.text {
+            manager.updateUserDescription(with: description)
+        }
+    }
 }

@@ -23,18 +23,21 @@ class ReviewSurveyViewController: UIViewController {
     
     private func updateUI() {
         
+        //TODO: display the survey details
     }
     
     // MARK: - IBACTIONS
     
     @objc func pressSubmit(_ barButton: UIBarButtonItem) {
-        manager.submitSurvey { [unowned self] (successful) in
+        manager.submitSurvey { [weak self] (successful) in
+            guard let unwrappedSelf = self else { return }
+            
             if successful {
-                self.presentingViewController?.dismiss(animated: true)
+                unwrappedSelf.presentingViewController?.dismiss(animated: true)
             } else {
                 UIAlertController(title: "Uploading a Survey", message: "Something went wrong", preferredStyle: .alert)
                     .addDismissButton()
-                    .present(in: self)
+                    .present(in: unwrappedSelf)
             }
         }
     }

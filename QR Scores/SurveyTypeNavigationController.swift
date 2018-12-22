@@ -11,9 +11,7 @@ import UIKit
 class SurveyTypeNavigationController: UINavigationController {
     
     // MARK: - VARS
-    
-    let manager = CreateSurveyManager.init(surveyType: .scanToVote)
-    
+        
     // MARK: - RETURN VALUES
     
     static func instantiate() -> SurveyTypeNavigationController {

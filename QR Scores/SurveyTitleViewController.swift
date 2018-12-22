@@ -28,14 +28,10 @@ class SurveyTitleViewController: UIViewController {
     @objc func pressNext(_ sender: UIBarButtonItem) {
         
         //TODO: validate input
-        if let title = textFieldTitle.text {
-            manager.updateUserTitle(with: title)
-            
-            let surveyDescriptionVc = SurveyDescriptionViewController()
-            surveyDescriptionVc.manager = self.manager
-            
-            navigationController?.pushViewController(surveyDescriptionVc, animated: true)
-        }
+        let surveyDescriptionVc = SurveyDescriptionViewController()
+        surveyDescriptionVc.manager = self.manager
+        
+        navigationController?.pushViewController(surveyDescriptionVc, animated: true)
     }
     
     // MARK: - LIFE CYCLE
@@ -52,6 +48,15 @@ class SurveyTitleViewController: UIViewController {
         navigationItem.setRightBarButton(nextButton, animated: false)
         
         updateUI()
+        
+        textFieldTitle.becomeFirstResponder()
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let title = textFieldTitle.text {
+            manager.updateUserTitle(with: title)
+        }
+    }
 }
