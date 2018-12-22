@@ -39,6 +39,7 @@
 		E9531A132198DD8500980985 /* SurveyDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */; };
 		E9531A152198E17B00980985 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A142198E17B00980985 /* CGSizeExtensions.swift */; };
 		E9531A172198E34100980985 /* Survey+UIActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A162198E34100980985 /* Survey+UIActivityViewController.swift */; };
+		E98036D521C8E9E5002344C7 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98036D421C8E9E5002344C7 /* InfoPlist.swift */; };
 		E9A91C2421B9D693007BBF6F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A91C2321B9D693007BBF6F /* StringExtensions.swift */; };
 		E9A91C2621B9FA39007BBF6F /* SurveyDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A91C2521B9FA39007BBF6F /* SurveyDescriptor.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		5E07D2E8A37101D2B5F90ABA /* Pods_QR_ScoresTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QR_ScoresTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A219052E1D7512672A2E2552 /* Pods-QR ScoresTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB359BE6BB2E1F6A7F27E46A /* Pods_QR_Scores.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QR_Scores.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC6DCC3E46FB1D993C99C172 /* Pods-QR ScoresTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.development.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.development.xcconfig"; sourceTree = "<group>"; };
 		E934F2D021B7159400553138 /* CreateSurveyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSurveyManager.swift; sourceTree = "<group>"; };
 		E934F2D321B7162300553138 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E934F2D521B7163400553138 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
@@ -93,8 +95,13 @@
 		E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyDetailedViewController.xib; sourceTree = "<group>"; };
 		E9531A142198E17B00980985 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		E9531A162198E34100980985 /* Survey+UIActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Survey+UIActivityViewController.swift"; sourceTree = "<group>"; };
+		E98036D421C8E9E5002344C7 /* InfoPlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
+		E98036D921C8EA6A002344C7 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		E98036DA21C8EABD002344C7 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		E98036DB21C8EB5D002344C7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		E9A91C2321B9D693007BBF6F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		E9A91C2521B9FA39007BBF6F /* SurveyDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDescriptor.swift; sourceTree = "<group>"; };
+		F2BCC4CF97A941A3F6FB3B01 /* Pods-QR ScoresTests.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.production.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.production.xcconfig"; sourceTree = "<group>"; };
 		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +132,8 @@
 				2BD87F8CE47E56A103E5AD26 /* Pods-QR Scores.release.xcconfig */,
 				A219052E1D7512672A2E2552 /* Pods-QR ScoresTests.debug.xcconfig */,
 				F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */,
+				BC6DCC3E46FB1D993C99C172 /* Pods-QR ScoresTests.development.xcconfig */,
+				F2BCC4CF97A941A3F6FB3B01 /* Pods-QR ScoresTests.production.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -194,6 +203,7 @@
 				E9531A0C2198BB6900980985 /* QRGenerator.swift */,
 				E9531A0E2198C73300980985 /* PDFGenerator.swift */,
 				E9531A052197FF7700980985 /* ReactiveBox.swift */,
+				E98036D421C8E9E5002344C7 /* InfoPlist.swift */,
 			);
 			name = Stacks;
 			sourceTree = "<group>";
@@ -281,6 +291,9 @@
 				E95319CF21978EA500980985 /* Assets.xcassets */,
 				E95319D121978EA500980985 /* LaunchScreen.storyboard */,
 				E95319D421978EA500980985 /* Info.plist */,
+				E98036D921C8EA6A002344C7 /* Development.xcconfig */,
+				E98036DA21C8EABD002344C7 /* Production.xcconfig */,
+				E98036DB21C8EB5D002344C7 /* Release.xcconfig */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -489,6 +502,7 @@
 				E9A91C2621B9FA39007BBF6F /* SurveyDescriptor.swift in Sources */,
 				E95319FF2197EBFF00980985 /* SurveysViewController.swift in Sources */,
 				E9531A022197EC1B00980985 /* SurveysViewModel.swift in Sources */,
+				E98036D521C8E9E5002344C7 /* InfoPlist.swift in Sources */,
 				E95319F42197A84600980985 /* APIUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,7 +537,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E95319E021978EA600980985 /* Debug */ = {
+		E95319E021978EA600980985 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -582,7 +596,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = Development;
 		};
 		E95319E121978EA600980985 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -639,31 +653,37 @@
 			};
 			name = Release;
 		};
-		E95319E321978EA600980985 /* Debug */ = {
+		E95319E321978EA600980985 /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F02C00A9428489950812F4F /* Pods-QR Scores.debug.xcconfig */;
+			baseConfigurationReference = E98036D921C8EA6A002344C7 /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8U3L6K9JA6;
 				INFOPLIST_FILE = "QR Scores/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.linniergames.qr-scores";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = Development;
 		};
 		E95319E421978EA600980985 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BD87F8CE47E56A103E5AD26 /* Pods-QR Scores.release.xcconfig */;
+			baseConfigurationReference = E98036DB21C8EB5D002344C7 /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8U3L6K9JA6;
 				INFOPLIST_FILE = "QR Scores/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.linniergames.qr-scores";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -671,23 +691,27 @@
 			};
 			name = Release;
 		};
-		E95319E621978EA600980985 /* Debug */ = {
+		E95319E621978EA600980985 /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A219052E1D7512672A2E2552 /* Pods-QR ScoresTests.debug.xcconfig */;
+			baseConfigurationReference = BC6DCC3E46FB1D993C99C172 /* Pods-QR ScoresTests.development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8U3L6K9JA6;
 				INFOPLIST_FILE = "QR ScoresTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.linniergames.QR-ScoresTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QR Scores.app/QR Scores";
 			};
-			name = Debug;
+			name = Development;
 		};
 		E95319E721978EA600980985 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -698,7 +722,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8U3L6K9JA6;
 				INFOPLIST_FILE = "QR ScoresTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.linniergames.QR-ScoresTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -707,13 +735,116 @@
 			};
 			name = Release;
 		};
+		E98036D621C8EA43002344C7 /* Production */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Production;
+		};
+		E98036D721C8EA43002344C7 /* Production */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E98036DA21C8EABD002344C7 /* Production.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8U3L6K9JA6;
+				INFOPLIST_FILE = "QR Scores/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.linniergames.qr-scores";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Production;
+		};
+		E98036D821C8EA43002344C7 /* Production */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2BCC4CF97A941A3F6FB3B01 /* Pods-QR ScoresTests.production.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8U3L6K9JA6;
+				INFOPLIST_FILE = "QR ScoresTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.linniergames.QR-ScoresTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QR Scores.app/QR Scores";
+			};
+			name = Production;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		E95319C021978EA200980985 /* Build configuration list for PBXProject "QR Scores" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E95319E021978EA600980985 /* Debug */,
+				E95319E021978EA600980985 /* Development */,
+				E98036D621C8EA43002344C7 /* Production */,
 				E95319E121978EA600980985 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -722,7 +853,8 @@
 		E95319E221978EA600980985 /* Build configuration list for PBXNativeTarget "QR Scores" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E95319E321978EA600980985 /* Debug */,
+				E95319E321978EA600980985 /* Development */,
+				E98036D721C8EA43002344C7 /* Production */,
 				E95319E421978EA600980985 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -731,7 +863,8 @@
 		E95319E521978EA600980985 /* Build configuration list for PBXNativeTarget "QR ScoresTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E95319E621978EA600980985 /* Debug */,
+				E95319E621978EA600980985 /* Development */,
+				E98036D821C8EA43002344C7 /* Production */,
 				E95319E721978EA600980985 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

@@ -65,8 +65,7 @@ enum InternalAPIEndpoints {
 
 extension InternalAPIEndpoints: TargetType {
     var baseURL: URL {
-                return URL(string: "http://localhost:3000/")!
-//        return URL(string: "http://qr-scores.herokuapp.com/")!
+        return URL(string: InfoPlist.baseUrlString)!
     }
     
     var path: String {
@@ -135,4 +134,8 @@ enum APIError: Error {
     case duplicateAccount
     case invalidCredentials
     case unathorizedOrNeedsRelogin
+    
+    var localizedDescription: String {
+        return String(describing: self)
+    }
 }
