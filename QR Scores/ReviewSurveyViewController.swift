@@ -22,11 +22,26 @@ class ReviewSurveyViewController: UIViewController {
     // MARK: - METHODS
     
     private func updateUI() {
+        let surey = manager.survey
         
-        //TODO: display the survey details
+        labelSurveyTypeTitle.text = surey.type.title
+        labelSurveyTypeDescription.text = surey.type.description
+        
+        labelSurveyUserTitle.text = surey.userTitle
+        labelSurveyUserDescription.text = surey.userDescription
+        labelAllowDuplicateVotesValue.text = surey.additionalInfo["Allows Duplicate Votes"]!.boolean! ? "Yes" : "No"
     }
     
     // MARK: - IBACTIONS
+    
+    //TODO: use a table view to populate survey values
+    @IBOutlet weak var labelSurveyTypeTitle: UILabel!
+    @IBOutlet weak var labelSurveyTypeDescription: UILabel!
+    @IBOutlet weak var labelSurveyUserTitle: UILabel!
+    @IBOutlet weak var labelSurveyUserDescription: UILabel!
+    
+    @IBOutlet weak var labelAllowDuplicateVotes: UILabel!
+    @IBOutlet weak var labelAllowDuplicateVotesValue: UILabel!
     
     @objc func pressSubmit(_ barButton: UIBarButtonItem) {
         manager.submitSurvey { [weak self] (successful) in

@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum SurveyType: Int, Codable {
+enum SurveyType: Int, Codable, CaseIterable {
     
     //TODO: other survey types
-    static var allCases: [SurveyType] {
-        return [.scanToVote, .sliderAverage, .sliderHistogram]
-    }
+//    static var allCases: [SurveyType] {
+//        return [.scanToVote]
+//    }
     
     case scanToVote
     case likeDislike
@@ -220,7 +220,7 @@ struct DescriptorScanToVoteSurvey: DescriptorSurvey {
 
 struct DescriptorLikeDislikeSurvey: DescriptorSurvey {
     
-    let type: SurveyType = .scanToVote
+    let type: SurveyType = .likeDislike
     
     static func createBlankSurvey() -> DescriptorLikeDislikeSurvey {
         let survey = self.init(
@@ -241,7 +241,7 @@ struct DescriptorLikeDislikeSurvey: DescriptorSurvey {
 
 struct DescriptorSliderAverageSurvey: DescriptorSurvey {
     
-    let type: SurveyType = .scanToVote
+    let type: SurveyType = .sliderAverage
     
     static func createBlankSurvey() -> DescriptorSliderAverageSurvey {
         let survey = self.init(
@@ -266,7 +266,7 @@ struct DescriptorSliderAverageSurvey: DescriptorSurvey {
 
 struct DescriptorSliderHistogramSurvey: DescriptorSurvey {
     
-    let type: SurveyType = .scanToVote
+    let type: SurveyType = .sliderHistogram
     
     static func createBlankSurvey() -> DescriptorSliderHistogramSurvey {
         let survey = self.init(

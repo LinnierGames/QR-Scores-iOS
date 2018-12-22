@@ -20,6 +20,14 @@ class CreateSurveyManager {
     
     var survey: DescriptorSurvey
     
+    var validateUserTitle: Bool {
+        guard survey.userTitle.isNotEmpty else {
+            return false
+        }
+        
+        return true
+    }
+    
     init(surveyType: SurveyType) {
         survey = surveyType.associatedSurveyType.createBlankSurvey()
     }

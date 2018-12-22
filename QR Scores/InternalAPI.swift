@@ -39,7 +39,15 @@ struct InternalAPI {
                 case .success(let jsonData):
                     let surveysData = jsonData.compactMap({ try? $0.rawData() })
                     
-                    let surveys = surveysData.compactMap({ try? SurveyDecoder.decode(from: $0) })
+                    let surveys = surveysData.compactMap({ data -> Survey? in
+                        guard let survey = try? SurveyDecoder.decode(from: data) else {
+                            assertionFailure("failed to decode")
+                            
+                            return nil
+                        }
+                        
+                        return survey
+                    })
                     
                     completion(.success(surveys))
                 case .failure(let err):

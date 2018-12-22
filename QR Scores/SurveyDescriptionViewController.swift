@@ -19,7 +19,16 @@ class SurveyDescriptionViewController: UIViewController {
     // MARK: - METHODS
     
     private func updateUI() {
-        textViewDescription.text = manager.survey.userDescription
+        if manager.survey.userDescription == "No description" {
+            textViewDescription.text = ""
+        } else {
+            textViewDescription.text = manager.survey.userDescription
+        }
+    }
+    
+    private func updateInput() {
+        let description = textViewDescription.text.ifEmptyOrNil(use: "No description")
+        manager.updateUserDescription(with: description)
     }
     
     // MARK: - IBACTIONS
@@ -27,7 +36,8 @@ class SurveyDescriptionViewController: UIViewController {
     @IBOutlet weak var textViewDescription: UITextView!
     @objc func pressFinish(_ barButton: UIBarButtonItem) {
         
-        //TODO: validate input
+        updateInput()
+        
         let reviewSurveyVc = ReviewSurveyViewController()
         reviewSurveyVc.manager = self.manager
         navigationController?.pushViewController(reviewSurveyVc, animated: true)
@@ -54,8 +64,6 @@ class SurveyDescriptionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if let description = textViewDescription.text {
-            manager.updateUserDescription(with: description)
-        }
+        updateInput()
     }
 }

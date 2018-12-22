@@ -22,16 +22,29 @@ class SurveyTitleViewController: UIViewController {
         textFieldTitle.text = manager.survey.userTitle
     }
     
+    private func updateInput() {
+        if let title = textFieldTitle.text {
+            manager.updateUserTitle(with: title)
+        }
+    }
+    
     // MARK: - IBACTIONS
     
     @IBOutlet weak var textFieldTitle: UITextField!
     @objc func pressNext(_ sender: UIBarButtonItem) {
         
-        //TODO: validate input
-        let surveyDescriptionVc = SurveyDescriptionViewController()
-        surveyDescriptionVc.manager = self.manager
+        updateInput()
         
-        navigationController?.pushViewController(surveyDescriptionVc, animated: true)
+        if manager.validateUserTitle {
+            let surveyDescriptionVc = SurveyDescriptionViewController()
+            surveyDescriptionVc.manager = self.manager
+            
+            navigationController?.pushViewController(surveyDescriptionVc, animated: true)
+        } else {
+            UIAlertController(title: "Survey Title", message: "survey title cannot be blank", preferredStyle: .alert)
+                .addDismissButton()
+                .present(in: self)
+        }
     }
     
     // MARK: - LIFE CYCLE
@@ -55,8 +68,6 @@ class SurveyTitleViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if let title = textFieldTitle.text {
-            manager.updateUserTitle(with: title)
-        }
+        updateInput()
     }
 }

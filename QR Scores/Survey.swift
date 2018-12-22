@@ -242,7 +242,7 @@ class SliderHistogramSurvey: Survey, SurveyProtocol {
     var participants: Participants
     struct Participants: SurveyParticipants, Codable {
         let count: Int
-        let histogram: [Int: Int]
+        let histogram: [Int: Int]?
     }
     
     var min: Int {
