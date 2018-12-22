@@ -68,7 +68,7 @@ protocol DescriptorSurvey {
     //create a blank survey
     static func createBlankSurvey() -> Self
     
-    var additionalInfo: [String: ValueType] { get }
+    var additionalInfo: [String: ValueType] { get set }
     
     //TODO: validations-computed var that validates the additional info
 //    func isSurveyValid: Bool { get }

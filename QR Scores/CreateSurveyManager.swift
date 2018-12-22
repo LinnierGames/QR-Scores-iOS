@@ -13,6 +13,8 @@ import UIKit.UIViewController
 
 class CreateSurveyManager {
     
+    // MARK: - VARS
+    
     let availableTypes = SurveyType.allCases
     
     var survey: DescriptorSurvey
@@ -20,6 +22,26 @@ class CreateSurveyManager {
     init(surveyType: SurveyType) {
         survey = surveyType.associatedSurveyType.createBlankSurvey()
     }
+    
+    // MARK: - RETURN VALUES
+    
+    // MARK: - METHODS
+    
+    func updateAdditional(infoKey: String, to newValue: ValueType) {
+        survey.additionalInfo[infoKey] = newValue
+    }
+    
+    func updateUserTitle(with newTitle: String) {
+        survey.userTitle = newTitle
+    }
+    
+    func updateUserDescription(with newDescription: String) {
+        survey.userDescription = newDescription
+    }
+    
+    // MARK: - IBACTIONS
+    
+    // MARK: - LIFE CYCLE
     
     func pickSurvey() {
         for aSurvey in availableTypes {
