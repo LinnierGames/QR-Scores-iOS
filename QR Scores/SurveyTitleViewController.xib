@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyTitleViewController" customModule="QR_Scores" customModuleProvider="target">
+            <connections>
+                <outlet property="textFieldTitle" destination="VI5-oQ-YV4" id="EqW-dz-WNG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8u0-Na-fbg">
+                    <rect key="frame" x="15" y="174" width="345" height="112.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" text="What is the title of this survey?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWC-87-tWE">
+                            <rect key="frame" x="55" y="0.0" width="235" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VI5-oQ-YV4">
+                            <rect key="frame" x="0.0" y="36.5" width="345" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vak-Xg-PYm">
+                            <rect key="frame" x="156.5" y="82.5" width="32" height="30"/>
+                            <state key="normal" title="Next"/>
+                            <connections>
+                                <action selector="pressNext:" destination="-1" eventType="touchUpInside" id="W3P-2z-oHC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="VI5-oQ-YV4" firstAttribute="width" secondItem="8u0-Na-fbg" secondAttribute="width" id="qqV-px-3qb"/>
+                    </constraints>
+                </stackView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LX9-ML-stV">
+                    <rect key="frame" x="367" y="64" width="8" height="222.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="8" id="pZh-Y3-ZUx"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8u0-Na-fbg" firstAttribute="bottom" secondItem="LX9-ML-stV" secondAttribute="bottom" priority="999" id="7oB-pv-ArQ"/>
+                <constraint firstItem="8u0-Na-fbg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="Cx3-q0-UJi"/>
+                <constraint firstItem="LX9-ML-stV" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1:3" id="NqA-p9-vGC"/>
+                <constraint firstItem="LX9-ML-stV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RLs-NR-jtv"/>
+                <constraint firstItem="LX9-ML-stV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="SjK-w5-Uak"/>
+                <constraint firstItem="8u0-Na-fbg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="W76-6G-4f8"/>
+                <constraint firstItem="8u0-Na-fbg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="acm-zr-991"/>
+                <constraint firstAttribute="trailing" secondItem="8u0-Na-fbg" secondAttribute="trailing" constant="15" id="npJ-91-q9e"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>
