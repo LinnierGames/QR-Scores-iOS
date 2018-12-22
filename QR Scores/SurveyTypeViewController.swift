@@ -8,15 +8,9 @@
 
 import UIKit
 
-protocol SurveyTypeViewControllerDelegate: class {
-    func surveyType(_ surveyType: SurveyTypeViewController, didPressCancel button: UIBarButtonItem)
-}
-
 class SurveyTypeViewController: UIViewController {
     
     // MARK: - VARS
-    
-    weak var vcDelegate: SurveyTypeViewControllerDelegate?
     
     // MARK: - RETURN VALUES
     
@@ -25,7 +19,7 @@ class SurveyTypeViewController: UIViewController {
     // MARK: - IBACTIONS
     
     @objc func pressCancel(_ barButton: UIBarButtonItem) {
-        vcDelegate?.surveyType(self, didPressCancel: barButton)
+        self.presentingViewController?.dismiss(animated: true)
     }
     
     // MARK: - LIFE CYCLE
@@ -42,5 +36,4 @@ class SurveyTypeViewController: UIViewController {
         )
         navigationItem.setLeftBarButton(cancelButton, animated: false)
     }
-
 }

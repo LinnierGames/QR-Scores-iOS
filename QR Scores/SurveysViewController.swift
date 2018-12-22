@@ -14,8 +14,6 @@ class SurveysViewController: UIViewController, Interfacable {
     
     let viewModel = SurveysViewModel()
     
-    lazy var createSurveyCoordinator: CreateSurveyCoordinator = CreateSurveyCoordinator(presenter: self)
-    
     // MARK: - RETURN VALUES
     
     // MARK: - METHODS
@@ -24,7 +22,8 @@ class SurveysViewController: UIViewController, Interfacable {
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func pressAddSurvey(_ sender: Any) {
-        createSurveyCoordinator.start()
+        let createSurveyVc = SurveyTypeNavigationController.instantiate()
+        present(createSurveyVc, animated: true)
     }
     
     @IBAction func refreshSurveyData(_ sender: Any) {
