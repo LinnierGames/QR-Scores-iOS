@@ -14,6 +14,8 @@ class SurveysViewController: UIViewController, Interfacable {
     
     let viewModel = SurveysViewModel()
     
+    lazy var createSurveyCoordinator: CreateSurveyCoordinator = CreateSurveyCoordinator(presenter: self)
+    
     // MARK: - RETURN VALUES
     
     // MARK: - METHODS
@@ -22,32 +24,7 @@ class SurveysViewController: UIViewController, Interfacable {
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func pressAddSurvey(_ sender: Any) {
-        let surveyAlert = UIAlertController(title: "New Survey", message: "enter the details of your new survey", preferredStyle: .alert)
-        
-        surveyAlert.addTextField { (textField) in
-            textField.placeholder = "Title"
-            textField.autocorrectionType = .default
-            textField.autocapitalizationType = .words
-        }
-        surveyAlert.addTextField { (textField) in
-            textField.placeholder = "Subtitle"
-            textField.autocorrectionType = .default
-            textField.autocapitalizationType = .sentences
-        }
-        
-        surveyAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak self] _ in
-            guard
-                let title = surveyAlert.textFields?[0].text,
-                let subtitle = surveyAlert.textFields?[1].text else {
-                    return
-            }
-            
-            self?.viewModel.createSurvey(title: title, subtitle: subtitle)
-        }))
-        
-        surveyAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        self.present(surveyAlert, animated: true)
+        createSurveyCoordinator.start()
     }
     
     @IBAction func refreshSurveyData(_ sender: Any) {
