@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Result
 
 //TODO: remove after mocking
 import UIKit.UIViewController
@@ -72,10 +73,21 @@ class CreateSurveyManager {
         }
     }
     
-    func uploadToDB() {
+    func submitSurvey(completion: @escaping (Bool) -> Void) {
         
         let title = survey.userTitle
         let description = survey.userDescription
+        
+        let handler: (Result<Survey, APIError>) -> Void = { (result) in
+            switch result {
+            case .success:
+                completion(true)
+            case .failure(let err):
+                assertionFailure(err.localizedDescription)
+                
+                completion(false)
+            }
+        }
         
         let stack = InternalAPI()
         switch survey.type {
@@ -90,15 +102,11 @@ class CreateSurveyManager {
                 description: description,
                 options: .init(allowsDuplicateVotes: allowsDuplicateVotes))
             
-            stack.createSurvey(survey) { (result) in
-                
-            }
+            stack.createSurvey(survey, completion: handler)
         case .likeDislike:
             let survey = CreateLikeOrDislikeSurvey(title: title, description: description, options: .init(allowsDuplicateVotes: false))
             
-            stack.createSurvey(survey) { (result) in
-                
-            }
+            stack.createSurvey(survey, completion: handler)
         case .sliderAverage:
             guard
                 let leftTitle = self.survey.additionalInfo["Left Title"]?.string,
@@ -118,9 +126,7 @@ class CreateSurveyManager {
                 rightColor: rightColor,
                 options: .init(allowsDuplicateVotes: allowsDuplicateVotes))
             
-            stack.createSurvey(survey) { (result) in
-                
-            }
+            stack.createSurvey(survey, completion: handler)
         case .sliderHistogram:
             guard
                 let min = self.survey.additionalInfo["Min"]?.number?.intValue,
@@ -136,21 +142,19 @@ class CreateSurveyManager {
                 max: max,
                 options: .init(allowsDuplicateVotes: allowsDuplicateVotes))
             
-            stack.createSurvey(survey) { (result) in
-                
-            }
+            stack.createSurvey(survey, completion: handler)
+        }
+    }
+    
+    //donwload from DB
+    func responseFromDB() -> Survey {
+        let dataFromResponse = Data()
+        
+        guard let survey = try? SurveyDecoder.decode(from: dataFromResponse, using: survey.type) else {
+            fatalError("failed to decode into survey type")
         }
         
-        //donwload from DB
-        func responseFromDB() -> Survey {
-            let dataFromResponse = Data()
-            
-            guard let survey = try? SurveyDecoder.decode(from: dataFromResponse, using: survey.type) else {
-                fatalError("failed to decode into survey type")
-            }
-            
-            return survey
-        }
+        return survey
     }
     
     func downloadFromDB() -> [Survey] {

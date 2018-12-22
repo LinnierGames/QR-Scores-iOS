@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyDescriptionViewController" customModule="QR_Scores" customModuleProvider="target">
+            <connections>
+                <outlet property="textViewDescription" destination="7od-ay-JHH" id="2k1-SH-Vly"/>
+                <outlet property="view" destination="5nL-In-tQS" id="OfM-ei-LWg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5nL-In-tQS">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Mkm-EL-yYS">
+                    <rect key="frame" x="15" y="98.5" width="345" height="132.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="What is survey about?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDF-BF-KCZ">
+                            <rect key="frame" x="88" y="0.0" width="169.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7od-ay-JHH">
+                            <rect key="frame" x="0.0" y="36.5" width="345" height="96"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="96" id="DRa-Ol-Ud3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="7od-ay-JHH" firstAttribute="width" secondItem="Mkm-EL-yYS" secondAttribute="width" id="oaQ-2e-tkG"/>
+                    </constraints>
+                </stackView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysj-9h-5Ei">
+                    <rect key="frame" x="367" y="64" width="8" height="167"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="8" id="F1g-1d-ZtE"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ysj-9h-5Ei" firstAttribute="trailing" secondItem="hka-Z2-XNH" secondAttribute="trailing" id="5SB-j4-yOZ"/>
+                <constraint firstItem="Mkm-EL-yYS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hka-Z2-XNH" secondAttribute="top" constant="8" id="A9C-N8-QOa"/>
+                <constraint firstItem="Mkm-EL-yYS" firstAttribute="centerX" secondItem="5nL-In-tQS" secondAttribute="centerX" id="QcO-S5-yvp"/>
+                <constraint firstItem="Mkm-EL-yYS" firstAttribute="leading" secondItem="hka-Z2-XNH" secondAttribute="leading" constant="15" id="WSQ-cP-miw"/>
+                <constraint firstItem="ysj-9h-5Ei" firstAttribute="height" secondItem="5nL-In-tQS" secondAttribute="height" multiplier="1:4" id="cJK-lB-v2e"/>
+                <constraint firstItem="Mkm-EL-yYS" firstAttribute="bottom" secondItem="ysj-9h-5Ei" secondAttribute="bottom" priority="999" id="tFU-jW-vOc"/>
+                <constraint firstAttribute="trailing" secondItem="Mkm-EL-yYS" secondAttribute="trailing" constant="15" id="tGc-AT-XEz"/>
+                <constraint firstItem="ysj-9h-5Ei" firstAttribute="top" secondItem="hka-Z2-XNH" secondAttribute="top" id="tt1-tw-QAE"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="hka-Z2-XNH"/>
+        </view>
+    </objects>
+</document>

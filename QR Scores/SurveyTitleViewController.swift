@@ -25,11 +25,16 @@ class SurveyTitleViewController: UIViewController {
     // MARK: - IBACTIONS
     
     @IBOutlet weak var textFieldTitle: UITextField!
-    @IBAction func pressNext(_ sender: Any) {
+    @objc func pressNext(_ sender: UIBarButtonItem) {
+        
+        //TODO: validate input
         if let title = textFieldTitle.text {
             manager.updateUserTitle(with: title)
             
+            let surveyDescriptionVc = SurveyDescriptionViewController()
+            surveyDescriptionVc.manager = self.manager
             
+            navigationController?.pushViewController(surveyDescriptionVc, animated: true)
         }
     }
     
@@ -37,6 +42,14 @@ class SurveyTitleViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let nextButton = UIBarButtonItem(
+            title: "Next",
+            style: .done,
+            target: self,
+            action: #selector(pressNext(_:))
+        )
+        navigationItem.setRightBarButton(nextButton, animated: false)
         
         updateUI()
     }

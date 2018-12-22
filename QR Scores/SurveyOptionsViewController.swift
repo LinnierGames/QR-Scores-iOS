@@ -59,13 +59,13 @@ class SurveyOptionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cancelButton = UIBarButtonItem(
+        let nextButton = UIBarButtonItem(
             title: "Next",
             style: .done,
             target: self,
             action: #selector(pressNext(_:))
         )
-        navigationItem.setRightBarButton(cancelButton, animated: false)
+        navigationItem.setRightBarButton(nextButton, animated: false)
         tableView.register(BooleanTableViewCell.self)
     }
 }

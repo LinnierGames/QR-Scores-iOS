@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8u0-Na-fbg">
-                    <rect key="frame" x="15" y="174" width="345" height="112.5"/>
+                    <rect key="frame" x="15" y="164.5" width="345" height="66.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" text="What is the title of this survey?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWC-87-tWE">
                             <rect key="frame" x="55" y="0.0" width="235" height="20.5"/>
@@ -35,20 +35,13 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vak-Xg-PYm">
-                            <rect key="frame" x="156.5" y="82.5" width="32" height="30"/>
-                            <state key="normal" title="Next"/>
-                            <connections>
-                                <action selector="pressNext:" destination="-1" eventType="touchUpInside" id="W3P-2z-oHC"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="VI5-oQ-YV4" firstAttribute="width" secondItem="8u0-Na-fbg" secondAttribute="width" id="qqV-px-3qb"/>
                     </constraints>
                 </stackView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LX9-ML-stV">
-                    <rect key="frame" x="367" y="64" width="8" height="222.5"/>
+                    <rect key="frame" x="367" y="64" width="8" height="167"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="8" id="pZh-Y3-ZUx"/>
                     </constraints>
@@ -58,7 +51,7 @@
             <constraints>
                 <constraint firstItem="8u0-Na-fbg" firstAttribute="bottom" secondItem="LX9-ML-stV" secondAttribute="bottom" priority="999" id="7oB-pv-ArQ"/>
                 <constraint firstItem="8u0-Na-fbg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="Cx3-q0-UJi"/>
-                <constraint firstItem="LX9-ML-stV" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1:3" id="NqA-p9-vGC"/>
+                <constraint firstItem="LX9-ML-stV" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1:4" id="NqA-p9-vGC"/>
                 <constraint firstItem="LX9-ML-stV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RLs-NR-jtv"/>
                 <constraint firstItem="LX9-ML-stV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="SjK-w5-Uak"/>
                 <constraint firstItem="8u0-Na-fbg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="W76-6G-4f8"/>
