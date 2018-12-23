@@ -68,6 +68,9 @@
 		E9F423A721CF0C6C00F1DB5D /* SurveyParticipationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F423A521CF0C6C00F1DB5D /* SurveyParticipationViewController.xib */; };
 		E9F423A921CF0EAA00F1DB5D /* DetailedSurveyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423A821CF0EAA00F1DB5D /* DetailedSurveyManager.swift */; };
 		E9F423AC21CF0F2400F1DB5D /* SurveyParticipantsForScanToVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423AB21CF0F2400F1DB5D /* SurveyParticipantsForScanToVoteViewController.swift */; };
+		E9F423AF21CF128E00F1DB5D /* SurveyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423AD21CF128E00F1DB5D /* SurveyInfoViewController.swift */; };
+		E9F423B021CF128E00F1DB5D /* SurveyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F423AE21CF128E00F1DB5D /* SurveyInfoViewController.xib */; };
+		E9F423B221CF135F00F1DB5D /* SurveyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423B121CF135F00F1DB5D /* SurveyTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +156,9 @@
 		E9F423A521CF0C6C00F1DB5D /* SurveyParticipationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyParticipationViewController.xib; sourceTree = "<group>"; };
 		E9F423A821CF0EAA00F1DB5D /* DetailedSurveyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedSurveyManager.swift; sourceTree = "<group>"; };
 		E9F423AB21CF0F2400F1DB5D /* SurveyParticipantsForScanToVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyParticipantsForScanToVoteViewController.swift; sourceTree = "<group>"; };
+		E9F423AD21CF128E00F1DB5D /* SurveyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyInfoViewController.swift; sourceTree = "<group>"; };
+		E9F423AE21CF128E00F1DB5D /* SurveyInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyInfoViewController.xib; sourceTree = "<group>"; };
+		E9F423B121CF135F00F1DB5D /* SurveyTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTabViewController.swift; sourceTree = "<group>"; };
 		F2BCC4CF97A941A3F6FB3B01 /* Pods-QR ScoresTests.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.production.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.production.xcconfig"; sourceTree = "<group>"; };
 		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,9 +231,12 @@
 			children = (
 				E9F423A821CF0EAA00F1DB5D /* DetailedSurveyManager.swift */,
 				E9F423A221CF07DA00F1DB5D /* SurveyDetailedTabBarViewController.swift */,
+				E9F423B121CF135F00F1DB5D /* SurveyTabViewController.swift */,
+				E9F423AD21CF128E00F1DB5D /* SurveyInfoViewController.swift */,
+				E9F423AE21CF128E00F1DB5D /* SurveyInfoViewController.xib */,
+				E9F423AA21CF0EDA00F1DB5D /* Participants */,
 				E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */,
 				E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */,
-				E9F423AA21CF0EDA00F1DB5D /* Participants */,
 			);
 			name = "Detailed Vc";
 			sourceTree = "<group>";
@@ -484,6 +493,7 @@
 				E991C95D21CDF94B008F3509 /* ReviewSurveyViewController.xib in Resources */,
 				E95319FC2197EB2500980985 /* LoginRegisterViewController.xib in Resources */,
 				E9F4239E21CF075A00F1DB5D /* SurveyTableViewCell.xib in Resources */,
+				E9F423B021CF128E00F1DB5D /* SurveyInfoViewController.xib in Resources */,
 				E991C94021CDD458008F3509 /* SurveyTypeViewController.xib in Resources */,
 				E9F423A021CF075A00F1DB5D /* SurveyTypeTableViewCell.xib in Resources */,
 				E9531A002197EBFF00980985 /* SurveysViewController.xib in Resources */,
@@ -582,6 +592,7 @@
 				E9531A042197FBC500980985 /* APISurvey.swift in Sources */,
 				E9F4239521CEFFA200F1DB5D /* UniversalExtensions+String.swift in Sources */,
 				E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */,
+				E9F423B221CF135F00F1DB5D /* SurveyTabViewController.swift in Sources */,
 				E9531A122198DD8500980985 /* SurveyDetailedViewController.swift in Sources */,
 				E991C93621CDD01E008F3509 /* Coordinator.swift in Sources */,
 				E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */,
@@ -599,6 +610,7 @@
 				E95319F62197DBD800980985 /* LoginViewModel.swift in Sources */,
 				E95319FA2197E8FE00980985 /* Interfacable.swift in Sources */,
 				E9F423A321CF07DA00F1DB5D /* SurveyDetailedTabBarViewController.swift in Sources */,
+				E9F423AF21CF128E00F1DB5D /* SurveyInfoViewController.swift in Sources */,
 				E991C93F21CDD458008F3509 /* SurveyTypeViewController.swift in Sources */,
 				E9F423A621CF0C6C00F1DB5D /* SurveyParticipationViewController.swift in Sources */,
 				E95319EF219790A500980985 /* Result.swift in Sources */,

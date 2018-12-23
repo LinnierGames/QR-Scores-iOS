@@ -18,19 +18,17 @@ class SurveyDetailedTabBarViewController: UITabBarController {
     
     static func instantiate(with survey: Survey) -> SurveyDetailedTabBarViewController {
         let tabVc = SurveyDetailedTabBarViewController()
-        tabVc.manager = DetailedSurveyManager(survey: survey)
+        let detailedSurveyManager = DetailedSurveyManager(survey: survey)
         
         // info tab
-        var vc = UIViewController()
-        vc.title = "Info"
-        vc.view.backgroundColor = .red
-        tabVc.addChild(vc)
+        let infoVc = SurveyInfoViewController(manager: detailedSurveyManager)
+        tabVc.addChild(infoVc)
         
         // participants tab
         var particpantsVc: SurveyParticipationViewController! = nil
         check(survey: survey,
               scanToVote: { (scan) in
-                particpantsVc = SurveyParticipantsForScanToVoteViewController(manager: tabVc.manager)
+                particpantsVc = SurveyParticipantsForScanToVoteViewController(manager: detailedSurveyManager)
         },
               likeOrDislike: { (likeDislike) in
                 
@@ -47,18 +45,11 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         
         
         // share tab
-        vc = UIViewController()
-        vc.title = "Share"
-        vc.view.backgroundColor = .blue
-        tabVc.addChild(vc)
         
         // survey settings tab
-        vc = UIViewController()
-        vc.title = "Configure"
-        vc.view.backgroundColor = .yellow
-        tabVc.addChild(vc)
         
         // setup tabBarController
+        tabVc.manager = detailedSurveyManager
         
         return tabVc
     }
