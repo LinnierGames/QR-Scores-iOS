@@ -41,9 +41,9 @@ class SurveyParticipationViewController: SurveyTabViewController {
     
     // MARK: - IBACTIONS
     
-    @IBOutlet weak var stackViewContent: UIStackView!
-    @IBOutlet weak var labelSurveyType: UILabel!
-    @IBOutlet weak var labelSurveyDescription: UILabel!
+    @IBOutlet private weak var stackViewContent: UIStackView!
+    @IBOutlet private weak var labelSurveyType: UILabel!
+    @IBOutlet private weak var labelSurveyDescription: UILabel!
     @IBOutlet weak var labelNumberOfParticipants: UILabel!
     
     // MARK: - LIFE CYCLE

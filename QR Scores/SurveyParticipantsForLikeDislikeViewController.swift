@@ -1,5 +1,5 @@
 //
-//  SurveyParticipantsForScanToVoteViewController.swift
+//  SurveyParticipantsForLikeDislikeViewController.swift
 //  QR Scores
 //
 //  Created by Erick Sanchez on 12/22/18.
@@ -8,16 +8,17 @@
 
 import UIKit
 
-class SurveyParticipantsForScanToVoteViewController: SurveyParticipationViewController {
-
-    // MARK: - VARS
+class SurveyParticipantsForLikeDislikeViewController: SurveyParticipationViewController {
     
+    // MARK: - VARS
+
+    //TODO: like and dislike counters
     override var participantVisual: UIView? {
-        return UISwitch()
+        return UIStepper()
     }
     
-    private var survey: ScanToVoteSurvey {
-        return manager.survey as! ScanToVoteSurvey
+    private var survey: LikeOrDislikeSurvey {
+        return manager.survey as! LikeOrDislikeSurvey
     }
     
     // MARK: - RETURN VALUES

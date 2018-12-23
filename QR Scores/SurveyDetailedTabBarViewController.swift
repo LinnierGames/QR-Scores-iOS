@@ -31,13 +31,13 @@ class SurveyDetailedTabBarViewController: UITabBarController {
                 particpantsVc = SurveyParticipantsForScanToVoteViewController(manager: detailedSurveyManager)
         },
               likeOrDislike: { (likeDislike) in
-                
+                particpantsVc = SurveyParticipantsForLikeDislikeViewController(manager: detailedSurveyManager)
         },
               sliderAverage: { (sliderAverage) in
-                
+                particpantsVc = SurveyParticipantsForSliderAverageViewController(manager: detailedSurveyManager)
         },
               sliderHistogram: { (sliderHistogram) in
-                
+                particpantsVc = SurveyParticipantsForSliderHistogramViewController(manager: detailedSurveyManager)
         })
         
         particpantsVc.title = "Participants"

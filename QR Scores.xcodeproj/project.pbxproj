@@ -71,6 +71,9 @@
 		E9F423AF21CF128E00F1DB5D /* SurveyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423AD21CF128E00F1DB5D /* SurveyInfoViewController.swift */; };
 		E9F423B021CF128E00F1DB5D /* SurveyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F423AE21CF128E00F1DB5D /* SurveyInfoViewController.xib */; };
 		E9F423B221CF135F00F1DB5D /* SurveyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423B121CF135F00F1DB5D /* SurveyTabViewController.swift */; };
+		E9F423B421CF180B00F1DB5D /* SurveyParticipantsForLikeDislikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423B321CF180B00F1DB5D /* SurveyParticipantsForLikeDislikeViewController.swift */; };
+		E9F423B621CF185300F1DB5D /* SurveyParticipantsForSliderAverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423B521CF185300F1DB5D /* SurveyParticipantsForSliderAverageViewController.swift */; };
+		E9F423B821CF185E00F1DB5D /* SurveyParticipantsForSliderHistogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423B721CF185E00F1DB5D /* SurveyParticipantsForSliderHistogramViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +162,9 @@
 		E9F423AD21CF128E00F1DB5D /* SurveyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyInfoViewController.swift; sourceTree = "<group>"; };
 		E9F423AE21CF128E00F1DB5D /* SurveyInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyInfoViewController.xib; sourceTree = "<group>"; };
 		E9F423B121CF135F00F1DB5D /* SurveyTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTabViewController.swift; sourceTree = "<group>"; };
+		E9F423B321CF180B00F1DB5D /* SurveyParticipantsForLikeDislikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyParticipantsForLikeDislikeViewController.swift; sourceTree = "<group>"; };
+		E9F423B521CF185300F1DB5D /* SurveyParticipantsForSliderAverageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyParticipantsForSliderAverageViewController.swift; sourceTree = "<group>"; };
+		E9F423B721CF185E00F1DB5D /* SurveyParticipantsForSliderHistogramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyParticipantsForSliderHistogramViewController.swift; sourceTree = "<group>"; };
 		F2BCC4CF97A941A3F6FB3B01 /* Pods-QR ScoresTests.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.production.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.production.xcconfig"; sourceTree = "<group>"; };
 		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -399,6 +405,9 @@
 				E9F423A421CF0C6C00F1DB5D /* SurveyParticipationViewController.swift */,
 				E9F423A521CF0C6C00F1DB5D /* SurveyParticipationViewController.xib */,
 				E9F423AB21CF0F2400F1DB5D /* SurveyParticipantsForScanToVoteViewController.swift */,
+				E9F423B321CF180B00F1DB5D /* SurveyParticipantsForLikeDislikeViewController.swift */,
+				E9F423B521CF185300F1DB5D /* SurveyParticipantsForSliderAverageViewController.swift */,
+				E9F423B721CF185E00F1DB5D /* SurveyParticipantsForSliderHistogramViewController.swift */,
 			);
 			name = Participants;
 			sourceTree = "<group>";
@@ -593,6 +602,7 @@
 				E9F4239521CEFFA200F1DB5D /* UniversalExtensions+String.swift in Sources */,
 				E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */,
 				E9F423B221CF135F00F1DB5D /* SurveyTabViewController.swift in Sources */,
+				E9F423B821CF185E00F1DB5D /* SurveyParticipantsForSliderHistogramViewController.swift in Sources */,
 				E9531A122198DD8500980985 /* SurveyDetailedViewController.swift in Sources */,
 				E991C93621CDD01E008F3509 /* Coordinator.swift in Sources */,
 				E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */,
@@ -600,6 +610,7 @@
 				E95319F22197A7AE00980985 /* InternalAPI.swift in Sources */,
 				E991C95421CDF428008F3509 /* SurveyTitleViewController.swift in Sources */,
 				E9F423A921CF0EAA00F1DB5D /* DetailedSurveyManager.swift in Sources */,
+				E9F423B421CF180B00F1DB5D /* SurveyParticipantsForLikeDislikeViewController.swift in Sources */,
 				E9531A0D2198BB6900980985 /* QRGenerator.swift in Sources */,
 				E934F2D421B7162300553138 /* User.swift in Sources */,
 				E9531A152198E17B00980985 /* CGSizeExtensions.swift in Sources */,
@@ -614,6 +625,7 @@
 				E991C93F21CDD458008F3509 /* SurveyTypeViewController.swift in Sources */,
 				E9F423A621CF0C6C00F1DB5D /* SurveyParticipationViewController.swift in Sources */,
 				E95319EF219790A500980985 /* Result.swift in Sources */,
+				E9F423B621CF185300F1DB5D /* SurveyParticipantsForSliderAverageViewController.swift in Sources */,
 				E95319F82197DD1800980985 /* UserPersistence.swift in Sources */,
 				E9531A172198E34100980985 /* Survey+UIActivityViewController.swift in Sources */,
 				E991C94221CDDF41008F3509 /* SurveyTypeNavigationController.swift in Sources */,
