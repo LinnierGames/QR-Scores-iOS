@@ -64,6 +64,10 @@
 		E9F423A021CF075A00F1DB5D /* SurveyTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F4239A21CF075A00F1DB5D /* SurveyTypeTableViewCell.xib */; };
 		E9F423A121CF075A00F1DB5D /* SurveyTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4239B21CF075A00F1DB5D /* SurveyTypeTableViewCell.swift */; };
 		E9F423A321CF07DA00F1DB5D /* SurveyDetailedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423A221CF07DA00F1DB5D /* SurveyDetailedTabBarViewController.swift */; };
+		E9F423A621CF0C6C00F1DB5D /* SurveyParticipationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423A421CF0C6C00F1DB5D /* SurveyParticipationViewController.swift */; };
+		E9F423A721CF0C6C00F1DB5D /* SurveyParticipationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F423A521CF0C6C00F1DB5D /* SurveyParticipationViewController.xib */; };
+		E9F423A921CF0EAA00F1DB5D /* DetailedSurveyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423A821CF0EAA00F1DB5D /* DetailedSurveyManager.swift */; };
+		E9F423AC21CF0F2400F1DB5D /* SurveyParticipantsForScanToVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F423AB21CF0F2400F1DB5D /* SurveyParticipantsForScanToVoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +149,10 @@
 		E9F4239A21CF075A00F1DB5D /* SurveyTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SurveyTypeTableViewCell.xib; path = "QR Scores/SurveyTypeTableViewCell.xib"; sourceTree = "<group>"; };
 		E9F4239B21CF075A00F1DB5D /* SurveyTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SurveyTypeTableViewCell.swift; path = "QR Scores/SurveyTypeTableViewCell.swift"; sourceTree = "<group>"; };
 		E9F423A221CF07DA00F1DB5D /* SurveyDetailedTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailedTabBarViewController.swift; sourceTree = "<group>"; };
+		E9F423A421CF0C6C00F1DB5D /* SurveyParticipationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyParticipationViewController.swift; sourceTree = "<group>"; };
+		E9F423A521CF0C6C00F1DB5D /* SurveyParticipationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyParticipationViewController.xib; sourceTree = "<group>"; };
+		E9F423A821CF0EAA00F1DB5D /* DetailedSurveyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedSurveyManager.swift; sourceTree = "<group>"; };
+		E9F423AB21CF0F2400F1DB5D /* SurveyParticipantsForScanToVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyParticipantsForScanToVoteViewController.swift; sourceTree = "<group>"; };
 		F2BCC4CF97A941A3F6FB3B01 /* Pods-QR ScoresTests.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.production.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.production.xcconfig"; sourceTree = "<group>"; };
 		F5300C66B0DF1962B84A16AE /* Pods-QR ScoresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,9 +223,11 @@
 		E9189FC721C31C5100C4132A /* Detailed Vc */ = {
 			isa = PBXGroup;
 			children = (
+				E9F423A821CF0EAA00F1DB5D /* DetailedSurveyManager.swift */,
 				E9F423A221CF07DA00F1DB5D /* SurveyDetailedTabBarViewController.swift */,
 				E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */,
 				E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */,
+				E9F423AA21CF0EDA00F1DB5D /* Participants */,
 			);
 			name = "Detailed Vc";
 			sourceTree = "<group>";
@@ -374,6 +384,16 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		E9F423AA21CF0EDA00F1DB5D /* Participants */ = {
+			isa = PBXGroup;
+			children = (
+				E9F423A421CF0C6C00F1DB5D /* SurveyParticipationViewController.swift */,
+				E9F423A521CF0C6C00F1DB5D /* SurveyParticipationViewController.xib */,
+				E9F423AB21CF0F2400F1DB5D /* SurveyParticipantsForScanToVoteViewController.swift */,
+			);
+			name = Participants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -467,6 +487,7 @@
 				E991C94021CDD458008F3509 /* SurveyTypeViewController.xib in Resources */,
 				E9F423A021CF075A00F1DB5D /* SurveyTypeTableViewCell.xib in Resources */,
 				E9531A002197EBFF00980985 /* SurveysViewController.xib in Resources */,
+				E9F423A721CF0C6C00F1DB5D /* SurveyParticipationViewController.xib in Resources */,
 				E95319D021978EA500980985 /* Assets.xcassets in Resources */,
 				E991C94C21CDE60D008F3509 /* SurveyOptionsViewController.xib in Resources */,
 				E9F4239321CEE33100F1DB5D /* TextFieldTableViewCell.xib in Resources */,
@@ -567,6 +588,7 @@
 				E95319EE219790A500980985 /* InternalAPIEndpoints.swift in Sources */,
 				E95319F22197A7AE00980985 /* InternalAPI.swift in Sources */,
 				E991C95421CDF428008F3509 /* SurveyTitleViewController.swift in Sources */,
+				E9F423A921CF0EAA00F1DB5D /* DetailedSurveyManager.swift in Sources */,
 				E9531A0D2198BB6900980985 /* QRGenerator.swift in Sources */,
 				E934F2D421B7162300553138 /* User.swift in Sources */,
 				E9531A152198E17B00980985 /* CGSizeExtensions.swift in Sources */,
@@ -578,6 +600,7 @@
 				E95319FA2197E8FE00980985 /* Interfacable.swift in Sources */,
 				E9F423A321CF07DA00F1DB5D /* SurveyDetailedTabBarViewController.swift in Sources */,
 				E991C93F21CDD458008F3509 /* SurveyTypeViewController.swift in Sources */,
+				E9F423A621CF0C6C00F1DB5D /* SurveyParticipationViewController.swift in Sources */,
 				E95319EF219790A500980985 /* Result.swift in Sources */,
 				E95319F82197DD1800980985 /* UserPersistence.swift in Sources */,
 				E9531A172198E34100980985 /* Survey+UIActivityViewController.swift in Sources */,
@@ -588,6 +611,7 @@
 				E9531A022197EC1B00980985 /* SurveysViewModel.swift in Sources */,
 				E991C95C21CDF94B008F3509 /* ReviewSurveyViewController.swift in Sources */,
 				E98036D521C8E9E5002344C7 /* InfoPlist.swift in Sources */,
+				E9F423AC21CF0F2400F1DB5D /* SurveyParticipantsForScanToVoteViewController.swift in Sources */,
 				E95319F42197A84600980985 /* APIUser.swift in Sources */,
 				E9F423A121CF075A00F1DB5D /* SurveyTypeTableViewCell.swift in Sources */,
 				E991C94B21CDE60D008F3509 /* SurveyOptionsViewController.swift in Sources */,

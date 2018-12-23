@@ -10,9 +10,15 @@ import UIKit
 
 class SurveyDetailedTabBarViewController: UITabBarController {
     
+    // MARK: - VARS
+    
+    var manager: DetailedSurveyManager!
+    
+    // MARK: - RETURN VALUES
+    
     static func instantiate(with survey: Survey) -> SurveyDetailedTabBarViewController {
         let tabVc = SurveyDetailedTabBarViewController()
-        
+        tabVc.manager = DetailedSurveyManager(survey: survey)
         
         // info tab
         var vc = UIViewController()
@@ -21,10 +27,24 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         tabVc.addChild(vc)
         
         // participants tab
-        vc = UIViewController()
-        vc.title = "Participants"
-        vc.view.backgroundColor = .green
-        tabVc.addChild(vc)
+        var particpantsVc: SurveyParticipationViewController! = nil
+        check(survey: survey,
+              scanToVote: { (scan) in
+                particpantsVc = SurveyParticipantsForScanToVoteViewController(manager: tabVc.manager)
+        },
+              likeOrDislike: { (likeDislike) in
+                
+        },
+              sliderAverage: { (sliderAverage) in
+                
+        },
+              sliderHistogram: { (sliderHistogram) in
+                
+        })
+        
+        particpantsVc.title = "Participants"
+        tabVc.addChild(particpantsVc)
+        
         
         // share tab
         vc = UIViewController()
@@ -42,6 +62,12 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         
         return tabVc
     }
+    
+    // MARK: - METHODS
+    
+    // MARK: - IBACTIONS
+    
+    // MARK: - LIFE CYCLE
 }
 
 extension UINavigationController {
