@@ -42,7 +42,6 @@ class SurveysViewController: UIViewController, Interfacable {
             self.present(loginVc, animated: true)
         }
     }
-    @IBOutlet weak var imageView: UIImageView!
     
     // MARK: - LIFE CYCLE
     
@@ -92,9 +91,8 @@ extension SurveysViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let survey = viewModel.surveys.data[indexPath.row]
         
-        let detailedVc = SurveyDetailedViewController.initFromXib()
+        let detailedVc = SurveyDetailedTabBarViewController.instantiate(with: survey)
         detailedVc.hidesBottomBarWhenPushed = true
-        detailedVc.survey = survey
         self.navigationController?.pushViewController(detailedVc, animated: true)
     }
     

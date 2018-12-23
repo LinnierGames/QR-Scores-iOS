@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveysViewController" customModule="QR_Scores" customModuleProvider="target">
             <connections>
-                <outlet property="imageView" destination="HLy-e8-dYF" id="5sm-yQ-4ST"/>
                 <outlet property="tableView" destination="7vi-3e-zy6" id="N46-5a-UcR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -29,23 +28,13 @@
                         <outlet property="delegate" destination="-1" id="41l-VA-OBd"/>
                     </connections>
                 </tableView>
-                <imageView verifyAmbiguity="ignoreSizes" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLy-e8-dYF">
-                    <rect key="frame" x="15" y="608" width="384" height="128"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="HLy-e8-dYF" secondAttribute="height" id="4G5-Ny-OxX"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="7vi-3e-zy6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BCW-pj-B6R"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HLy-e8-dYF" secondAttribute="trailing" constant="15" id="PJw-d2-OeV"/>
-                <constraint firstItem="HLy-e8-dYF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TcP-Og-JL0"/>
-                <constraint firstItem="HLy-e8-dYF" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="XjO-nS-LVe"/>
                 <constraint firstItem="7vi-3e-zy6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bh9-56-mPs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7vi-3e-zy6" secondAttribute="bottom" constant="96" id="rBQ-MB-CnT"/>
                 <constraint firstItem="7vi-3e-zy6" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="uQ1-fp-jfu"/>
-                <constraint firstItem="HLy-e8-dYF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="zys-aL-fze"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="130.40000000000001" y="153.37331334332833"/>
