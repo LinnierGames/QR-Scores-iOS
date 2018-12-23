@@ -8,11 +8,9 @@
 
 import UIKit
 
-class SurveyParticipationViewController: UIViewController {
+class SurveyParticipationViewController: SurveyTabViewController {
     
     // MARK: - VARS
-    
-    final unowned var manager: DetailedSurveyManager
     
     var participantVisual: UIView? {
         get {
@@ -20,13 +18,8 @@ class SurveyParticipationViewController: UIViewController {
         }
     }
     
-    init(manager: DetailedSurveyManager) {
-        self.manager = manager
-        super.init(nibName: "SurveyParticipationViewController", bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("\(#function) not implemented")
+    override var nibName: String? {
+        return "SurveyParticipationViewController"
     }
     
     // MARK: - RETURN VALUES
