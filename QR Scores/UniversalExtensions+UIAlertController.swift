@@ -3,8 +3,13 @@ import UIKit
 
 extension UIAlertController {
     
+    public convenience init(errorMessage: String?, title: String = "Error") {
+        self.init(title: title, message: title, preferredStyle: .alert)
+        self.addDismissButton()
+    }
+    
     /**
-     Adds a button with, or without an action closure with the given title
+     Adds a button with, or without an action closure with the given title (default is Dismiss)
      
      - warning: the button's style is set to .default
      

@@ -21,13 +21,50 @@ class SurveySettingsViewController: UITableViewController {
     
     // MARK: - METHODS
     
+    private func closeSurvey() {
+        manager.closeSurvey { (isSuccessful) in
+            if isSuccessful {
+                //TODO: reload the table view
+            } else {
+                UIAlertController(errorMessage: nil)
+                    .present(in: self)
+            }
+        }
+    }
+    
+    private func deleteSurvey() {
+        manager.deleteSurvey { (isSuccessful) in
+            if isSuccessful {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                UIAlertController(errorMessage: nil)
+                    .present(in: self)
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         switch indexPath {
         case IndexPaths.closeSurvey:
-            break
+            UIAlertController(
+                title: nil,
+                message: "Are you sure you want to close this survey? No one will be able to vote after closing this survey.",
+                preferredStyle: .actionSheet)
+                .addButton(title: "Close Survey", style: .destructive) { [weak self] _ in
+                    self?.closeSurvey()
+                }
+                .addCancelButton()
+                .present(in: self)
         case IndexPaths.deleteSurvey:
-            break
+            UIAlertController(
+                title: nil,
+                message: "Are you sure you want to delete this survey?",
+                preferredStyle: .actionSheet)
+                .addButton(title: "Delete Survey", style: .destructive) { [weak self] _ in
+                    self?.deleteSurvey()
+                }
+                .addCancelButton()
+                .present(in: self)
         default:
             break
         }

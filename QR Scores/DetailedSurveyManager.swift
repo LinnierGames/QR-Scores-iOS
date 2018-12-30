@@ -35,10 +35,12 @@ class DetailedSurveyManager {
     }
     
     func closeSurvey(completion: @escaping (Bool) -> Void) {
-        
+        completion(true)
     }
     
     func deleteSurvey(completion: @escaping (Bool) -> Void) {
-        
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
+            completion(true)
+        }
     }
 }
