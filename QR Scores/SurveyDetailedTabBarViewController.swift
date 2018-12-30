@@ -45,6 +45,11 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         
         
         // share tab
+        let shareTableSb = UIStoryboard(name: String(describing: SurveyShareTableViewController.self), bundle: nil)
+        guard let shareTableVc = shareTableSb.instantiateInitialViewController() as? SurveyShareTableViewController else {
+            fatalError("storyboard not set up correctly")
+        }
+        tabVc.addChild(shareTableVc)
         
         // survey settings tab
         

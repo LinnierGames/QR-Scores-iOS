@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		293696F0CB2FC8E1F9F41FF3 /* Pods_QR_Scores.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB359BE6BB2E1F6A7F27E46A /* Pods_QR_Scores.framework */; };
 		C3E5E465E8D794054605D256 /* Pods_QR_ScoresTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E07D2E8A37101D2B5F90ABA /* Pods_QR_ScoresTests.framework */; };
+		E90210D021D8886300BC83DF /* SurveyShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210CF21D8886300BC83DF /* SurveyShareTableViewController.swift */; };
+		E90210D221D888FE00BC83DF /* SurveyShareTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90210D121D888FE00BC83DF /* SurveyShareTableViewController.storyboard */; };
 		E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D021B7159400553138 /* CreateSurveyManager.swift */; };
 		E934F2D421B7162300553138 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D321B7162300553138 /* User.swift */; };
 		E934F2D621B7163400553138 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D521B7163400553138 /* Survey.swift */; };
@@ -93,6 +95,8 @@
 		A219052E1D7512672A2E2552 /* Pods-QR ScoresTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB359BE6BB2E1F6A7F27E46A /* Pods_QR_Scores.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QR_Scores.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6DCC3E46FB1D993C99C172 /* Pods-QR ScoresTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QR ScoresTests.development.xcconfig"; path = "Pods/Target Support Files/Pods-QR ScoresTests/Pods-QR ScoresTests.development.xcconfig"; sourceTree = "<group>"; };
+		E90210CF21D8886300BC83DF /* SurveyShareTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyShareTableViewController.swift; sourceTree = "<group>"; };
+		E90210D121D888FE00BC83DF /* SurveyShareTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SurveyShareTableViewController.storyboard; sourceTree = "<group>"; };
 		E934F2D021B7159400553138 /* CreateSurveyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSurveyManager.swift; sourceTree = "<group>"; };
 		E934F2D321B7162300553138 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E934F2D521B7163400553138 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
@@ -211,6 +215,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E90210CE21D887EF00BC83DF /* TRASH */ = {
+			isa = PBXGroup;
+			children = (
+				E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */,
+				E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */,
+			);
+			name = TRASH;
+			sourceTree = "<group>";
+		};
 		E9189FC521C31C3300C4132A /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,8 +254,9 @@
 				E9F423AD21CF128E00F1DB5D /* SurveyInfoViewController.swift */,
 				E9F423AE21CF128E00F1DB5D /* SurveyInfoViewController.xib */,
 				E9F423AA21CF0EDA00F1DB5D /* Participants */,
-				E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */,
-				E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */,
+				E90210CF21D8886300BC83DF /* SurveyShareTableViewController.swift */,
+				E90210D121D888FE00BC83DF /* SurveyShareTableViewController.storyboard */,
+				E90210CE21D887EF00BC83DF /* TRASH */,
 			);
 			name = "Detailed Vc";
 			sourceTree = "<group>";
@@ -508,6 +522,7 @@
 				E9531A002197EBFF00980985 /* SurveysViewController.xib in Resources */,
 				E9F423A721CF0C6C00F1DB5D /* SurveyParticipationViewController.xib in Resources */,
 				E95319D021978EA500980985 /* Assets.xcassets in Resources */,
+				E90210D221D888FE00BC83DF /* SurveyShareTableViewController.storyboard in Resources */,
 				E991C94C21CDE60D008F3509 /* SurveyOptionsViewController.xib in Resources */,
 				E9F4239321CEE33100F1DB5D /* TextFieldTableViewCell.xib in Resources */,
 				E9F4239F21CF075A00F1DB5D /* BooleanTableViewCell.xib in Resources */,
@@ -594,6 +609,7 @@
 			files = (
 				E9A91C2421B9D693007BBF6F /* StringExtensions.swift in Sources */,
 				E9531A0F2198C73300980985 /* PDFGenerator.swift in Sources */,
+				E90210D021D8886300BC83DF /* SurveyShareTableViewController.swift in Sources */,
 				E9531A062197FF7700980985 /* ReactiveBox.swift in Sources */,
 				E991C95821CDF728008F3509 /* SurveyDescriptionViewController.swift in Sources */,
 				E9F4239D21CF075A00F1DB5D /* BooleanTableViewCell.swift in Sources */,
