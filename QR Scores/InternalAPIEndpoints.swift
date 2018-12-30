@@ -55,7 +55,7 @@ extension InternalAPIEndpoints: TargetType {
         case .createSurvey:
             return .post
         case .updateSurvey:
-            return .put
+            return .patch
         case .deleteSurvey:
             return .delete
         }
@@ -151,6 +151,8 @@ fileprivate func handleStatus(_ result: Result<Response, MoyaError>, _ statusCod
             success(response)
         case 400:
             fail(APIError.somethingWentWrong(message: "Bad Request"))
+        case 404:
+            fail(APIError.somethingWentWrong(message: "Resource Not Found"))
         case 401:
             fail(APIError.unathorizedOrNeedsRelogin)
         case 409:

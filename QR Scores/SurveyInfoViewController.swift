@@ -23,6 +23,24 @@ class SurveyInfoViewController: SurveyTabViewController {
         textViewDescription.text = manager.survey.description
     }
     
+    @objc private func dismissKeyboard() {
+        tabBarControllerNavItem.setHidesBackButton(false, animated: true)
+        tabBarControllerNavItem.setRightBarButton(nil, animated: true)
+        
+        textFieldTitle.resignFirstResponder()
+        textViewDescription.resignFirstResponder()
+        
+        uploadSurvey()
+    }
+    
+    private func keyboardWillAppear() {
+        tabBarControllerNavItem.setHidesBackButton(true, animated: true)
+        tabBarControllerNavItem.setRightBarButton(
+            UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard)),
+            animated: true
+        )
+    }
+    
     private func uploadSurvey() {
         manager.updateSurvey { (isSuccessful) in
             if isSuccessful {
@@ -53,19 +71,24 @@ class SurveyInfoViewController: SurveyTabViewController {
         
         updateUI()
     }
-
 }
 
 extension SurveyInfoViewController: UITextFieldDelegate, UITextViewDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        keyboardWillAppear()
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let newTitle = textField.text else {
             return
         }
         
         manager.survey.title = newTitle
-        postThrottle(for: 2) {
-            self.uploadSurvey()
-        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        keyboardWillAppear()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -74,8 +97,5 @@ extension SurveyInfoViewController: UITextFieldDelegate, UITextViewDelegate {
         }
         
         manager.survey.description = newDescription
-        postThrottle(for: 2) {
-            self.uploadSurvey()
-        }
     }
 }

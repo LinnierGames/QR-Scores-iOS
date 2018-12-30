@@ -15,7 +15,11 @@ class SurveySettingsViewController: UITableViewController {
 
     // MARK: - VARS
     
-    weak var manager: DetailedSurveyManager!
+    var manager: DetailedSurveyManager!
+    
+    final var tabBarControllerNavItem: UINavigationItem {
+        return self.tabBarController!.navigationItem
+    }
     
     // MARK: - RETURN VALUES
     
@@ -73,6 +77,12 @@ class SurveySettingsViewController: UITableViewController {
     // MARK: - IBACTIONS
     
     // MARK: - LIFE CYCLE
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarControllerNavItem.title = self.title
+    }
 
 }
 

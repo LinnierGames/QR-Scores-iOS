@@ -12,7 +12,11 @@ class SurveyShareTableViewController: UITableViewController {
     
     // MARK: - VARS
     
-    weak var manager: DetailedSurveyManager!
+    var manager: DetailedSurveyManager!
+    
+    final var tabBarControllerNavItem: UINavigationItem {
+        return self.tabBarController!.navigationItem
+    }
     
     private let viewModel = SurveyShareViewModel()
     
@@ -74,6 +78,8 @@ class SurveyShareTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         updateUI()
+        
+        tabBarControllerNavItem.title = self.title
     }
 }
 

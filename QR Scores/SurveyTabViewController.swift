@@ -12,7 +12,11 @@ class SurveyTabViewController: UIViewController {
     
     // MARK: - VARS
     
-    final unowned var manager: DetailedSurveyManager
+    final var manager: DetailedSurveyManager
+    
+    final var tabBarControllerNavItem: UINavigationItem {
+        return self.tabBarController!.navigationItem
+    }
     
     init(manager: DetailedSurveyManager) {
         self.manager = manager
@@ -30,5 +34,11 @@ class SurveyTabViewController: UIViewController {
     // MARK: - IBACTIONS
     
     // MARK: - LIFE CYCLE
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarControllerNavItem.title = self.title
+    }
 
 }
