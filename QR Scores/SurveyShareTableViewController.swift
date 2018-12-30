@@ -31,6 +31,33 @@ class SurveyShareTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath {
+        case IndexPaths.singleQRCode:
+            break
+//            guard let activity = UIActivityViewController(surveyQRCode: manager.survey) else {
+//                return assertionFailure("failed to create survey")
+//            }
+//
+//            self.present(activity, animated: true)
+        case IndexPaths.fullPageQRCode:
+            guard let activity = UIActivityViewController(surveyQRCode: manager.survey) else {
+                return assertionFailure("failed to create survey")
+            }
+            
+            tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
+            self.present(activity, animated: true)
+        case IndexPaths.exportUrl:
+            let activity = UIActivityViewController(surveyURL: manager.survey)
+            
+            tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
+            self.present(activity, animated: true)
+        default:
+            break
+        }
+    }
+    
     // MARK: - IBACTIONS
     
     @IBOutlet weak var imageViewQRCode: UIImageView!
@@ -41,5 +68,19 @@ class SurveyShareTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         updateUI()
+    }
+}
+
+fileprivate enum IndexPaths {
+    static var singleQRCode: IndexPath {
+        return IndexPath(row: 0, section: 1)
+    }
+    
+    static var fullPageQRCode: IndexPath {
+        return IndexPath(row: 1, section: 1)
+    }
+    
+    static var exportUrl: IndexPath {
+        return IndexPath(row: 2, section: 1)
     }
 }
