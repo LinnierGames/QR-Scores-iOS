@@ -23,6 +23,9 @@ enum InternalAPIEndpoints {
         
         return .createSurvey(payload: encodableSurvey)
     }
+    
+    case updateSurvey(Survey)
+    case deleteSurvey(Survey)
 }
 
 extension InternalAPIEndpoints: TargetType {
@@ -38,6 +41,8 @@ extension InternalAPIEndpoints: TargetType {
             return "login"
         case .surveys, .createSurvey:
             return "surveys"
+        case .updateSurvey(let survey), .deleteSurvey(let survey):
+            return "surveys/\(survey.id)"
         }
     }
     
@@ -49,6 +54,10 @@ extension InternalAPIEndpoints: TargetType {
             return .get
         case .createSurvey:
             return .post
+        case .updateSurvey:
+            return .put
+        case .deleteSurvey:
+            return .delete
         }
     }
     
@@ -66,21 +75,22 @@ extension InternalAPIEndpoints: TargetType {
             return .requestPlain
         case .createSurvey(let payload):
             return .requestJSONEncodable(payload)
+        case .updateSurvey(let survey), .deleteSurvey(let survey):
+            return .requestJSONEncodable(survey)
         }
     }
     
     var headers: [String : String]? {
         var defaultHeaders = [String : String]()
         
-        // default header pairs
         switch self {
-        case .surveys, .createSurvey:
+        case .login, .signUp:
+            break
+        default:
             let token = UserPersistence.currentUser.token
             
             // Authorization
             defaultHeaders["Authorization"] = "Token \(token)"
-        default:
-            break
         }
         
         return defaultHeaders
@@ -108,29 +118,47 @@ enum APIError: Error {
 
 func jsonResponse<T: Decodable>(
     expectedSuccessCode statusCode: Int = 200,
+    decoder: JSONDecoder = JSONDecoder.init(),
     next: @escaping (Result<T, APIError>) -> Void) -> Completion {
-    
     return { (result) in
-        switch result {
-        case .success(let response):
-            switch response.statusCode {
-            case statusCode:
-                guard let payload = try? JSONDecoder().decode(T.self, from: response.data) else {
-                    return next(.failure(APIError.failedToDecode))
-                }
-                
-                next(.success(payload))
-            case 400:
-                next(.failure(APIError.somethingWentWrong(message: "Bad Request")))
-            case 401:
-                next(.failure(APIError.unathorizedOrNeedsRelogin))
-            case 409:
-                next(.failure(APIError.duplicateAccount))
-            default:
-                next(.failure(APIError.somethingWentWrong(message: "")))
+        handleStatus(result, statusCode, { (response) in
+            guard let payload = try? decoder.decode(T.self, from: response.data) else {
+                return next(.failure(APIError.somethingWentWrong(message: "")))
             }
-        case .failure(let error):
-            next(.failure(APIError.somethingWentWrong(message: error.localizedDescription)))
+            
+            next(.success(payload))
+        }, { (err) in
+            next(.failure(err))
+        })
+    }
+}
+
+func jsonResponse(
+    expectedSuccessCode statusCode: Int = 200,
+    decoder: JSONDecoder = JSONDecoder.init(),
+    successfulResponse succHandler: @escaping (Response) -> Void,
+    failureResponse failHandler: @escaping (APIError) -> Void) -> Completion {
+    return { (result) in
+        handleStatus(result, statusCode, succHandler, failHandler)
+    }
+}
+
+fileprivate func handleStatus(_ result: Result<Response, MoyaError>, _ statusCode: Int, _ success: @escaping (Response) -> Void, _ fail: @escaping (APIError) -> Void) {
+    switch result {
+    case .success(let response):
+        switch response.statusCode {
+        case statusCode:
+            success(response)
+        case 400:
+            fail(APIError.somethingWentWrong(message: "Bad Request"))
+        case 401:
+            fail(APIError.unathorizedOrNeedsRelogin)
+        case 409:
+            fail(APIError.duplicateAccount)
+        default:
+            fail(APIError.somethingWentWrong(message: ""))
         }
+    case .failure(let error):
+        fail(APIError.somethingWentWrong(message: error.localizedDescription))
     }
 }

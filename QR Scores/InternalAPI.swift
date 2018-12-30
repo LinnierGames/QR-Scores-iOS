@@ -64,4 +64,27 @@ struct InternalAPI {
             completion: jsonResponse(expectedSuccessCode: 201, next: completion)
         )
     }
+    
+    func update(_ survey: Survey, completion: @escaping (Result<Survey, APIError>) -> Void) {
+        
+        provider.request(
+            .updateSurvey(survey)
+            , completion: jsonResponse(expectedSuccessCode: 201, next: completion)
+        )
+    }
+    
+    func delete(_ survey: Survey, completion: @escaping (Result<Bool, APIError>) -> Void) {
+        
+        provider.request(
+            .deleteSurvey(survey),
+            completion: jsonResponse(
+                expectedSuccessCode: 204,
+                successfulResponse: { _ in
+                    completion(.success(true))
+                }, failureResponse: { (err) in
+                    completion(.failure(err))
+                }
+            )
+        )
+    }
 }
