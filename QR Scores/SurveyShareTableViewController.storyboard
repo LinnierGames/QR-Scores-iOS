@@ -37,7 +37,6 @@
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPR-dx-ayI">
                                                             <rect key="frame" x="126" y="40" width="217" height="30"/>
-                                                            <state key="normal" title="Customize QR Code"/>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
