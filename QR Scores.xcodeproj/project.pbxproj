@@ -15,6 +15,7 @@
 		E90210D721D88DC200BC83DF /* SurveyShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210D621D88DC200BC83DF /* SurveyShareViewModel.swift */; };
 		E90210DC21D89BF200BC83DF /* SurveySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210DA21D89BF200BC83DF /* SurveySettingsViewController.swift */; };
 		E90210DF21D89C5300BC83DF /* SurveySettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90210DE21D89C5300BC83DF /* SurveySettingsViewController.storyboard */; };
+		E90210E121D8AC3100BC83DF /* ThrottleGlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210E021D8AC3100BC83DF /* ThrottleGlobalFunctions.swift */; };
 		E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D021B7159400553138 /* CreateSurveyManager.swift */; };
 		E934F2D421B7162300553138 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D321B7162300553138 /* User.swift */; };
 		E934F2D621B7163400553138 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D521B7163400553138 /* Survey.swift */; };
@@ -105,6 +106,7 @@
 		E90210D621D88DC200BC83DF /* SurveyShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyShareViewModel.swift; sourceTree = "<group>"; };
 		E90210DA21D89BF200BC83DF /* SurveySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveySettingsViewController.swift; sourceTree = "<group>"; };
 		E90210DE21D89C5300BC83DF /* SurveySettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SurveySettingsViewController.storyboard; sourceTree = "<group>"; };
+		E90210E021D8AC3100BC83DF /* ThrottleGlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrottleGlobalFunctions.swift; sourceTree = "<group>"; };
 		E934F2D021B7159400553138 /* CreateSurveyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSurveyManager.swift; sourceTree = "<group>"; };
 		E934F2D321B7162300553138 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E934F2D521B7163400553138 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				E9531A052197FF7700980985 /* ReactiveBox.swift */,
 				E98036D421C8E9E5002344C7 /* InfoPlist.swift */,
 				E991C93521CDD01E008F3509 /* Coordinator.swift */,
+				E90210E021D8AC3100BC83DF /* ThrottleGlobalFunctions.swift */,
 			);
 			name = Stacks;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */,
 				E95319EE219790A500980985 /* InternalAPIEndpoints.swift in Sources */,
 				E95319F22197A7AE00980985 /* InternalAPI.swift in Sources */,
+				E90210E121D8AC3100BC83DF /* ThrottleGlobalFunctions.swift in Sources */,
 				E991C95421CDF428008F3509 /* SurveyTitleViewController.swift in Sources */,
 				E9F423A921CF0EAA00F1DB5D /* DetailedSurveyManager.swift in Sources */,
 				E9F423B421CF180B00F1DB5D /* SurveyParticipantsForLikeDislikeViewController.swift in Sources */,

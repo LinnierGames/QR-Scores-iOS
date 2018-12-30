@@ -23,6 +23,17 @@ class SurveyInfoViewController: SurveyTabViewController {
         textViewDescription.text = manager.survey.description
     }
     
+    private func uploadSurvey() {
+        manager.updateSurvey { (isSuccessful) in
+            if isSuccessful {
+                //TODO: update ui
+            } else {
+                UIAlertController(errorMessage: nil)
+                    .present(in: self)
+            }
+        }
+    }
+    
     // MARK: - IBACTIONS
     
     @IBOutlet weak var textFieldTitle: UITextField!
@@ -43,4 +54,28 @@ class SurveyInfoViewController: SurveyTabViewController {
         updateUI()
     }
 
+}
+
+extension SurveyInfoViewController: UITextFieldDelegate, UITextViewDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newTitle = textField.text else {
+            return
+        }
+        
+        manager.survey.title = newTitle
+        postThrottle(for: 2) {
+            self.uploadSurvey()
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let newDescription = textView.text else {
+            return
+        }
+        
+        manager.survey.description = newDescription
+        postThrottle(for: 2) {
+            self.uploadSurvey()
+        }
+    }
 }
