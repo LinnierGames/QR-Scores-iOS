@@ -68,8 +68,16 @@ struct InternalAPI {
     func update(_ survey: Survey, completion: @escaping (Result<Survey, APIError>) -> Void) {
         
         provider.request(
-            .updateSurvey(survey)
-            , completion: jsonResponse(expectedSuccessCode: 201, next: completion)
+            .updateSurvey(survey),
+            completion: jsonResponse(expectedSuccessCode: 201, successfulResponse: { response in
+                guard let survey = try? SurveyDecoder.decode(from: response.data) else {
+                    return completion(.failure(.failedToDecode))
+                }
+                
+                completion(.success(survey))
+            }, failureResponse: { err in
+                completion(.failure(err))
+            })
         )
     }
     
