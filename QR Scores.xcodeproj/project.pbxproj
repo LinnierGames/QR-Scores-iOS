@@ -285,12 +285,12 @@
 			children = (
 				E9F423A821CF0EAA00F1DB5D /* DetailedSurveyManager.swift */,
 				E9F423A221CF07DA00F1DB5D /* SurveyDetailedTabBarViewController.swift */,
-				E9F423B121CF135F00F1DB5D /* SurveyTabViewController.swift */,
 				E9F423AD21CF128E00F1DB5D /* SurveyInfoViewController.swift */,
 				E9F423AE21CF128E00F1DB5D /* SurveyInfoViewController.xib */,
 				E9F423AA21CF0EDA00F1DB5D /* Participants */,
 				E90210D821D89BA400BC83DF /* Share */,
 				E90210D921D89BB000BC83DF /* Settings */,
+				E9F423B121CF135F00F1DB5D /* SurveyTabViewController.swift */,
 				E90210CE21D887EF00BC83DF /* TRASH */,
 			);
 			name = "Detailed Vc";

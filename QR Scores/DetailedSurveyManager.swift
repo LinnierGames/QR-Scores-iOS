@@ -30,7 +30,15 @@ class DetailedSurveyManager {
     
     // MARK: - METHODS
     
-    // MARK: - IBACTIONS
+    func updateSurvey(completion: @escaping (Bool) -> Void) {
+        
+    }
     
-    // MARK: - LIFE CYCLE
+    func closeSurvey(completion: @escaping (Bool) -> Void) {
+        
+    }
+    
+    func deleteSurvey(completion: @escaping (Bool) -> Void) {
+        
+    }
 }

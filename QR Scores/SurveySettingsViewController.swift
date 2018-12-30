@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ TODO: Remove static table view to populate the survey additional options
+ */
 class SurveySettingsViewController: UITableViewController {
 
     // MARK: - VARS

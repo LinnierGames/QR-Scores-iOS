@@ -45,21 +45,6 @@ class SurveysViewModel {
         }
     }
     
-    func createSurvey(title: String, subtitle: String) {
-        #warning("use the CreateSurveyManager instead")
-        
-        let survey = CreateScanToVoteSurvey(title: title, description: subtitle, options: .init(allowsDuplicateVotes: false))
-        
-        networkStack.createSurvey(survey) { (result) in
-            switch result {
-            case .success(let createdSurvey):
-                self.surveys.append(createdSurvey)
-            case .failure(let error):
-                assertionFailure(error.localizedDescription)
-            }
-        }
-    }
-    
     @objc private func userDidLogout(_ notification: Notification) {
         delegate?.userDidLogout()
         

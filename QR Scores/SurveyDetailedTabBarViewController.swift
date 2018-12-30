@@ -75,11 +75,3 @@ class SurveyDetailedTabBarViewController: UITabBarController {
     
     // MARK: - LIFE CYCLE
 }
-
-extension UINavigationController {
-    convenience init(rootViewController: UIViewController, withBackButton: Bool) {
-        self.init(rootViewController: rootViewController)
-        
-//        self.navigationItem.
-    }
-}

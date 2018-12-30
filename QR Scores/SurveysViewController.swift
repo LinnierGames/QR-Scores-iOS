@@ -28,8 +28,6 @@ class SurveysViewController: UIViewController, Interfacable {
     
     @IBAction func refreshSurveyData(_ sender: Any) {
         viewModel.fetchSurveys()
-        
-//        self.activityIndicatorView.stopAnimating()
     }
     
     @IBAction func pressLogout(_ sender: Any) {
@@ -48,10 +46,7 @@ class SurveysViewController: UIViewController, Interfacable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.viewModel.delegate = self
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddSurvey(_:)))
-        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(pressLogout(_:)))
         
         tableView.register(

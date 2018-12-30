@@ -12,10 +12,6 @@ class SurveyParticipantsForScanToVoteViewController: SurveyParticipationViewCont
 
     // MARK: - VARS
     
-    override var participantVisual: UIView? {
-        return UISwitch()
-    }
-    
     private var survey: ScanToVoteSurvey {
         return manager.survey as! ScanToVoteSurvey
     }
