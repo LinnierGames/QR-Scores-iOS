@@ -9,6 +9,9 @@
 import Foundation
 
 protocol SurveyProtocol: CreateSurveyProtocol {
+    
+    var id: String { get }
+    
     associatedtype Participants: SurveyParticipants
     
     var participants: Participants { get }
@@ -64,6 +67,23 @@ func check(
     }
 }
 
+func casted(_ survey: Survey) -> Survey {
+    
+    if let castedSurvey = survey as? ScanToVoteSurvey {
+        return castedSurvey
+    } else if let castedSurvey = survey as? LikeOrDislikeSurvey {
+        return castedSurvey
+    } else if let castedSurvey = survey as? SliderAverageSurvey {
+        return castedSurvey
+    } else if let castedSurvey = survey as? SliderHistogramSurvey {
+        return castedSurvey
+    } else {
+        assertionFailure("No survey found")
+        
+        return survey
+    }
+}
+
 class ScanToVoteSurvey: Survey, SurveyProtocol {
     
     enum InnerCodingKeys: String, CodingKey {
@@ -74,7 +94,7 @@ class ScanToVoteSurvey: Survey, SurveyProtocol {
     
     var surveyMetadata: Metadata
     struct Metadata: SurveyMetadata, Codable {
-        
+        let thisIsEmpty: Bool = true
     }
     
     var options: Options
@@ -97,9 +117,10 @@ class ScanToVoteSurvey: Survey, SurveyProtocol {
     }
     
     override func encode(to encoder: Encoder) throws {
-        try self.surveyMetadata.encode(to: encoder)
-        try self.options.encode(to: encoder)
-        try self.participants.encode(to: encoder)
+        var container = encoder.container(keyedBy: InnerCodingKeys.self)
+        try container.encode(self.surveyMetadata, forKey: .surveyMetadata)
+        try container.encode(self.options, forKey: .options)
+        try container.encode(self.participants, forKey: .participants)
         
         try super.encode(to: encoder)
     }
@@ -115,7 +136,7 @@ class LikeOrDislikeSurvey: Survey, SurveyProtocol {
     
     var surveyMetadata: Metadata
     struct Metadata: SurveyMetadata, Codable {
-        
+        let thisIsEmpty: Bool = true
     }
     
     var options: Options
@@ -148,9 +169,10 @@ class LikeOrDislikeSurvey: Survey, SurveyProtocol {
     }
     
     override func encode(to encoder: Encoder) throws {
-        try self.surveyMetadata.encode(to: encoder)
-        try self.options.encode(to: encoder)
-        try self.participants.encode(to: encoder)
+        var container = encoder.container(keyedBy: InnerCodingKeys.self)
+        try container.encode(self.surveyMetadata, forKey: .surveyMetadata)
+        try container.encode(self.options, forKey: .options)
+        try container.encode(self.participants, forKey: .participants)
         
         try super.encode(to: encoder)
     }
@@ -212,9 +234,10 @@ class SliderAverageSurvey: Survey, SurveyProtocol {
     }
     
     override func encode(to encoder: Encoder) throws {
-        try self.surveyMetadata.encode(to: encoder)
-        try self.options.encode(to: encoder)
-        try self.participants.encode(to: encoder)
+        var container = encoder.container(keyedBy: InnerCodingKeys.self)
+        try container.encode(self.surveyMetadata, forKey: .surveyMetadata)
+        try container.encode(self.options, forKey: .options)
+        try container.encode(self.participants, forKey: .participants)
         
         try super.encode(to: encoder)
     }
@@ -263,9 +286,10 @@ class SliderHistogramSurvey: Survey, SurveyProtocol {
     }
     
     override func encode(to encoder: Encoder) throws {
-        try self.surveyMetadata.encode(to: encoder)
-        try self.options.encode(to: encoder)
-        try self.participants.encode(to: encoder)
+        var container = encoder.container(keyedBy: InnerCodingKeys.self)
+        try container.encode(self.surveyMetadata, forKey: .surveyMetadata)
+        try container.encode(self.options, forKey: .options)
+        try container.encode(self.participants, forKey: .participants)
         
         try super.encode(to: encoder)
     }
