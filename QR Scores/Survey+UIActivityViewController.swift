@@ -18,7 +18,8 @@ extension UIActivityViewController {
          TODO: qrCodeTemplate-use the options defined there to create the page
          */
         
-        guard let qrImage = QRCoeGenerator(url: survey.generatedUrl).generateImage() else {
+        var generator = QRCodeGenerator(url: survey.generatedUrl)
+        guard let qrImage = generator.generateImage() else {
             return nil
         }
         

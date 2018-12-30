@@ -49,6 +49,7 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         guard let shareTableVc = shareTableSb.instantiateInitialViewController() as? SurveyShareTableViewController else {
             fatalError("storyboard not set up correctly")
         }
+        shareTableVc.manager = detailedSurveyManager
         tabVc.addChild(shareTableVc)
         
         // survey settings tab

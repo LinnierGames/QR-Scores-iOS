@@ -41,7 +41,7 @@ class SurveyDetailedViewController: UIViewController, Interfacable {
         let url = self.survey.generatedUrl
         let imageViewSize = self.imageViewQRCode.frame.size
         queue.async {
-            let generator = QRCoeGenerator(url: url)
+            var generator = QRCodeGenerator(url: url)
             let imageSize = CGSize.square(from: imageViewSize)
             let image = generator.generateImage(outputSize: imageSize)
             

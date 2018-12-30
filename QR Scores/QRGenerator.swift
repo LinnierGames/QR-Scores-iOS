@@ -1,18 +1,18 @@
 import Foundation
 import UIKit
 
-struct QRCoeGenerator {
+struct QRCodeGenerator {
     
     let url: URL
     
-    private var image: UIImage?
+    private(set) var cachedImage: UIImage?
     
     init(url: URL) {
         self.url = url
     }
     
-    func generateImage(outputSize: CGSize = CGSize(width: 512, height: 512)) -> UIImage? {
-        if let cachedImage = self.image {
+    mutating func generateImage(outputSize: CGSize = CGSize(width: 512, height: 512)) -> UIImage? {
+        if let cachedImage = self.cachedImage {
             return cachedImage
         }
         
@@ -33,8 +33,12 @@ struct QRCoeGenerator {
         let scaleY = outputSize.height / ciImage.extent.size.height
         
         let transformedImage = ciImage.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
+        let qrCodeImage = UIImage(ciImage: transformedImage)
+
+        //cache the image
+        self.cachedImage = qrCodeImage
         
-        return UIImage(ciImage: transformedImage)
+        return qrCodeImage
     }
 }
 
