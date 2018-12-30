@@ -12,7 +12,7 @@ class DetailedSurveyManager {
     
     // MARK: - VARS
     
-    let survey: Survey
+    private(set) var survey: Survey
     
     var surveyTypeTitle: String {
         return survey.surveyType.title
@@ -21,6 +21,8 @@ class DetailedSurveyManager {
     var surveyTypeDescription: String {
         return survey.surveyType.description
     }
+    
+    private let networking = InternalAPI()
     
     init(survey: Survey) {
         self.survey = survey
@@ -31,16 +33,37 @@ class DetailedSurveyManager {
     // MARK: - METHODS
     
     func updateSurvey(completion: @escaping (Bool) -> Void) {
-        
+        networking.update(self.survey) { (result) in
+            switch result {
+            case .success(let updatedSurvey):
+                self.survey = updatedSurvey
+                
+                completion(true)
+            case .failure(let err):
+                assertionFailure(err.localizedDescription)
+                
+                completion(false)
+            }
+        }
     }
     
     func closeSurvey(completion: @escaping (Bool) -> Void) {
-        completion(true)
+        
+        //TODO: close surveys
+//        survey.isClosed = true
+        updateSurvey(completion: completion)
     }
     
     func deleteSurvey(completion: @escaping (Bool) -> Void) {
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
-            completion(true)
+        networking.delete(self.survey) { (result) in
+            switch result {
+            case .success:
+                completion(true)
+            case .failure(let err):
+                assertionFailure(err.localizedDescription)
+                
+                completion(false)
+            }
         }
     }
 }
