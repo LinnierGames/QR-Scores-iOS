@@ -8,24 +8,6 @@
 
 import UIKit
 
-//class ScanToVoteSurveySettingsViewController: SurveySettingsViewController {
-//
-//    override func numberOfOptions(_ tableView: UITableView) -> Int {
-//
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForOptionAt indexPath: IndexPath) -> UITableViewCell {
-//
-//    }
-//
-//    override func tableView(_ tableView: UITableView, didSelectOptionAt indexPath: IndexPath) {
-//
-//    }
-//}
-
-/**
- TODO: Remove static table view to populate the survey additional options
- */
 class SurveySettingsViewController: UITableViewController {
 
     // MARK: - VARS
@@ -174,8 +156,10 @@ class SurveySettingsViewController: UITableViewController {
                 }
                 .addCancelButton()
                 .present(in: self)
-        default:
+        case IndexPaths.allowsDuplicateVotes:
             break
+        default:
+            self.tableView(tableView, didSelectOptionAt: indexPath)
         }
     }
     

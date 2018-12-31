@@ -55,12 +55,20 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         tabVc.addChild(shareTableVc)
         
         // survey settings tab
-//        let settingsTableSb = UIStoryboard(name: String(describing: SurveySettingsViewController.self), bundle: nil)
-//        guard let settingsTableVc = settingsTableSb.instantiateInitialViewController() as? SurveySettingsViewController else {
-//            fatalError("storyboard not set up correctly")
-//        }
-        
-        let settingsTableVc = SurveySettingsViewController()
+        var settingsTableVc: SurveySettingsViewController! = nil
+        check(survey: survey,
+              scanToVote: { (scan) in
+                settingsTableVc = ScanToVoteSurveySettingsViewController()
+        },
+              likeOrDislike: { (likeDislike) in
+                settingsTableVc = ScanToVoteSurveySettingsViewController()
+        },
+              sliderAverage: { (sliderAverage) in
+                settingsTableVc = ScanToVoteSurveySettingsViewController()
+        },
+              sliderHistogram: { (sliderHistogram) in
+                settingsTableVc = ScanToVoteSurveySettingsViewController()
+        })
         settingsTableVc.manager = detailedSurveyManager
         tabVc.addChild(settingsTableVc)
         

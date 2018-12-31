@@ -18,6 +18,7 @@
 		E90210E121D8AC3100BC83DF /* ThrottleGlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210E021D8AC3100BC83DF /* ThrottleGlobalFunctions.swift */; };
 		E90210E321D9857300BC83DF /* UnversalExtensions+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210E221D9857300BC83DF /* UnversalExtensions+Bool.swift */; };
 		E90210E521D9991F00BC83DF /* UnversalExtensions+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210E421D9991F00BC83DF /* UnversalExtensions+UITableView.swift */; };
+		E90210E721D9A98300BC83DF /* ScanToVoteSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210E621D9A98300BC83DF /* ScanToVoteSurveyViewController.swift */; };
 		E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D021B7159400553138 /* CreateSurveyManager.swift */; };
 		E934F2D421B7162300553138 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D321B7162300553138 /* User.swift */; };
 		E934F2D621B7163400553138 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D521B7163400553138 /* Survey.swift */; };
@@ -111,6 +112,7 @@
 		E90210E021D8AC3100BC83DF /* ThrottleGlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrottleGlobalFunctions.swift; sourceTree = "<group>"; };
 		E90210E221D9857300BC83DF /* UnversalExtensions+Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnversalExtensions+Bool.swift"; sourceTree = "<group>"; };
 		E90210E421D9991F00BC83DF /* UnversalExtensions+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnversalExtensions+UITableView.swift"; sourceTree = "<group>"; };
+		E90210E621D9A98300BC83DF /* ScanToVoteSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanToVoteSurveyViewController.swift; sourceTree = "<group>"; };
 		E934F2D021B7159400553138 /* CreateSurveyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSurveyManager.swift; sourceTree = "<group>"; };
 		E934F2D321B7162300553138 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E934F2D521B7163400553138 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				E90210DA21D89BF200BC83DF /* SurveySettingsViewController.swift */,
 				E90210DE21D89C5300BC83DF /* SurveySettingsViewController.storyboard */,
+				E90210E621D9A98300BC83DF /* ScanToVoteSurveyViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				E934F2D621B7163400553138 /* Survey.swift in Sources */,
 				E90210D721D88DC200BC83DF /* SurveyShareViewModel.swift in Sources */,
 				E9531A042197FBC500980985 /* APISurvey.swift in Sources */,
+				E90210E721D9A98300BC83DF /* ScanToVoteSurveyViewController.swift in Sources */,
 				E9F4239521CEFFA200F1DB5D /* UniversalExtensions+String.swift in Sources */,
 				E90210E321D9857300BC83DF /* UnversalExtensions+Bool.swift in Sources */,
 				E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */,
