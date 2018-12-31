@@ -71,7 +71,9 @@ class LoginRegisterViewController: UIViewController, Interfacable {
             let surveyNavVc = UINavigationController(rootViewController: surveyVc)
             tabController.viewControllers = [surveyNavVc]
             
-            self.present(tabController, animated: true)
+            self.present(tabController, animated: true) { [unowned self] in
+                self.navigationController?.popViewController(animated: false)
+            }
         }
     }
     
