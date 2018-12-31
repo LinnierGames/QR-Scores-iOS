@@ -38,7 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             rootViewController = tabController
         } else {
-            rootViewController = LoginRegisterViewController.initFromXib()
+            let loginSb = UIStoryboard(name: "Splash", bundle: nil)
+            guard let loginVc = loginSb.instantiateInitialViewController() else {
+                fatalError("storyboard not set up correctly")
+            }
+            
+            rootViewController = loginVc
         }
         
         window.rootViewController = rootViewController

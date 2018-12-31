@@ -36,7 +36,11 @@ class SurveysViewController: UIViewController, Interfacable {
         if let loginVc = self.tabBarController?.presentingViewController {
             loginVc.dismiss(animated: true)
         } else {
-            let loginVc = LoginRegisterViewController.initFromXib()
+            let loginSb = UIStoryboard(name: "Splash", bundle: nil)
+            guard let loginVc = loginSb.instantiateInitialViewController() else {
+                fatalError("storyboard not set up correctly")
+            }
+            
             self.present(loginVc, animated: true)
         }
     }

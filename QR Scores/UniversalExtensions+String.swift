@@ -57,4 +57,8 @@ extension Optional where Wrapped == String {
             return defaultString
         }
     }
+    
+    var isNotEmpty: Bool {
+        return self?.isEmpty ?? false == false
+    }
 }
