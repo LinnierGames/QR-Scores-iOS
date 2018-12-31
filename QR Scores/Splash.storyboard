@@ -32,38 +32,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XfC-uI-ocV">
-                                <rect key="frame" x="67" y="234" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="700" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="XfC-uI-ocV">
+                                <rect key="frame" x="32" y="178" width="311" height="311"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XfC-uI-ocV" secondAttribute="height" id="g6a-SG-WiX"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cz-7s-EFc">
-                                <rect key="frame" x="168" y="462" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="BHk-pb-98o" kind="show" identifier="show login" id="Csm-Ag-rlU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTk-EX-MXk">
-                                <rect key="frame" x="159" y="514" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Register"/>
-                                <connections>
-                                    <segue destination="BHk-pb-98o" kind="show" identifier="show register" id="ggS-Yk-plM"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EE0-td-eQO">
                                 <rect key="frame" x="32" y="50" width="311" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3Ps-uJ-9c1">
+                                <rect key="frame" x="32" y="549" width="311" height="86"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTk-EX-MXk">
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="42"/>
+                                        <color key="backgroundColor" red="0.53725490196078429" green="0.76862745098039209" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
+                                        <state key="normal" title="Register">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BHk-pb-98o" kind="show" identifier="show register" id="ggS-Yk-plM"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Msc-re-k1C">
+                                        <rect key="frame" x="43" y="58" width="225.5" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account? Login " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-gk-VSC">
+                                                <rect key="frame" x="0.0" y="0.0" width="195.5" height="28"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cz-7s-EFc">
+                                                <rect key="frame" x="195.5" y="0.0" width="30" height="28"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                <state key="normal" title="here"/>
+                                                <connections>
+                                                    <segue destination="BHk-pb-98o" kind="show" identifier="show login" id="Csm-Ag-rlU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mTk-EX-MXk" firstAttribute="width" secondItem="3Ps-uJ-9c1" secondAttribute="width" id="my4-yu-vtx"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="XfC-uI-ocV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KBY-Gl-uXZ" secondAttribute="leading" constant="32" id="5dS-JV-Ya0"/>
+                            <constraint firstItem="XfC-uI-ocV" firstAttribute="centerX" secondItem="LYW-1d-JWz" secondAttribute="centerX" id="6S0-dp-C2F"/>
+                            <constraint firstItem="KBY-Gl-uXZ" firstAttribute="trailing" secondItem="3Ps-uJ-9c1" secondAttribute="trailing" constant="32" id="6r1-BK-94Q"/>
+                            <constraint firstItem="XfC-uI-ocV" firstAttribute="centerY" secondItem="LYW-1d-JWz" secondAttribute="centerY" id="Bvu-Al-PRE"/>
                             <constraint firstItem="EE0-td-eQO" firstAttribute="leading" secondItem="KBY-Gl-uXZ" secondAttribute="leading" constant="32" id="Gmy-vd-bQK"/>
+                            <constraint firstItem="KBY-Gl-uXZ" firstAttribute="bottom" secondItem="3Ps-uJ-9c1" secondAttribute="bottom" constant="32" id="LlO-eD-kEa"/>
+                            <constraint firstItem="3Ps-uJ-9c1" firstAttribute="leading" secondItem="KBY-Gl-uXZ" secondAttribute="leading" constant="32" id="Ua8-lc-n7R"/>
                             <constraint firstItem="EE0-td-eQO" firstAttribute="top" secondItem="KBY-Gl-uXZ" secondAttribute="top" constant="30" id="clP-oS-rcH"/>
+                            <constraint firstItem="XfC-uI-ocV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EE0-td-eQO" secondAttribute="bottom" constant="32" id="iHE-RY-uI9"/>
                             <constraint firstItem="KBY-Gl-uXZ" firstAttribute="trailing" secondItem="EE0-td-eQO" secondAttribute="trailing" constant="32" id="tNe-JI-15U"/>
+                            <constraint firstItem="3Ps-uJ-9c1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XfC-uI-ocV" secondAttribute="bottom" constant="32" id="zjp-Ap-3hf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KBY-Gl-uXZ"/>
                     </view>
@@ -199,6 +232,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Csm-Ag-rlU"/>
+        <segue reference="ggS-Yk-plM"/>
     </inferredMetricsTieBreakers>
 </document>
