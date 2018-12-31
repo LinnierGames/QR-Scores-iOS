@@ -37,7 +37,6 @@ class Survey: Codable {
         case generatedUrl
         case isClosed
         case isArchived
-//        case createdAt
     }
     
     let id: String
@@ -48,7 +47,15 @@ class Survey: Codable {
     let generatedUrl: URL
     var isClosed: Bool
     var isArchived: Bool
-//    let createdAt: Date
+    
+    var allowsDuplicateVotes: Bool {
+        set {
+            fatalError("\(#function) not implemented")
+        }
+        get {
+            fatalError("\(#function) not implemented")
+        }
+    }
 }
 
 func check(
@@ -104,6 +111,15 @@ class ScanToVoteSurvey: Survey, SurveyProtocol {
         var allowsDuplicateVotes: Bool
     }
     
+    override var allowsDuplicateVotes: Bool {
+        set {
+            options.allowsDuplicateVotes = newValue
+        }
+        get {
+            return options.allowsDuplicateVotes
+        }
+    }
+    
     var participants: Participants
     struct Participants: SurveyParticipants, Codable {
         let count: Int
@@ -144,6 +160,15 @@ class LikeOrDislikeSurvey: Survey, SurveyProtocol {
     var options: Options
     struct Options: SurveyOptions, Codable {
         var allowsDuplicateVotes: Bool
+    }
+    
+    override var allowsDuplicateVotes: Bool {
+        set {
+            options.allowsDuplicateVotes = newValue
+        }
+        get {
+            return options.allowsDuplicateVotes
+        }
     }
     
     var participants: Participants
@@ -204,6 +229,15 @@ class SliderAverageSurvey: Survey, SurveyProtocol {
         var allowsDuplicateVotes: Bool
     }
     
+    override var allowsDuplicateVotes: Bool {
+        set {
+            options.allowsDuplicateVotes = newValue
+        }
+        get {
+            return options.allowsDuplicateVotes
+        }
+    }
+    
     var participants: Participants
     struct Participants: SurveyParticipants, Codable {
         let count: Int
@@ -262,6 +296,15 @@ class SliderHistogramSurvey: Survey, SurveyProtocol {
     var options: Options
     struct Options: SurveyOptions, Codable {
         var allowsDuplicateVotes: Bool
+    }
+    
+    override var allowsDuplicateVotes: Bool {
+        set {
+            options.allowsDuplicateVotes = newValue
+        }
+        get {
+            return options.allowsDuplicateVotes
+        }
     }
     
     var participants: Participants

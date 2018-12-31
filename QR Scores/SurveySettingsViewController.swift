@@ -88,7 +88,15 @@ class SurveySettingsViewController: UITableViewController {
                 return self.tableView(tableView, cellForOptionAt: indexPath)
             }
             
+            // Allows Duplicate Votes cell
+            let cell = tableView.dequeue(BooleanTableViewCell.self, at: indexPath)
             
+            //TODO: localize
+            cell.labelTitle.text = "Allows Duplicate Votes"
+            cell.switchBoolean.isOn = manager.survey.allowsDuplicateVotes
+            cell.delegate = self
+            
+            return cell
         }
     }
     
@@ -99,6 +107,18 @@ class SurveySettingsViewController: UITableViewController {
     }
     
     // MARK: - METHODS
+    
+    private func toggleAllowsDuplicateVotes() {
+        manager.survey.allowsDuplicateVotes.invert()
+        manager.updateSurvey { (isSuccessful) in
+            if isSuccessful {
+                self.tableView.reloadRows(at: [IndexPaths.allowsDuplicateVotes], with: .automatic)
+            } else {
+                UIAlertController(errorMessage: nil)
+                    .present(in: self)
+            }
+        }
+    }
     
     private func toggleClosedSurvey() {
         manager.toggleClosedSurvey { (isSuccessful) in
@@ -163,12 +183,32 @@ class SurveySettingsViewController: UITableViewController {
     
     // MARK: - LIFE CYCLE
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.register(BooleanTableViewCell.self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tabBarControllerNavItem.title = self.title
     }
+}
 
+extension SurveySettingsViewController: BooleanTableViewCellDelegate {
+    func booleanCell(_ booleanCell: BooleanTableViewCell, didChangeTo newState: Bool) {
+        guard let indexPath = tableView.indexPath(for: booleanCell) else {
+            return assertionFailure("index path not found")
+        }
+        
+        switch indexPath {
+        case IndexPaths.allowsDuplicateVotes:
+            toggleAllowsDuplicateVotes()
+        default:
+            assertionFailure("unhandled index path")
+        }
+    }
 }
 
 fileprivate enum IndexPaths {
