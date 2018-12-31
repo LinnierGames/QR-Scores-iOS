@@ -70,6 +70,7 @@ class SurveyDetailedTabBarViewController: UITabBarController {
                 settingsTableVc = ScanToVoteSurveySettingsViewController()
         })
         settingsTableVc.manager = detailedSurveyManager
+        settingsTableVc.title = "Settings"
         tabVc.addChild(settingsTableVc)
         
         // setup tabBarController

@@ -14,7 +14,6 @@
 		E90210D521D88B0900BC83DF /* QRCodeOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210D421D88B0900BC83DF /* QRCodeOperation.swift */; };
 		E90210D721D88DC200BC83DF /* SurveyShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210D621D88DC200BC83DF /* SurveyShareViewModel.swift */; };
 		E90210DC21D89BF200BC83DF /* SurveySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210DA21D89BF200BC83DF /* SurveySettingsViewController.swift */; };
-		E90210DF21D89C5300BC83DF /* SurveySettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90210DE21D89C5300BC83DF /* SurveySettingsViewController.storyboard */; };
 		E90210E121D8AC3100BC83DF /* ThrottleGlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210E021D8AC3100BC83DF /* ThrottleGlobalFunctions.swift */; };
 		E90210E321D9857300BC83DF /* UnversalExtensions+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210E221D9857300BC83DF /* UnversalExtensions+Bool.swift */; };
 		E90210E521D9991F00BC83DF /* UnversalExtensions+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210E421D9991F00BC83DF /* UnversalExtensions+UITableView.swift */; };
@@ -108,7 +107,6 @@
 		E90210D421D88B0900BC83DF /* QRCodeOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeOperation.swift; sourceTree = "<group>"; };
 		E90210D621D88DC200BC83DF /* SurveyShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyShareViewModel.swift; sourceTree = "<group>"; };
 		E90210DA21D89BF200BC83DF /* SurveySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveySettingsViewController.swift; sourceTree = "<group>"; };
-		E90210DE21D89C5300BC83DF /* SurveySettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SurveySettingsViewController.storyboard; sourceTree = "<group>"; };
 		E90210E021D8AC3100BC83DF /* ThrottleGlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrottleGlobalFunctions.swift; sourceTree = "<group>"; };
 		E90210E221D9857300BC83DF /* UnversalExtensions+Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnversalExtensions+Bool.swift"; sourceTree = "<group>"; };
 		E90210E421D9991F00BC83DF /* UnversalExtensions+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnversalExtensions+UITableView.swift"; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				E90210DA21D89BF200BC83DF /* SurveySettingsViewController.swift */,
-				E90210DE21D89C5300BC83DF /* SurveySettingsViewController.storyboard */,
 				E90210E621D9A98300BC83DF /* ScanToVoteSurveyViewController.swift */,
 			);
 			name = Settings;
@@ -574,7 +571,6 @@
 				E991C94C21CDE60D008F3509 /* SurveyOptionsViewController.xib in Resources */,
 				E9F4239321CEE33100F1DB5D /* TextFieldTableViewCell.xib in Resources */,
 				E9F4239F21CF075A00F1DB5D /* BooleanTableViewCell.xib in Resources */,
-				E90210DF21D89C5300BC83DF /* SurveySettingsViewController.storyboard in Resources */,
 				E991C95521CDF428008F3509 /* SurveyTitleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

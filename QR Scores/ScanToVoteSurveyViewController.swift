@@ -14,19 +14,19 @@ class ScanToVoteSurveySettingsViewController: SurveySettingsViewController {
     
     // MARK: - RETURN VALUES
     
-    override func numberOfOptions(_ tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForOptionAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell(style: .default, reuseIdentifier: "cell")
-    }
+//    override func numberOfOptions(_ tableView: UITableView) -> Int {
+//        return 0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForOptionAt indexPath: IndexPath) -> UITableViewCell {
+//        return UITableViewCell(style: .default, reuseIdentifier: "cell")
+//    }
     
     // MARK: - METHODS
     
-    override func tableView(_ tableView: UITableView, didSelectOptionAt indexPath: IndexPath) {
-        print(indexPath)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectOptionAt indexPath: IndexPath) {
+//        print(indexPath)
+//    }
     
     // MARK: - IBACTIONS
     
