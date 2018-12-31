@@ -35,6 +35,7 @@ class Survey: Codable {
         case description
         case surveyType
         case generatedUrl
+        case isClosed
         case isArchived
 //        case createdAt
     }
@@ -45,6 +46,7 @@ class Survey: Codable {
     let surveyType: SurveyType
     
     let generatedUrl: URL
+    var isClosed: Bool
     var isArchived: Bool
 //    let createdAt: Date
 }

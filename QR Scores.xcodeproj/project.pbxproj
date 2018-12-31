@@ -16,6 +16,7 @@
 		E90210DC21D89BF200BC83DF /* SurveySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210DA21D89BF200BC83DF /* SurveySettingsViewController.swift */; };
 		E90210DF21D89C5300BC83DF /* SurveySettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90210DE21D89C5300BC83DF /* SurveySettingsViewController.storyboard */; };
 		E90210E121D8AC3100BC83DF /* ThrottleGlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210E021D8AC3100BC83DF /* ThrottleGlobalFunctions.swift */; };
+		E90210E321D9857300BC83DF /* UnversalExtensions+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90210E221D9857300BC83DF /* UnversalExtensions+Bool.swift */; };
 		E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D021B7159400553138 /* CreateSurveyManager.swift */; };
 		E934F2D421B7162300553138 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D321B7162300553138 /* User.swift */; };
 		E934F2D621B7163400553138 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D521B7163400553138 /* Survey.swift */; };
@@ -107,6 +108,7 @@
 		E90210DA21D89BF200BC83DF /* SurveySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveySettingsViewController.swift; sourceTree = "<group>"; };
 		E90210DE21D89C5300BC83DF /* SurveySettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SurveySettingsViewController.storyboard; sourceTree = "<group>"; };
 		E90210E021D8AC3100BC83DF /* ThrottleGlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrottleGlobalFunctions.swift; sourceTree = "<group>"; };
+		E90210E221D9857300BC83DF /* UnversalExtensions+Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnversalExtensions+Bool.swift"; sourceTree = "<group>"; };
 		E934F2D021B7159400553138 /* CreateSurveyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSurveyManager.swift; sourceTree = "<group>"; };
 		E934F2D321B7162300553138 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E934F2D521B7163400553138 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				E9531A162198E34100980985 /* Survey+UIActivityViewController.swift */,
 				E9A91C2321B9D693007BBF6F /* StringExtensions.swift */,
 				E991C94321CDE2EB008F3509 /* UITableViewExtensions.swift */,
+				E90210E221D9857300BC83DF /* UnversalExtensions+Bool.swift */,
 				E9F4239421CEFFA200F1DB5D /* UniversalExtensions+String.swift */,
 				E991C95E21CDFB41008F3509 /* UniversalExtensions+UIAlertController.swift */,
 			);
@@ -658,6 +661,7 @@
 				E90210D721D88DC200BC83DF /* SurveyShareViewModel.swift in Sources */,
 				E9531A042197FBC500980985 /* APISurvey.swift in Sources */,
 				E9F4239521CEFFA200F1DB5D /* UniversalExtensions+String.swift in Sources */,
+				E90210E321D9857300BC83DF /* UnversalExtensions+Bool.swift in Sources */,
 				E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */,
 				E9F423B221CF135F00F1DB5D /* SurveyTabViewController.swift in Sources */,
 				E9F423B821CF185E00F1DB5D /* SurveyParticipantsForSliderHistogramViewController.swift in Sources */,

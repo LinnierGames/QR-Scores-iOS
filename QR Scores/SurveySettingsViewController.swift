@@ -25,8 +25,8 @@ class SurveySettingsViewController: UITableViewController {
     
     // MARK: - METHODS
     
-    private func closeSurvey() {
-        manager.closeSurvey { (isSuccessful) in
+    private func toggleClosedSurvey() {
+        manager.toggleClosedSurvey { (isSuccessful) in
             if isSuccessful {
                 //TODO: reload the table view
             } else {
@@ -50,12 +50,22 @@ class SurveySettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
         case IndexPaths.closeSurvey:
+            
+            //TODO: localization
+            let alertMessage = manager.survey.isClosed ?
+                "Are you sure you want to open this survey? Participants will be able to vote after opening this survey." :
+                "Are you sure you want to close this survey? No one will be able to vote after closing this survey."
+            
+            let buttonTitle = manager.survey.isClosed ?
+                "Open Survey" :
+                "Close Survey"
+            
             UIAlertController(
                 title: nil,
-                message: "Are you sure you want to close this survey? No one will be able to vote after closing this survey.",
+                message: alertMessage,
                 preferredStyle: .actionSheet)
-                .addButton(title: "Close Survey", style: .destructive) { [weak self] _ in
-                    self?.closeSurvey()
+                .addButton(title: buttonTitle, style: .destructive) { [weak self] _ in
+                    self?.toggleClosedSurvey()
                 }
                 .addCancelButton()
                 .present(in: self)

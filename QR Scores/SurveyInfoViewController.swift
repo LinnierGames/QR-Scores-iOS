@@ -21,6 +21,8 @@ class SurveyInfoViewController: SurveyTabViewController {
     private func updateUI() {
         textFieldTitle.text = manager.survey.title
         textViewDescription.text = manager.survey.description
+        
+        viewAlert.isHidden = manager.survey.isClosed.inverse
     }
     
     @objc private func dismissKeyboard() {
@@ -54,6 +56,8 @@ class SurveyInfoViewController: SurveyTabViewController {
     
     // MARK: - IBACTIONS
     
+    @IBOutlet weak var viewAlert: UIView!
+    @IBOutlet weak var labelViewAlert: UILabel!
     @IBOutlet weak var textFieldTitle: UITextField!
     @IBOutlet weak var textViewDescription: UITextView!
     @IBOutlet weak var constraintBottomContenStackView: NSLayoutConstraint!

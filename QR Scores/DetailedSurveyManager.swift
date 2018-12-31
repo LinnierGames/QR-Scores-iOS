@@ -47,10 +47,9 @@ class DetailedSurveyManager {
         }
     }
     
-    func closeSurvey(completion: @escaping (Bool) -> Void) {
+    func toggleClosedSurvey(completion: @escaping (Bool) -> Void) {
         
-        //TODO: close surveys
-//        survey.isClosed = true
+        survey.isClosed.invert()
         updateSurvey(completion: completion)
     }
     
