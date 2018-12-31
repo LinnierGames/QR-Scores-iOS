@@ -55,11 +55,12 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         tabVc.addChild(shareTableVc)
         
         // survey settings tab
-        let settingsTableSb = UIStoryboard(name: String(describing: SurveySettingsViewController.self), bundle: nil)
-        guard let settingsTableVc = settingsTableSb.instantiateInitialViewController() as? SurveySettingsViewController else {
-            fatalError("storyboard not set up correctly")
-        }
+//        let settingsTableSb = UIStoryboard(name: String(describing: SurveySettingsViewController.self), bundle: nil)
+//        guard let settingsTableVc = settingsTableSb.instantiateInitialViewController() as? SurveySettingsViewController else {
+//            fatalError("storyboard not set up correctly")
+//        }
         
+        let settingsTableVc = SurveySettingsViewController()
         settingsTableVc.manager = detailedSurveyManager
         tabVc.addChild(settingsTableVc)
         

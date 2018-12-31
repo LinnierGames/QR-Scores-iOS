@@ -8,6 +8,21 @@
 
 import UIKit
 
+//class ScanToVoteSurveySettingsViewController: SurveySettingsViewController {
+//
+//    override func numberOfOptions(_ tableView: UITableView) -> Int {
+//
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForOptionAt indexPath: IndexPath) -> UITableViewCell {
+//
+//    }
+//
+//    override func tableView(_ tableView: UITableView, didSelectOptionAt indexPath: IndexPath) {
+//
+//    }
+//}
+
 /**
  TODO: Remove static table view to populate the survey additional options
  */
@@ -23,12 +38,72 @@ class SurveySettingsViewController: UITableViewController {
     
     // MARK: - RETURN VALUES
     
+    func numberOfOptions(_ tableView: UITableView) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForOptionAt indexPath: IndexPath) -> UITableViewCell {
+        fatalError("\(#function) not implemented")
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectOptionAt indexPath: IndexPath) { }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return numberOfOptions(tableView) + 1 // Allows Duplicate Votes
+        case 1, 2:
+            return 1 // close and delete
+        default:
+            fatalError("no sections greater than 3")
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section != 0 {
+            switch indexPath {
+            case IndexPaths.closeSurvey, IndexPaths.deleteSurvey:
+                let cell: UITableViewCell = tableView.dequeueReusableCell(withStyle: .subtitle)
+                
+                cell.defaultFormatting()
+                
+                if indexPath == IndexPaths.closeSurvey {
+                    cell.textLabel!.text = manager.survey.isClosed ? "Open Survey" : "Close Survey"
+                    cell.detailTextLabel!.text = "When a survey is closed, participants cannot vote"
+                } else if indexPath == IndexPaths.deleteSurvey {
+                    cell.textLabel!.text = "Delete Survey"
+                    cell.textLabel!.textColor = .red
+                }
+                
+                return cell
+            default:
+                fatalError("no more indexpaths")
+            }
+        } else {
+            guard indexPath == IndexPaths.allowsDuplicateVotes else {
+                return self.tableView(tableView, cellForOptionAt: indexPath)
+            }
+            
+            
+        }
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        tableView = UITableView(frame: .zero, style: .grouped)
+    }
+    
     // MARK: - METHODS
     
     private func toggleClosedSurvey() {
         manager.toggleClosedSurvey { (isSuccessful) in
             if isSuccessful {
-                //TODO: reload the table view
+                self.tableView.reloadRows(at: [IndexPaths.closeSurvey], with: .automatic)
             } else {
                 UIAlertController(errorMessage: nil)
                     .present(in: self)
@@ -97,11 +172,16 @@ class SurveySettingsViewController: UITableViewController {
 }
 
 fileprivate enum IndexPaths {
-    static var closeSurvey: IndexPath {
+    
+    static var allowsDuplicateVotes: IndexPath {
         return IndexPath(row: 0, section: 0)
     }
     
-    static var deleteSurvey: IndexPath {
+    static var closeSurvey: IndexPath {
         return IndexPath(row: 0, section: 1)
+    }
+    
+    static var deleteSurvey: IndexPath {
+        return IndexPath(row: 0, section: 2)
     }
 }
