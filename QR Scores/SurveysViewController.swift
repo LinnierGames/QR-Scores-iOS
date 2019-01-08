@@ -51,6 +51,7 @@ class SurveysViewController: UIViewController, Interfacable {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddSurvey(_:)))
+        self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "Icon-38"))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(pressLogout(_:)))
         
         tableView.register(
