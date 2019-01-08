@@ -16,16 +16,18 @@ class WebpageSettingsRow: NSObject, SettingsRow {
     lazy var operation: () -> Void = { [weak self] in
         guard let uS = self else { return }
         
-        let safariViewController = SFSafariViewController(url: <#T##URL#>)
+        let safariViewController = SFSafariViewController(url: uS.url)
         uS.presentor?.present(safariViewController, animated: true)
     }
     
     weak var presentor: UIViewController?
+    let url: URL
     let callback: (() -> Void)?
     
-    init(title: String?, subtitle: String? = nil, presentor: UIViewController, callback: (() -> Void)? = nil) {
+    init(title: String?, subtitle: String? = nil, url: URL, presentor: UIViewController, callback: (() -> Void)? = nil) {
         self.title = title
         self.subtitle = subtitle
+        self.url = url
         self.presentor = presentor
         self.callback = callback
     }
@@ -33,7 +35,7 @@ class WebpageSettingsRow: NSObject, SettingsRow {
 
 extension URL {
     static var appStoreReview: URL {
-        guard let url = URL(string: "") else {
+        guard let url = URL(string: "https://www.google.com/") else {
             fatalError("incorrect url")
         }
         
