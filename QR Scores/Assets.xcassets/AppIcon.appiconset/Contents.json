@@ -75,7 +75,7 @@
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "iPad 7-12-41.png",
+      "filename" : "iPad 7-12-40.png",
       "scale" : "1x"
     },
     {
@@ -105,13 +105,12 @@
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "Mac All-512@2x-1.png",
+      "filename" : "Mac All-512@2x.png",
       "scale" : "1x"
     },
     {
-      "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "Mac All-512@2x.png",
+      "size" : "512x512",
       "scale" : "2x"
     }
   ],
