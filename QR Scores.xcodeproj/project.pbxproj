@@ -24,6 +24,9 @@
 		E934F2D421B7162300553138 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D321B7162300553138 /* User.swift */; };
 		E934F2D621B7163400553138 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D521B7163400553138 /* Survey.swift */; };
 		E948D1BB21E45DD400F60D6B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948D1BA21E45DD400F60D6B /* SettingsTableViewController.swift */; };
+		E948D1BD21E461D800F60D6B /* BasicSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948D1BC21E461D800F60D6B /* BasicSettingsRow.swift */; };
+		E948D1BF21E4644200F60D6B /* EmailSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948D1BE21E4644200F60D6B /* EmailSettingsRow.swift */; };
+		E948D1C121E5365900F60D6B /* WebpageSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948D1C021E5365900F60D6B /* WebpageSettingsRow.swift */; };
 		E95319C921978EA200980985 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319C821978EA200980985 /* AppDelegate.swift */; };
 		E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319CA21978EA200980985 /* LoginRegisterViewController.swift */; };
 		E95319D021978EA500980985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95319CF21978EA500980985 /* Assets.xcassets */; };
@@ -119,6 +122,9 @@
 		E934F2D321B7162300553138 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E934F2D521B7163400553138 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		E948D1BA21E45DD400F60D6B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		E948D1BC21E461D800F60D6B /* BasicSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSettingsRow.swift; sourceTree = "<group>"; };
+		E948D1BE21E4644200F60D6B /* EmailSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSettingsRow.swift; sourceTree = "<group>"; };
+		E948D1C021E5365900F60D6B /* WebpageSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebpageSettingsRow.swift; sourceTree = "<group>"; };
 		E95319C521978EA200980985 /* QR Scores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Scores.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95319C821978EA200980985 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E95319CA21978EA200980985 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
@@ -372,6 +378,9 @@
 			isa = PBXGroup;
 			children = (
 				E948D1BA21E45DD400F60D6B /* SettingsTableViewController.swift */,
+				E948D1BC21E461D800F60D6B /* BasicSettingsRow.swift */,
+				E948D1BE21E4644200F60D6B /* EmailSettingsRow.swift */,
+				E948D1C021E5365900F60D6B /* WebpageSettingsRow.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -669,6 +678,7 @@
 				E9A91C2421B9D693007BBF6F /* StringExtensions.swift in Sources */,
 				E9531A0F2198C73300980985 /* PDFGenerator.swift in Sources */,
 				E90210D021D8886300BC83DF /* SurveyShareTableViewController.swift in Sources */,
+				E948D1BD21E461D800F60D6B /* BasicSettingsRow.swift in Sources */,
 				E9531A062197FF7700980985 /* ReactiveBox.swift in Sources */,
 				E991C95821CDF728008F3509 /* SurveyDescriptionViewController.swift in Sources */,
 				E90210D521D88B0900BC83DF /* QRCodeOperation.swift in Sources */,
@@ -683,6 +693,7 @@
 				E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */,
 				E9F423B221CF135F00F1DB5D /* SurveyTabViewController.swift in Sources */,
 				E9F423B821CF185E00F1DB5D /* SurveyParticipantsForSliderHistogramViewController.swift in Sources */,
+				E948D1BF21E4644200F60D6B /* EmailSettingsRow.swift in Sources */,
 				E9531A122198DD8500980985 /* SurveyDetailedViewController.swift in Sources */,
 				E991C93621CDD01E008F3509 /* Coordinator.swift in Sources */,
 				E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */,
@@ -702,6 +713,7 @@
 				E991C95F21CDFB41008F3509 /* UniversalExtensions+UIAlertController.swift in Sources */,
 				E90210EB21D9AEBD00BC83DF /* SplashViewController.swift in Sources */,
 				E95319F62197DBD800980985 /* LoginViewModel.swift in Sources */,
+				E948D1C121E5365900F60D6B /* WebpageSettingsRow.swift in Sources */,
 				E95319FA2197E8FE00980985 /* Interfacable.swift in Sources */,
 				E90210DC21D89BF200BC83DF /* SurveySettingsViewController.swift in Sources */,
 				E9F423A321CF07DA00F1DB5D /* SurveyDetailedTabBarViewController.swift in Sources */,

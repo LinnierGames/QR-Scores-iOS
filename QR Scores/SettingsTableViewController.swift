@@ -8,50 +8,57 @@
 
 import UIKit
 
+protocol SettingsRow {
+    var title: String? { get }
+    var subtitle: String? { get }
+    var operation: () -> Void { get }
+}
+
 class SettingsTableViewController: UITableViewController {
     
     // MARK: - VARS
     
+    private lazy var content: [[SettingsRow]] = [
+        [
+            EmailSettingsRow(title: "Contact Us", email: .contactUs, presentor: self),
+            WebpageSettingsRow(title: "Write a Review", url: .appStoreReview, presentor: self),
+        ],
+        [
+            BasicSettingsRow(title: "Logout", subtitle: nil) { [unowned self] in
+                UserPersistence.logoutCurrentUser()
+                
+                if let loginVc = self.tabBarController?.presentingViewController {
+                    loginVc.dismiss(animated: true)
+                } else {
+                    let loginSb = UIStoryboard(name: "Splash", bundle: nil)
+                    guard let loginVc = loginSb.instantiateInitialViewController() else {
+                        fatalError("storyboard not set up correctly")
+                    }
+                    
+                    self.present(loginVc, animated: true)
+                }
+            }
+        ]
+    ]
+    
     // MARK: - RETURN VALUES
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return content.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:  // contact us, submit feedback
-            return 2
-        case 1: // logout
-            return 1
-        default:
-            fatalError("unhandled section")
-        }
+        return content[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath {
-        case IndexPaths.contactUs:
-            let cell = tableView.dequeueReusableCell(withStyle: .default)
-            
-            cell.textLabel!.text = "Contact Us"
-            
-            return cell
-        case IndexPaths.submitReview:
-            let cell = tableView.dequeueReusableCell(withStyle: .default)
-            
-            cell.textLabel!.text = "Submit Review"
-            
-            return cell
-        case IndexPaths.logout:
-            let cell = tableView.dequeueReusableCell(withStyle: .default)
-            
-            cell.textLabel!.text = "Logout"
-            
-            return cell
-        default:
-            fatalError("unhandled index path")
-        }
+        let cell = tableView.dequeueReusableCell(withStyle: .subtitle)
+        
+        let row = content[indexPath.section][indexPath.row]
+        cell.textLabel!.text = row.title
+        cell.detailTextLabel!.text = row.subtitle
+        
+        return cell
     }
     
     override func loadView() {
@@ -61,6 +68,11 @@ class SettingsTableViewController: UITableViewController {
     }
     
     // MARK: - METHODS
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let operation = content[indexPath.section] [indexPath.row].operation
+        operation()
+    }
     
     // MARK: - IBACTIONS
     
