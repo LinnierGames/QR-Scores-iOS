@@ -34,7 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // User Surveys Tab
             let surveyVc = SurveysViewController.initFromXib()
             let surveyNavVc = UINavigationController(rootViewController: surveyVc)
-            tabController.viewControllers = [surveyNavVc]
+            
+            //Settings/Logout
+            let settingsVc = SettingsTableViewController()
+            let settingsNavVc = UINavigationController(rootViewController: settingsVc)
+            
+            tabController.viewControllers = [surveyNavVc, settingsNavVc]
             
             rootViewController = tabController
         } else {

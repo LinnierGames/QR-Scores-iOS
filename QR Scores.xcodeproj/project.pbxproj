@@ -23,6 +23,7 @@
 		E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D021B7159400553138 /* CreateSurveyManager.swift */; };
 		E934F2D421B7162300553138 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D321B7162300553138 /* User.swift */; };
 		E934F2D621B7163400553138 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934F2D521B7163400553138 /* Survey.swift */; };
+		E948D1BB21E45DD400F60D6B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948D1BA21E45DD400F60D6B /* SettingsTableViewController.swift */; };
 		E95319C921978EA200980985 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319C821978EA200980985 /* AppDelegate.swift */; };
 		E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95319CA21978EA200980985 /* LoginRegisterViewController.swift */; };
 		E95319D021978EA500980985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95319CF21978EA500980985 /* Assets.xcassets */; };
@@ -117,6 +118,7 @@
 		E934F2D021B7159400553138 /* CreateSurveyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSurveyManager.swift; sourceTree = "<group>"; };
 		E934F2D321B7162300553138 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E934F2D521B7163400553138 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
+		E948D1BA21E45DD400F60D6B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E95319C521978EA200980985 /* QR Scores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Scores.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95319C821978EA200980985 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E95319CA21978EA200980985 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
@@ -366,6 +368,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		E948D1B921E45D9A00F60D6B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E948D1BA21E45DD400F60D6B /* SettingsTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		E95319BC21978EA200980985 = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +438,7 @@
 				E9189FC521C31C3300C4132A /* Login */,
 				E9189FC621C31C4000C4132A /* My Surveys */,
 				E934F2CF21B7157600553138 /* Create a Survey */,
+				E948D1B921E45D9A00F60D6B /* Settings */,
 			);
 			name = "View Heirarchy";
 			sourceTree = "<group>";
@@ -667,6 +678,7 @@
 				E9531A042197FBC500980985 /* APISurvey.swift in Sources */,
 				E90210E721D9A98300BC83DF /* ScanToVoteSurveyViewController.swift in Sources */,
 				E9F4239521CEFFA200F1DB5D /* UniversalExtensions+String.swift in Sources */,
+				E948D1BB21E45DD400F60D6B /* SettingsTableViewController.swift in Sources */,
 				E90210E321D9857300BC83DF /* UnversalExtensions+Bool.swift in Sources */,
 				E934F2D121B7159400553138 /* CreateSurveyManager.swift in Sources */,
 				E9F423B221CF135F00F1DB5D /* SurveyTabViewController.swift in Sources */,
