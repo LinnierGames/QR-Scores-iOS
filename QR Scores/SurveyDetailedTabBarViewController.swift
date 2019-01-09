@@ -23,6 +23,7 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         // info tab
         let infoVc = SurveyInfoViewController(manager: detailedSurveyManager)
         infoVc.title = "Info"
+        infoVc.tabBarItem.image = #imageLiteral(resourceName: "tab-info")
         tabVc.addChild(infoVc)
         
         // participants tab
@@ -42,6 +43,7 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         })
         
         particpantsVc.title = "Participants"
+        particpantsVc.tabBarItem.image = #imageLiteral(resourceName: "tab-people")
         tabVc.addChild(particpantsVc)
         
         
@@ -52,6 +54,7 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         }
         
         shareTableVc.manager = detailedSurveyManager
+        shareTableVc.tabBarItem.image = #imageLiteral(resourceName: "tab-share-qr-code")
         tabVc.addChild(shareTableVc)
         
         // survey settings tab
@@ -70,7 +73,8 @@ class SurveyDetailedTabBarViewController: UITabBarController {
                 settingsTableVc = ScanToVoteSurveySettingsViewController()
         })
         settingsTableVc.manager = detailedSurveyManager
-        settingsTableVc.title = "Settings"
+        settingsTableVc.title = "More"
+        settingsTableVc.tabBarItem.image = #imageLiteral(resourceName: "tab-survey-settings")
         tabVc.addChild(settingsTableVc)
         
         // setup tabBarController

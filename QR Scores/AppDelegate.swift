@@ -33,10 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // User Surveys Tab
             let surveyVc = SurveysViewController.initFromXib()
+            surveyVc.title = "My Surveys"
+            surveyVc.tabBarItem.image = #imageLiteral(resourceName: "tab-surveys")
+            surveyVc.tabBarItem.selectedImage = #imageLiteral(resourceName: "tab-surveys-highlighted")
             let surveyNavVc = UINavigationController(rootViewController: surveyVc)
             
-            //Settings/Logout
+            // Settings/Logout
             let settingsVc = SettingsTableViewController()
+            settingsVc.title = "Settings"
+            settingsVc.tabBarItem.image = #imageLiteral(resourceName: "tab-settings")
+            settingsVc.tabBarItem.selectedImage = #imageLiteral(resourceName: "tab-settings-highlighted")
             let settingsNavVc = UINavigationController(rootViewController: settingsVc)
             
             tabController.viewControllers = [surveyNavVc, settingsNavVc]

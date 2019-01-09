@@ -77,6 +77,12 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - IBACTIONS
     
     // MARK: - LIFE CYCLE
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Settings"
+    }
 }
 
 private enum IndexPaths {
