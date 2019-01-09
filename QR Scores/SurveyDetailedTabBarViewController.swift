@@ -46,7 +46,6 @@ class SurveyDetailedTabBarViewController: UITabBarController {
         particpantsVc.tabBarItem.image = #imageLiteral(resourceName: "tab-people")
         tabVc.addChild(particpantsVc)
         
-        
         // share tab
         let shareTableSb = UIStoryboard(name: String(describing: SurveyShareTableViewController.self), bundle: nil)
         guard let shareTableVc = shareTableSb.instantiateInitialViewController() as? SurveyShareTableViewController else {

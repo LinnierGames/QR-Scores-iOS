@@ -30,9 +30,6 @@ class SurveysViewController: UIViewController, Interfacable {
         viewModel.fetchSurveys()
     }
     
-    @IBAction func pressLogout(_ sender: Any) {
-    }
-    
     // MARK: - LIFE CYCLE
     
     override func viewDidLoad() {
@@ -40,7 +37,6 @@ class SurveysViewController: UIViewController, Interfacable {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddSurvey(_:)))
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "Icon-38"))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(pressLogout(_:)))
         
         tableView.register(
             SurveyTableViewCell.nib,
