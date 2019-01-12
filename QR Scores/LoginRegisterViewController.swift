@@ -62,16 +62,7 @@ class LoginRegisterViewController: UIViewController, Interfacable {
         if let mainVc = self.presentingViewController {
             mainVc.dismiss(animated: true)
         } else {
-            
-            //TODO: DRY
-            let tabController = UITabBarController()
-            
-            // User Surveys Tab
-            let surveyVc = SurveysViewController.initFromXib()
-            let surveyNavVc = UINavigationController(rootViewController: surveyVc)
-            tabController.viewControllers = [surveyNavVc]
-            
-            self.present(tabController, animated: true) { [unowned self] in
+            self.present(TabBarViewController(), animated: true) { [unowned self] in
                 self.navigationController?.popViewController(animated: false)
             }
         }

@@ -29,25 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootViewController: UIViewController
         
         if UserPersistence.hasUserLoggedIn {
-            let tabController = UITabBarController()
-            
-            // User Surveys Tab
-            let surveyVc = SurveysViewController.initFromXib()
-            surveyVc.title = "My Surveys"
-            surveyVc.tabBarItem.image = #imageLiteral(resourceName: "tab-surveys")
-            surveyVc.tabBarItem.selectedImage = #imageLiteral(resourceName: "tab-surveys-highlighted")
-            let surveyNavVc = UINavigationController(rootViewController: surveyVc)
-            
-            // Settings/Logout
-            let settingsVc = SettingsTableViewController()
-            settingsVc.title = "Settings"
-            settingsVc.tabBarItem.image = #imageLiteral(resourceName: "tab-settings")
-            settingsVc.tabBarItem.selectedImage = #imageLiteral(resourceName: "tab-settings-highlighted")
-            let settingsNavVc = UINavigationController(rootViewController: settingsVc)
-            
-            tabController.viewControllers = [surveyNavVc, settingsNavVc]
-            
-            rootViewController = tabController
+            rootViewController = TabBarViewController()
         } else {
             let loginSb = UIStoryboard(name: "Splash", bundle: nil)
             guard let loginVc = loginSb.instantiateInitialViewController() else {
