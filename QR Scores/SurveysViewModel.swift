@@ -23,8 +23,6 @@ class SurveysViewModel {
     private let networkStack = InternalAPI()
     
     init() {
-        self.fetchSurveys()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(userDidLogout(_:)), name: .userDidLogout, object: nil)
     }
     

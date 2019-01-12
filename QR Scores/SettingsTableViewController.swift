@@ -35,7 +35,9 @@ class SettingsTableViewController: UITableViewController {
                         fatalError("storyboard not set up correctly")
                     }
                     
-                    self.present(loginVc, animated: true)
+                    self.present(loginVc, animated: true) { [weak self] in
+                        self?.tabBarController?.selectedIndex = 0
+                    }
                 }
             }
         ]

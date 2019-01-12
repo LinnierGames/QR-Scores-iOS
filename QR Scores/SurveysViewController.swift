@@ -46,15 +46,17 @@ class SurveysViewController: UIViewController, Interfacable {
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(refreshSurveyData(_:)), for: .valueChanged)
         tableView.refreshControl = control
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         viewModel.surveys.subscribe { [weak self] (newSurveys) in
             self?.tableView.reloadData()
             self?.tableView.refreshControl?.endRefreshing()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel.fetchSurveys()
     }
 }
 
