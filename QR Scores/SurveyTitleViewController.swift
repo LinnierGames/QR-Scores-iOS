@@ -49,8 +49,10 @@ class SurveyTitleViewController: UIViewController {
     
     // MARK: - LIFE CYCLE
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Title"
         
         let nextButton = UIBarButtonItem(
             title: "Next",
@@ -59,6 +61,10 @@ class SurveyTitleViewController: UIViewController {
             action: #selector(pressNext(_:))
         )
         navigationItem.setRightBarButton(nextButton, animated: false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         updateUI()
         

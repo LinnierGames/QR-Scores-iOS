@@ -67,6 +67,8 @@ class SurveyOptionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Additional Options"
+        
         let nextButton = UIBarButtonItem(
             title: "Next",
             style: .done,

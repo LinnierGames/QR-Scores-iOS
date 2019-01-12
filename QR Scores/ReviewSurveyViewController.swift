@@ -32,6 +32,10 @@ class ReviewSurveyViewController: UIViewController {
         labelAllowDuplicateVotesValue.text = surey.additionalInfo["Allows Duplicate Votes"]!.boolean! ? "Yes" : "No"
     }
     
+    private func discardSurvey() {
+        presentingViewController!.dismiss(animated: true)
+    }
+    
     // MARK: - IBACTIONS
     
     //TODO: use a table view to populate survey values
@@ -43,7 +47,7 @@ class ReviewSurveyViewController: UIViewController {
     @IBOutlet weak var labelAllowDuplicateVotes: UILabel!
     @IBOutlet weak var labelAllowDuplicateVotesValue: UILabel!
     
-    @objc func pressSubmit(_ barButton: UIBarButtonItem) {
+    @IBAction func pressSubmit(_ barButton: UIBarButtonItem) {
         manager.submitSurvey { [weak self] (successful) in
             guard let unwrappedSelf = self else { return }
             
@@ -57,18 +61,22 @@ class ReviewSurveyViewController: UIViewController {
         }
     }
     
+    @IBAction func pressDiscard(_ sender: Any) {
+        UIAlertController(title: nil, message: "Are you sure you want to discard this survey?", preferredStyle: .actionSheet)
+            .addButton(title: "Discard Survey", style: .destructive) { [weak self] _ in
+                self?.discardSurvey()
+            }
+            .addCancelButton()
+            .present(in: self)
+    }
+    
+    
     // MARK: - LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let submitButton = UIBarButtonItem(
-            title: "Save",
-            style: .done,
-            target: self,
-            action: #selector(pressSubmit(_:))
-        )
-        navigationItem.setRightBarButton(submitButton, animated: false)
+        title = "Review Survey"
         
         updateUI()
     }
