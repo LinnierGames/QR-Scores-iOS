@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum SurveyType: Int, Codable, CaseIterable {
+enum SurveyType: Int, Codable {
     
     //TODO: other survey types
-//    static var allCases: [SurveyType] {
-//        return [.scanToVote]
-//    }
+    static var allCases: [SurveyType] {
+        return [.scanToVote]
+    }
     
     case scanToVote
     case likeDislike
@@ -34,17 +34,15 @@ enum SurveyType: Int, Codable, CaseIterable {
     }
     
     var description: String {
-        
-        //TODO: write survey descriptions
         switch self {
         case .scanToVote:
-            return "something about this survey"
+            return "Participants cast their votes by simply scanning the survey QR Code. When the webpage loads, the user has voted! This is the simplest survey type."
         case .likeDislike:
-            return "something about this survey"
+            return "Participants will open the survey by scanning the QR Code. When the webpage loads, they can cast their vote by either hitting Like or Dislike."
         case .sliderAverage:
-            return "something about this survey"
+            return "something about this survey" //TODO: description
         case .sliderHistogram:
-            return "something about this survey"
+            return "something about this survey" //TODO: description
         }
     }
     
