@@ -38,9 +38,11 @@ class SurveyDescriptionViewController: UIViewController {
         
         updateInput()
         
-        let reviewSurveyVc = ReviewSurveyViewController()
-        reviewSurveyVc.manager = self.manager
-        navigationController?.pushViewController(reviewSurveyVc, animated: true)
+        let surveyOptionsVc = SurveyOptionsViewController()
+        
+        //create new manager with blank survey
+        surveyOptionsVc.manager = self.manager
+        navigationController?.pushViewController(surveyOptionsVc, animated: true)
     }
     
     // MARK: - LIFE CYCLE

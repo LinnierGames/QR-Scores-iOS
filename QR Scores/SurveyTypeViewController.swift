@@ -70,10 +70,9 @@ extension SurveyTypeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedSurveyType = surveys[indexPath.section]
-        let surveyOptionsVc = SurveyOptionsViewController()
+        let surveyTitleVc = SurveyTitleViewController()
+        surveyTitleVc.manager = CreateSurveyManager(surveyType: selectedSurveyType)
         
-        //create new manager with blank survey
-        surveyOptionsVc.manager = CreateSurveyManager(surveyType: selectedSurveyType)
-        navigationController?.pushViewController(surveyOptionsVc, animated: true)
+        navigationController?.pushViewController(surveyTitleVc, animated: true)
     }
 }

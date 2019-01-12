@@ -57,10 +57,9 @@ class SurveyOptionsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @objc func pressNext(_ barButton: UIBarButtonItem) {
-        let surveyTitleVc = SurveyTitleViewController()
-        surveyTitleVc.manager = self.manager
-        
-        navigationController?.pushViewController(surveyTitleVc, animated: true)
+        let reviewSurveyVc = ReviewSurveyViewController()
+        reviewSurveyVc.manager = self.manager
+        navigationController?.pushViewController(reviewSurveyVc, animated: true)
     }
     
     // MARK: - LIFE CYCLE
