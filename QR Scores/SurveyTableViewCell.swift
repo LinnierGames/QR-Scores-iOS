@@ -41,7 +41,7 @@ class SurveyTableViewCell: UITableViewCell {
                 self.labelCount.text = "count: \(survey.numberOfParticipants)"
         })
         
-        self.accessoryType = .detailDisclosureButton
+        self.accessoryType = .disclosureIndicator
     }
     
     // MARK: - IBACTIONS

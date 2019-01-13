@@ -85,11 +85,4 @@ extension SurveysViewController: UITableViewDataSource, UITableViewDelegate {
         detailedVc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailedVc, animated: true)
     }
-    
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let survey = viewModel.surveys.data[indexPath.row]
-        let activity = UIActivityViewController(surveyURL: survey)
-        
-        self.present(activity, animated: true)
-    }
 }
