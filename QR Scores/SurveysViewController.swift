@@ -35,7 +35,11 @@ class SurveysViewController: UIViewController, Interfacable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddSurvey(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(pressAddSurvey(_:))
+        )
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "Icon-38"))
         
         tableView.register(
