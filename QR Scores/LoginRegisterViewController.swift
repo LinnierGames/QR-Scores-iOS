@@ -62,7 +62,7 @@ class LoginRegisterViewController: UIViewController, Interfacable {
         if let mainVc = self.presentingViewController {
             mainVc.dismiss(animated: true)
         } else {
-            self.present(TabBarViewController(), animated: true) { [unowned self] in
+            self.present(NavigationController(), animated: true) { [unowned self] in
                 self.navigationController?.popViewController(animated: false)
             }
         }

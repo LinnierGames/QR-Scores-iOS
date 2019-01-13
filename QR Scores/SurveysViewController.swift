@@ -26,6 +26,14 @@ class SurveysViewController: UIViewController, Interfacable {
         present(createSurveyVc, animated: true)
     }
     
+    @objc private func pressSettings(_ sender: Any) {
+        let settingsVc = SettingsTableViewController()
+        self.present(
+            UINavigationController(rootViewController: settingsVc),
+            animated: true
+        )
+    }
+    
     @IBAction func refreshSurveyData(_ sender: Any) {
         viewModel.fetchSurveys()
     }
@@ -40,7 +48,15 @@ class SurveysViewController: UIViewController, Interfacable {
             target: self,
             action: #selector(pressAddSurvey(_:))
         )
+        
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "Icon-38"))
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Settings",
+            style: .plain,
+            target: self,
+            action: #selector(pressSettings(_:))
+        )
         
         tableView.register(
             SurveyTableViewCell.nib,

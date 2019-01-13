@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootViewController: UIViewController
         
         if UserPersistence.hasUserLoggedIn {
-            rootViewController = TabBarViewController()
+            rootViewController = NavigationController()
         } else {
             let loginSb = UIStoryboard(name: "Splash", bundle: nil)
             guard let loginVc = loginSb.instantiateInitialViewController() else {

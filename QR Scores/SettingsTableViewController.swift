@@ -78,12 +78,24 @@ class SettingsTableViewController: UITableViewController {
     
     // MARK: - IBACTIONS
     
+    @objc private func pressDone(_ sender: Any) {
+        presentingViewController?.dismiss(animated: true)
+    }
+    
     // MARK: - LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Settings"
+        
+        let settingsButton = UIBarButtonItem(
+            title: "Done",
+            style: .done,
+            target: self,
+            action: #selector(pressDone(_:))
+        )
+        self.navigationItem.leftBarButtonItem = settingsButton
     }
 }
 
