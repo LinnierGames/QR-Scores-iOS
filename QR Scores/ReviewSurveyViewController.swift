@@ -47,6 +47,14 @@ class ReviewSurveyViewController: UIViewController {
     @IBOutlet weak var labelAllowDuplicateVotes: UILabel!
     @IBOutlet weak var labelAllowDuplicateVotesValue: UILabel!
     
+    @IBOutlet weak var buttonSubmit: UIButton! {
+        didSet {
+            UIDesignable
+                .applyPrimaryButton(to: buttonSubmit)
+                .margin(UIEdgeInsets(top: 12, left: 64, bottom: 12, right: 64))
+        }
+    }
+    
     @IBAction func pressSubmit(_ barButton: UIBarButtonItem) {
         manager.submitSurvey { [weak self] (successful) in
             guard let unwrappedSelf = self else { return }

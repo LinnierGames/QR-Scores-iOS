@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +34,7 @@
                 <constraint firstItem="sxB-A3-Knx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="1YE-T7-cMQ"/>
                 <constraint firstItem="sxB-A3-Knx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="D6F-SM-kJo"/>
                 <constraint firstItem="sxB-A3-Knx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Weo-MU-5b9"/>
-                <constraint firstItem="sxB-A3-Knx" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="fkc-Xv-DGX"/>
+                <constraint firstItem="sxB-A3-Knx" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="fkc-Xv-DGX"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReviewSurveyViewController" customModule="QR_Scores" customModuleProvider="target">
             <connections>
+                <outlet property="buttonSubmit" destination="hhh-uc-FV8" id="f8t-nT-6Ke"/>
                 <outlet property="labelAllowDuplicateVotes" destination="fO9-pd-CSW" id="I2k-P7-lro"/>
                 <outlet property="labelAllowDuplicateVotesValue" destination="fO9-pd-CSW" id="vpT-n8-mnv"/>
                 <outlet property="labelSurveyTypeDescription" destination="lcB-S9-3tR" id="hJk-wZ-gGN"/>
@@ -54,7 +55,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Survey Type Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQO-6Q-IiY">
                                                     <rect key="frame" x="0.0" y="0.0" width="321" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -188,7 +189,9 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ls-ga-oE8">
                             <rect key="frame" x="88.5" y="50" width="53" height="30"/>
-                            <state key="normal" title="Discard"/>
+                            <state key="normal" title="Discard">
+                                <color key="titleColor" red="0.96078431369999995" green="0.33333333329999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
                             <connections>
                                 <action selector="pressDiscard:" destination="-1" eventType="touchUpInside" id="4g5-ZU-17G"/>
                             </connections>
