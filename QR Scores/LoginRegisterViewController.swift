@@ -82,7 +82,13 @@ class LoginRegisterViewController: UIViewController, Interfacable {
     
     @IBOutlet weak var labelMessage: UILabel!
     
-    @IBOutlet weak var buttonAction: UIButton!
+    @IBOutlet weak var buttonAction: UIButton! {
+        didSet {
+            UIDesignable
+                .applyPrimaryButton(to: buttonAction)
+        }
+    }
+    
     @IBAction func pressAction(_ sender: Any) {
         guard self.validate() else {
             return

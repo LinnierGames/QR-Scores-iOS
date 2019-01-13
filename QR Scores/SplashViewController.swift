@@ -34,6 +34,12 @@ class SplashViewController: UIViewController {
     
     // MARK: - IBACTIONS
     
+    @IBOutlet weak var buttonRegister: UIButton! {
+        didSet {
+            UIDesignable
+                .applyPrimaryButton(to: buttonRegister)
+        }
+    }
     // MARK: - LIFE CYCLE
 
 }

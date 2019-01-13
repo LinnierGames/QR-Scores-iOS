@@ -52,6 +52,9 @@
 		E9531A132198DD8500980985 /* SurveyDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */; };
 		E9531A152198E17B00980985 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A142198E17B00980985 /* CGSizeExtensions.swift */; };
 		E9531A172198E34100980985 /* Survey+UIActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A162198E34100980985 /* Survey+UIActivityViewController.swift */; };
+		E97C8BE921EBEC9C00286249 /* UIDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C8BE821EBEC9C00286249 /* UIDesignable.swift */; };
+		E97C8BEB21EBEDA500286249 /* UIDesignable+QRScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C8BEA21EBEDA500286249 /* UIDesignable+QRScores.swift */; };
+		E97C8BEE21EBF02C00286249 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C8BED21EBF02C00286249 /* UIColor.swift */; };
 		E98036D521C8E9E5002344C7 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98036D421C8E9E5002344C7 /* InfoPlist.swift */; };
 		E991C93621CDD01E008F3509 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E991C93521CDD01E008F3509 /* Coordinator.swift */; };
 		E991C93F21CDD458008F3509 /* SurveyTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E991C93D21CDD458008F3509 /* SurveyTypeViewController.swift */; };
@@ -155,6 +158,9 @@
 		E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyDetailedViewController.xib; sourceTree = "<group>"; };
 		E9531A142198E17B00980985 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		E9531A162198E34100980985 /* Survey+UIActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Survey+UIActivityViewController.swift"; sourceTree = "<group>"; };
+		E97C8BE821EBEC9C00286249 /* UIDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDesignable.swift; sourceTree = "<group>"; };
+		E97C8BEA21EBEDA500286249 /* UIDesignable+QRScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDesignable+QRScores.swift"; sourceTree = "<group>"; };
+		E97C8BED21EBF02C00286249 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E98036D421C8E9E5002344C7 /* InfoPlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
 		E98036D921C8EA6A002344C7 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		E98036DA21C8EABD002344C7 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
@@ -356,6 +362,7 @@
 				E98036D421C8E9E5002344C7 /* InfoPlist.swift */,
 				E991C93521CDD01E008F3509 /* Coordinator.swift */,
 				E90210E021D8AC3100BC83DF /* ThrottleGlobalFunctions.swift */,
+				E97C8BE821EBEC9C00286249 /* UIDesignable.swift */,
 			);
 			name = Stacks;
 			sourceTree = "<group>";
@@ -368,6 +375,8 @@
 				E9531A162198E34100980985 /* Survey+UIActivityViewController.swift */,
 				E9A91C2321B9D693007BBF6F /* StringExtensions.swift */,
 				E991C94321CDE2EB008F3509 /* UITableViewExtensions.swift */,
+				E97C8BEC21EBF02400286249 /* UIKit */,
+				E97C8BEA21EBEDA500286249 /* UIDesignable+QRScores.swift */,
 				E90210E221D9857300BC83DF /* UnversalExtensions+Bool.swift */,
 				E90210E421D9991F00BC83DF /* UnversalExtensions+UITableView.swift */,
 				E9F4239421CEFFA200F1DB5D /* UniversalExtensions+String.swift */,
@@ -466,6 +475,14 @@
 				E98036DB21C8EB5D002344C7 /* Release.xcconfig */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E97C8BEC21EBF02400286249 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E97C8BED21EBF02C00286249 /* UIColor.swift */,
+			);
+			name = UIKit;
 			sourceTree = "<group>";
 		};
 		E991C95121CDF3DB008F3509 /* UICustom */ = {
@@ -679,6 +696,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A91C2421B9D693007BBF6F /* StringExtensions.swift in Sources */,
+				E97C8BE921EBEC9C00286249 /* UIDesignable.swift in Sources */,
 				E9531A0F2198C73300980985 /* PDFGenerator.swift in Sources */,
 				E90210D021D8886300BC83DF /* SurveyShareTableViewController.swift in Sources */,
 				E948D1BD21E461D800F60D6B /* BasicSettingsRow.swift in Sources */,
@@ -686,6 +704,7 @@
 				E991C95821CDF728008F3509 /* SurveyDescriptionViewController.swift in Sources */,
 				E90210D521D88B0900BC83DF /* QRCodeOperation.swift in Sources */,
 				E9F4239D21CF075A00F1DB5D /* BooleanTableViewCell.swift in Sources */,
+				E97C8BEE21EBF02C00286249 /* UIColor.swift in Sources */,
 				E934F2D621B7163400553138 /* Survey.swift in Sources */,
 				E90210D721D88DC200BC83DF /* SurveyShareViewModel.swift in Sources */,
 				E9531A042197FBC500980985 /* APISurvey.swift in Sources */,
@@ -740,6 +759,7 @@
 				E9F423A121CF075A00F1DB5D /* SurveyTypeTableViewCell.swift in Sources */,
 				E991C94B21CDE60D008F3509 /* SurveyOptionsViewController.swift in Sources */,
 				E9F4239221CEE33100F1DB5D /* TextFieldTableViewCell.swift in Sources */,
+				E97C8BEB21EBEDA500286249 /* UIDesignable+QRScores.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
