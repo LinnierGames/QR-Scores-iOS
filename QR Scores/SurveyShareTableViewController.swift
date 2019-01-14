@@ -40,31 +40,50 @@ class SurveyShareTableViewController: UITableViewController {
         switch indexPath {
         case IndexPaths.singleQRCode:
             
-            //TODO: loading screen
-            guard let activity = UIActivityViewController.create(singleQRCodeFrom: manager.survey) else {
-                return assertionFailure("failed to create survey")
-            }
+            let loadingVc = LoadingViewController()
+            loadingVc.present()
             
-            tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
-            self.present(activity, animated: true)
+            DispatchQueue.global(qos: .userInitiated).async {
+                guard let activity = UIActivityViewController.create(singleQRCodeFrom: self.manager.survey) else {
+                    return assertionFailure("failed to create survey")
+                }
+                
+                DispatchQueue.main.async {
+                    loadingVc.dismiss { [weak self] in
+                        tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
+                        self?.present(activity, animated: true)
+                    }
+                }
+            }
         case IndexPaths.fullPageQRCode:
             
-            //TODO: loading screen
-            guard let activity = UIActivityViewController.create(gridPageFrom: manager.survey) else {
-                return assertionFailure("failed to create survey")
-            }
+            let loadingVc = LoadingViewController()
+            loadingVc.present()
             
-            tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
-            self.present(activity, animated: true)
+            DispatchQueue.global(qos: .userInitiated).async {
+                guard let activity = UIActivityViewController.create(gridPageFrom: self.manager.survey) else {
+                    return assertionFailure("failed to create survey")
+                }
+                
+                DispatchQueue.main.async {
+                    loadingVc.dismiss { [weak self] in
+                        tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
+                        self?.present(activity, animated: true)
+                    }
+                }
+            }
         case IndexPaths.exportUrl:
             
-            //TODO: loading screen
+            let loadingVc = LoadingViewController()
+            loadingVc.present()
             guard let activity = UIActivityViewController.create(urlFrom: manager.survey) else {
                 return assertionFailure("failed to create survey")
             }
             
-            tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
-            self.present(activity, animated: true)
+            loadingVc.dismiss { [weak self] in
+                tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
+                self?.present(activity, animated: true)
+            }
         default:
             break
         }

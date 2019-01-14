@@ -71,6 +71,8 @@
 		E991C95F21CDFB41008F3509 /* UniversalExtensions+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E991C95E21CDFB41008F3509 /* UniversalExtensions+UIAlertController.swift */; };
 		E9A91C2421B9D693007BBF6F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A91C2321B9D693007BBF6F /* StringExtensions.swift */; };
 		E9A91C2621B9FA39007BBF6F /* SurveyDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A91C2521B9FA39007BBF6F /* SurveyDescriptor.swift */; };
+		E9C60E9221ED3E5C005C6B0A /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C60E9021ED3E5C005C6B0A /* LoadingViewController.swift */; };
+		E9C60E9321ED3E5C005C6B0A /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9C60E9121ED3E5C005C6B0A /* LoadingViewController.xib */; };
 		E9F4239221CEE33100F1DB5D /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4239021CEE33100F1DB5D /* TextFieldTableViewCell.swift */; };
 		E9F4239321CEE33100F1DB5D /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F4239121CEE33100F1DB5D /* TextFieldTableViewCell.xib */; };
 		E9F4239521CEFFA200F1DB5D /* UniversalExtensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4239421CEFFA200F1DB5D /* UniversalExtensions+String.swift */; };
@@ -179,6 +181,8 @@
 		E991C95E21CDFB41008F3509 /* UniversalExtensions+UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniversalExtensions+UIAlertController.swift"; sourceTree = "<group>"; };
 		E9A91C2321B9D693007BBF6F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		E9A91C2521B9FA39007BBF6F /* SurveyDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDescriptor.swift; sourceTree = "<group>"; };
+		E9C60E9021ED3E5C005C6B0A /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		E9C60E9121ED3E5C005C6B0A /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		E9F4239021CEE33100F1DB5D /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldTableViewCell.swift; path = "QR Scores/TextFieldTableViewCell.swift"; sourceTree = "<group>"; };
 		E9F4239121CEE33100F1DB5D /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TextFieldTableViewCell.xib; path = "QR Scores/TextFieldTableViewCell.xib"; sourceTree = "<group>"; };
 		E9F4239421CEFFA200F1DB5D /* UniversalExtensions+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniversalExtensions+String.swift"; sourceTree = "<group>"; };
@@ -485,6 +489,8 @@
 				E9F4239A21CF075A00F1DB5D /* SurveyTypeTableViewCell.xib */,
 				E9F4239021CEE33100F1DB5D /* TextFieldTableViewCell.swift */,
 				E9F4239121CEE33100F1DB5D /* TextFieldTableViewCell.xib */,
+				E9C60E9021ED3E5C005C6B0A /* LoadingViewController.swift */,
+				E9C60E9121ED3E5C005C6B0A /* LoadingViewController.xib */,
 			);
 			name = UICustom;
 			path = ..;
@@ -591,6 +597,7 @@
 				E95319D321978EA500980985 /* LaunchScreen.storyboard in Resources */,
 				E991C95D21CDF94B008F3509 /* ReviewSurveyViewController.xib in Resources */,
 				E9F4239E21CF075A00F1DB5D /* SurveyTableViewCell.xib in Resources */,
+				E9C60E9321ED3E5C005C6B0A /* LoadingViewController.xib in Resources */,
 				E9F423B021CF128E00F1DB5D /* SurveyInfoViewController.xib in Resources */,
 				E991C94021CDD458008F3509 /* SurveyTypeViewController.xib in Resources */,
 				E90210E921D9ACAF00BC83DF /* Splash.storyboard in Resources */,
@@ -724,6 +731,7 @@
 				E991C95F21CDFB41008F3509 /* UniversalExtensions+UIAlertController.swift in Sources */,
 				E90210EB21D9AEBD00BC83DF /* SplashViewController.swift in Sources */,
 				E95319F62197DBD800980985 /* LoginViewModel.swift in Sources */,
+				E9C60E9221ED3E5C005C6B0A /* LoadingViewController.swift in Sources */,
 				E948D1C121E5365900F60D6B /* WebpageSettingsRow.swift in Sources */,
 				E95319FA2197E8FE00980985 /* Interfacable.swift in Sources */,
 				E90210DC21D89BF200BC83DF /* SurveySettingsViewController.swift in Sources */,
