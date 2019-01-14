@@ -27,18 +27,7 @@ class SettingsTableViewController: UITableViewController {
             BasicSettingsRow(title: "Logout", subtitle: nil) { [unowned self] in
                 UserPersistence.logoutCurrentUser()
                 
-                if let loginVc = self.tabBarController?.presentingViewController {
-                    loginVc.dismiss(animated: true)
-                } else {
-                    let loginSb = UIStoryboard(name: "Splash", bundle: nil)
-                    guard let loginVc = loginSb.instantiateInitialViewController() else {
-                        fatalError("storyboard not set up correctly")
-                    }
-                    
-                    self.present(loginVc, animated: true) { [weak self] in
-                        self?.tabBarController?.selectedIndex = 0
-                    }
-                }
+                self.presentSplash()
             }
         ]
     ]

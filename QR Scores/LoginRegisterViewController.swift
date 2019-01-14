@@ -59,13 +59,7 @@ class LoginRegisterViewController: UIViewController, Interfacable {
     // MARK: - METHODS
     
     func presentMainView() {
-        if let mainVc = self.presentingViewController {
-            mainVc.dismiss(animated: true)
-        } else {
-            self.present(NavigationController(), animated: true) { [unowned self] in
-                self.navigationController?.popViewController(animated: false)
-            }
-        }
+        self.presentHome()
     }
     
     // MARK: - IBACTIONS

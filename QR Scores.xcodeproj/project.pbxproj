@@ -55,6 +55,7 @@
 		E97C8BE921EBEC9C00286249 /* UIDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C8BE821EBEC9C00286249 /* UIDesignable.swift */; };
 		E97C8BEB21EBEDA500286249 /* UIDesignable+QRScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C8BEA21EBEDA500286249 /* UIDesignable+QRScores.swift */; };
 		E97C8BEE21EBF02C00286249 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C8BED21EBF02C00286249 /* UIColor.swift */; };
+		E97C8BF021EC54AA00286249 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C8BEF21EC54AA00286249 /* UIViewController.swift */; };
 		E98036D521C8E9E5002344C7 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98036D421C8E9E5002344C7 /* InfoPlist.swift */; };
 		E991C93621CDD01E008F3509 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E991C93521CDD01E008F3509 /* Coordinator.swift */; };
 		E991C93F21CDD458008F3509 /* SurveyTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E991C93D21CDD458008F3509 /* SurveyTypeViewController.swift */; };
@@ -161,6 +162,7 @@
 		E97C8BE821EBEC9C00286249 /* UIDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDesignable.swift; sourceTree = "<group>"; };
 		E97C8BEA21EBEDA500286249 /* UIDesignable+QRScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDesignable+QRScores.swift"; sourceTree = "<group>"; };
 		E97C8BED21EBF02C00286249 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E97C8BEF21EC54AA00286249 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E98036D421C8E9E5002344C7 /* InfoPlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
 		E98036D921C8EA6A002344C7 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		E98036DA21C8EABD002344C7 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				E97C8BED21EBF02C00286249 /* UIColor.swift */,
+				E97C8BEF21EC54AA00286249 /* UIViewController.swift */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				E90210D721D88DC200BC83DF /* SurveyShareViewModel.swift in Sources */,
 				E9531A042197FBC500980985 /* APISurvey.swift in Sources */,
 				E90210E721D9A98300BC83DF /* ScanToVoteSurveyViewController.swift in Sources */,
+				E97C8BF021EC54AA00286249 /* UIViewController.swift in Sources */,
 				E9F4239521CEFFA200F1DB5D /* UniversalExtensions+String.swift in Sources */,
 				E948D1BB21E45DD400F60D6B /* SettingsTableViewController.swift in Sources */,
 				E90210E321D9857300BC83DF /* UnversalExtensions+Bool.swift in Sources */,
