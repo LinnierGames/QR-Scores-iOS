@@ -58,6 +58,9 @@ class SurveysViewController: UIViewController, Interfacable {
             action: #selector(pressSettings(_:))
         )
         
+        let noSurveysImageView = UIImageView(image: #imageLiteral(resourceName: "empty-surveys"))
+        noSurveysImageView.contentMode = .top
+        tableView.backgroundView = noSurveysImageView
         tableView.register(
             SurveyTableViewCell.nib,
             forCellReuseIdentifier: SurveyTableViewCell.identifier
@@ -82,7 +85,10 @@ class SurveysViewController: UIViewController, Interfacable {
 
 extension SurveysViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.surveys.data.count
+        let count = viewModel.surveys.data.count
+        tableView.backgroundView?.isHidden = count != 0
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

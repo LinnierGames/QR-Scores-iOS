@@ -39,12 +39,11 @@ class SurveyTableViewCell: UITableViewCell {
             sliderHistogram: { (survey) in
                 self.labelSubtitle.text = "participants: \(survey.numberOfParticipants)"
         })
-        
-        self.accessoryType = .disclosureIndicator
     }
     
     // MARK: - IBACTIONS
     
+    @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var imageSurveyIcon: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelSubtitle: UILabel!
