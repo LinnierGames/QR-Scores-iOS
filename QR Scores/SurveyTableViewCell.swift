@@ -24,21 +24,20 @@ class SurveyTableViewCell: UITableViewCell {
     
     func configure(_ survey: Survey) {
         self.labelTitle.text = survey.title
-        self.labelSubtitle.text = survey.description
         
         check(
             survey: survey,
             scanToVote: { (survey) in
-                self.labelCount.text = "count: \(survey.numberOfParticipants)"
+                self.labelSubtitle.text = "participants: \(survey.numberOfParticipants)"
         },
             likeOrDislike: { (survey) in
-                self.labelCount.text = "count: \(survey.numberOfParticipants)"
+                self.labelSubtitle.text = "participants: \(survey.numberOfParticipants)"
         },
             sliderAverage: { (survey) in
-                self.labelCount.text = "count: \(survey.numberOfParticipants)"
+                self.labelSubtitle.text = "participants: \(survey.numberOfParticipants)"
         },
             sliderHistogram: { (survey) in
-                self.labelCount.text = "count: \(survey.numberOfParticipants)"
+                self.labelSubtitle.text = "participants: \(survey.numberOfParticipants)"
         })
         
         self.accessoryType = .disclosureIndicator
@@ -46,9 +45,9 @@ class SurveyTableViewCell: UITableViewCell {
     
     // MARK: - IBACTIONS
     
+    @IBOutlet weak var imageSurveyIcon: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelSubtitle: UILabel!
-    @IBOutlet weak var labelCount: UILabel!
     
     // MARK: - LIFE CYCLE
 }
