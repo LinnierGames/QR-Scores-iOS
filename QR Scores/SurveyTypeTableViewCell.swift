@@ -20,7 +20,7 @@ class SurveyTypeTableViewCell: UITableViewCell, RegisterableCell {
     
     func configure(_ survey: SurveyType) {
         
-        //TODO: survey type icon
+        imageViewIcon.image = survey.icon
         labelTitle.text = survey.title
         labelDescription.text = survey.description
     }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 enum SurveyType: Int, Codable {
     
@@ -43,6 +44,15 @@ enum SurveyType: Int, Codable {
             return "something about this survey" //TODO: description
         case .sliderHistogram:
             return "something about this survey" //TODO: description
+        }
+    }
+    
+    var icon: UIImage {
+        switch self {
+        case .scanToVote:
+            return #imageLiteral(resourceName: "survey-scan-to-vote-42")
+        default:
+            fatalError("\(#function) not implemented")
         }
     }
     
