@@ -88,27 +88,32 @@ class LoginRegisterViewController: UIViewController, Interfacable {
             return
         }
         
-        //TODO: loading
+        let loadingVc = LoadingViewController()
+        loadingVc.present()
         switch screen {
         case .login:
             viewModel.login(email: textFieldEmail.text!, password: textFieldPassword.text!) { [weak self] (validLogin) in
                 
-                if validLogin {
-                    self?.presentMainView()
-                } else {
-                    self?.viewAlert = "invalid login"
+                loadingVc.dismiss {
+                    if validLogin {
+                        self?.presentMainView()
+                    } else {
+                        self?.viewAlert = "invalid login"
+                    }
                 }
             }
         case .register:
             viewModel.signUp(name: textFieldName.text!, email: textFieldEmail.text!, password: textFieldPassword.text!) { [weak self] (result) in
                 
-                switch result {
-                case .accountCreated:
-                    self?.presentMainView()
-                case .duplicateAccount:
-                    self?.viewAlert = "email taken"
-                case .unexpectedError:
-                    self?.viewAlert = "something was wrong"
+                loadingVc.dismiss {
+                    switch result {
+                    case .accountCreated:
+                        self?.presentMainView()
+                    case .duplicateAccount:
+                        self?.viewAlert = "email taken"
+                    case .unexpectedError:
+                        self?.viewAlert = "something was wrong"
+                    }
                 }
             }
         }
