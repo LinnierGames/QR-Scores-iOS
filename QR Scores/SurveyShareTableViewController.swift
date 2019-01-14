@@ -39,18 +39,18 @@ class SurveyShareTableViewController: UITableViewController {
         
         switch indexPath {
         case IndexPaths.singleQRCode:
-            break
             
             //TODO: loading screen
-//            guard let activity = UIActivityViewController(surveyQRCode: manager.survey) else {
-//                return assertionFailure("failed to create survey")
-//            }
-//
-//            self.present(activity, animated: true)
+            guard let activity = UIActivityViewController.create(singleQRCodeFrom: manager.survey) else {
+                return assertionFailure("failed to create survey")
+            }
+            
+            tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
+            self.present(activity, animated: true)
         case IndexPaths.fullPageQRCode:
             
             //TODO: loading screen
-            guard let activity = UIActivityViewController(surveyQRCode: manager.survey) else {
+            guard let activity = UIActivityViewController.create(gridPageFrom: manager.survey) else {
                 return assertionFailure("failed to create survey")
             }
             
@@ -59,7 +59,9 @@ class SurveyShareTableViewController: UITableViewController {
         case IndexPaths.exportUrl:
             
             //TODO: loading screen
-            let activity = UIActivityViewController(surveyURL: manager.survey)
+            guard let activity = UIActivityViewController.create(urlFrom: manager.survey) else {
+                return assertionFailure("failed to create survey")
+            }
             
             tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
             self.present(activity, animated: true)

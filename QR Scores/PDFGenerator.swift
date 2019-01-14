@@ -44,21 +44,20 @@ struct PDFGenerator {
         pdfDocument.insert(pdfPage, at: pdfDocument.pageCount)
     }
     
+    mutating func addPage(with image: UIImage) throws {
+                
+        // Create a PDF page instance from your image
+        guard let pdfPage = PDFPage(image: image) else {
+            throw Errors.failedToAddPage
+        }
+        
+        // Insert the PDF page into your document
+        pdfDocument.insert(pdfPage, at: pdfDocument.pageCount)
+    }
+    
     mutating func pdf() -> Data? {
         return pdfDocument.dataRepresentation()
     }
-    
-//    func pdf(from image: UIImage) -> Data? {
-//
-//        // Get the raw data of your PDF document
-//        let data =
-//
-//        guard let output = data else {
-//            return nil
-//        }
-//
-//        return output
-//    }
 }
 
 //struct PDFPage {

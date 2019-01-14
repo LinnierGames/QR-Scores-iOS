@@ -13,7 +13,36 @@ extension UIActivityViewController {
     /**
      generates a pdf page from the survey
      */
-    convenience init?(surveyQRCode survey: Survey) {
+    static func create(singleQRCodeFrom survey: Survey) -> UIActivityViewController? {
+        /**
+         TODO: qrCodeTemplate-use the options defined there to create the page
+         */
+        
+        var generator = QRCodeGenerator(url: survey.generatedUrl)
+        guard let qrImage = generator.generateImage() else {
+            return nil
+        }
+        
+        do {
+            var pdf = PDFGenerator()
+            try pdf.addPage(with: qrImage)
+            
+            guard let pdfData = pdf.pdf() else {
+                throw PDFGenerator.Errors.failedToGeneratePDFData
+            }
+            
+            return UIActivityViewController(activityItems: [pdfData], applicationActivities: [])
+        } catch {
+            assertionFailure(error.localizedDescription)
+            
+            return nil
+        }
+    }
+    
+    /**
+     generates a pdf page from the survey
+     */
+    static func create(gridPageFrom survey: Survey) -> UIActivityViewController? {
         /**
          TODO: qrCodeTemplate-use the options defined there to create the page
          */
@@ -31,7 +60,7 @@ extension UIActivityViewController {
                 throw PDFGenerator.Errors.failedToGeneratePDFData
             }
             
-            self.init(activityItems: [pdfData], applicationActivities: [])
+            return UIActivityViewController(activityItems: [pdfData], applicationActivities: [])
         } catch {
             assertionFailure(error.localizedDescription)
             
@@ -39,7 +68,7 @@ extension UIActivityViewController {
         }
     }
     
-    convenience init(surveyURL survey: Survey) {
-        self.init(activityItems: [survey.generatedUrl], applicationActivities: [])
+    static func create(urlFrom survey: Survey) -> UIActivityViewController? {
+        return UIActivityViewController(activityItems: [survey.generatedUrl], applicationActivities: [])
     }
 }

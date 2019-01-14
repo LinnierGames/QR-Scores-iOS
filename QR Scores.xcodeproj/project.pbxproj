@@ -48,8 +48,6 @@
 		E9531A062197FF7700980985 /* ReactiveBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A052197FF7700980985 /* ReactiveBox.swift */; };
 		E9531A0D2198BB6900980985 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A0C2198BB6900980985 /* QRGenerator.swift */; };
 		E9531A0F2198C73300980985 /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A0E2198C73300980985 /* PDFGenerator.swift */; };
-		E9531A122198DD8500980985 /* SurveyDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */; };
-		E9531A132198DD8500980985 /* SurveyDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */; };
 		E9531A152198E17B00980985 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A142198E17B00980985 /* CGSizeExtensions.swift */; };
 		E9531A172198E34100980985 /* Survey+UIActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9531A162198E34100980985 /* Survey+UIActivityViewController.swift */; };
 		E97C8BE921EBEC9C00286249 /* UIDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C8BE821EBEC9C00286249 /* UIDesignable.swift */; };
@@ -155,8 +153,6 @@
 		E9531A052197FF7700980985 /* ReactiveBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveBox.swift; sourceTree = "<group>"; };
 		E9531A0C2198BB6900980985 /* QRGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		E9531A0E2198C73300980985 /* PDFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
-		E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailedViewController.swift; sourceTree = "<group>"; };
-		E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyDetailedViewController.xib; sourceTree = "<group>"; };
 		E9531A142198E17B00980985 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		E9531A162198E34100980985 /* Survey+UIActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Survey+UIActivityViewController.swift"; sourceTree = "<group>"; };
 		E97C8BE821EBEC9C00286249 /* UIDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDesignable.swift; sourceTree = "<group>"; };
@@ -249,15 +245,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E90210CE21D887EF00BC83DF /* TRASH */ = {
-			isa = PBXGroup;
-			children = (
-				E9531A102198DD8500980985 /* SurveyDetailedViewController.swift */,
-				E9531A112198DD8500980985 /* SurveyDetailedViewController.xib */,
-			);
-			name = TRASH;
-			sourceTree = "<group>";
-		};
 		E90210D321D88AE800BC83DF /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,7 +305,6 @@
 				E90210D821D89BA400BC83DF /* Share */,
 				E90210D921D89BB000BC83DF /* Settings */,
 				E9F423B121CF135F00F1DB5D /* SurveyTabViewController.swift */,
-				E90210CE21D887EF00BC83DF /* TRASH */,
 			);
 			name = "Detailed Vc";
 			sourceTree = "<group>";
@@ -603,7 +589,6 @@
 			files = (
 				E991C95921CDF728008F3509 /* SurveyDescriptionViewController.xib in Resources */,
 				E95319D321978EA500980985 /* LaunchScreen.storyboard in Resources */,
-				E9531A132198DD8500980985 /* SurveyDetailedViewController.xib in Resources */,
 				E991C95D21CDF94B008F3509 /* ReviewSurveyViewController.xib in Resources */,
 				E9F4239E21CF075A00F1DB5D /* SurveyTableViewCell.xib in Resources */,
 				E9F423B021CF128E00F1DB5D /* SurveyInfoViewController.xib in Resources */,
@@ -720,7 +705,6 @@
 				E9F423B221CF135F00F1DB5D /* SurveyTabViewController.swift in Sources */,
 				E9F423B821CF185E00F1DB5D /* SurveyParticipantsForSliderHistogramViewController.swift in Sources */,
 				E948D1BF21E4644200F60D6B /* EmailSettingsRow.swift in Sources */,
-				E9531A122198DD8500980985 /* SurveyDetailedViewController.swift in Sources */,
 				E991C93621CDD01E008F3509 /* Coordinator.swift in Sources */,
 				E95319CB21978EA200980985 /* LoginRegisterViewController.swift in Sources */,
 				E95319EE219790A500980985 /* InternalAPIEndpoints.swift in Sources */,
