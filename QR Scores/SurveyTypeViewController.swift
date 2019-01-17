@@ -45,6 +45,14 @@ class SurveyTypeViewController: UIViewController {
         
         tableView.register(SurveyTypeTableViewCell.self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
 }
 
 extension SurveyTypeViewController: UITableViewDataSource, UITableViewDelegate {
