@@ -11,4 +11,4 @@
 
 #include "Pods/Target Support Files/Pods-QR Scores/Pods-QR Scores.production.xcconfig"
 
-BASE_URL=http:\/\/qr-scores.herokuapp.com
+BASE_URL=http:\/\/www.qr-scores.com
