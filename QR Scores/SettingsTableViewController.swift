@@ -20,8 +20,11 @@ class SettingsTableViewController: UITableViewController {
     
     private lazy var content: [[SettingsRow]] = [
         [
-            EmailSettingsRow(title: "Contact Us", email: .contactUs, presentor: self),
+            WebpageSettingsRow(title: "Getting Started", subtitle: "Medium Article", url: .gettingStarted, presentor: self),
             WebpageSettingsRow(title: "Write a Review", url: .appStoreReview, presentor: self),
+        ],
+        [
+            EmailSettingsRow(title: "Contact Us", subtitle: "Found a bug? Shoot us an email!", email: .contactUs, presentor: self),
         ],
         [
             BasicSettingsRow(title: "Logout", subtitle: nil) { [unowned self] in
@@ -48,6 +51,7 @@ class SettingsTableViewController: UITableViewController {
         let row = content[indexPath.section][indexPath.row]
         cell.textLabel!.text = row.title
         cell.detailTextLabel!.text = row.subtitle
+        cell.detailTextLabel!.textColor = .lightGray
         
         return cell
     }

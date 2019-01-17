@@ -35,7 +35,15 @@ class WebpageSettingsRow: NSObject, SettingsRow {
 
 extension URL {
     static var appStoreReview: URL {
-        guard let url = URL(string: "https://www.google.com/") else {
+        guard let url = URL(string: "https://itunes.apple.com/app/id1441925524?action=write-review") else {
+            fatalError("incorrect url")
+        }
+        
+        return url
+    }
+    
+    static var gettingStarted: URL {
+        guard let url = URL(string: "https://medium.com/@ericksanchez_36220/is-qr-scores-for-you-and-your-surveys-293f6765dac3") else {
             fatalError("incorrect url")
         }
         

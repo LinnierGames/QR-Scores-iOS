@@ -15,10 +15,6 @@ class EmailSettingsRow: NSObject, SettingsRow {
         let recipients: [String]
         let subject: String
         let body: String
-        
-        static var contactUs: Email {
-            return Email(recipients: ["esericksanc@gmail.com"], subject: "Contact Us", body: "")
-        }
     }
     
     let title: String?
@@ -66,5 +62,11 @@ extension EmailSettingsRow: MFMailComposeViewControllerDelegate {
         presentor?.dismiss(animated: true) { [weak self] in
             self?.callback?()
         }
+    }
+}
+
+extension EmailSettingsRow.Email {
+    static var contactUs: EmailSettingsRow.Email {
+        return EmailSettingsRow.Email(recipients: ["esericksanc@gmail.com"], subject: "Contact Us", body: "")
     }
 }
